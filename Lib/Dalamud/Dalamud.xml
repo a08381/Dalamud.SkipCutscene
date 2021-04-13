@@ -1,0 +1,3248 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dalamud</name>
+    </assembly>
+    <members>
+        <member name="M:Dalamud.DalamudConfiguration.Save">
+            <summary>
+            Save the configuration at the path it was loaded from.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Configuration.PluginConfigurations.GetConfigFile(System.String)">
+            <summary>
+            Get FileInfo to plugin config file.
+            </summary>
+            <param name="pluginName">InternalName of the plugin.</param>
+            <returns>FileInfo of the config file</returns>
+        </member>
+        <member name="P:Dalamud.Dalamud.Framework">
+            <summary>
+            Game framework subsystem
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.AntiDebug">
+            <summary>
+            Anti-Debug detection prevention system
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.WinSock2">
+            <summary>
+            WinSock optimization subsystem
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.InterfaceManager">
+            <summary>
+            ImGui Interface subsystem
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.ClientState">
+            <summary>
+            ClientState subsystem
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.PluginManager">
+            <summary>
+            Plugin Manager subsystem
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.PluginRepository">
+            <summary>
+            Plugin Repository subsystem
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.Data">
+            <summary>
+            Data provider subsystem
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.CommandManager">
+            <summary>
+            Command Manager subsystem
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.LocalizationManager">
+            <summary>
+            Localization subsystem facilitating localization for Dalamud and plugins
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.SeStringManager">
+            <summary>
+            SeStringManager subsystem facilitating string parsing
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.SigScanner">
+            <summary>
+            Copy-enabled SigScanner for target module
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.LogLevelSwitch">
+            <summary>
+            LoggingLevelSwitch for Dalamud and Plugin logs
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.StartInfo">
+            <summary>
+            StartInfo object passed from injector
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.Configuration">
+            <summary>
+            Configuration object facilitating save and load of Dalamud configuration
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.DalamudUi">
+            <summary>
+            Dalamud base UI
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.DalamudCommands">
+            <summary>
+            Dalamud chat commands
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.ChatHandlers">
+            <summary>
+            Dalamud chat-based features
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.NetworkHandlers">
+            <summary>
+            Dalamud network-based features
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.TargetModule">
+            <summary>
+            Injected process module
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.IsReady">
+            <summary>
+            Value indicating if Dalamud was successfully loaded
+            </summary>
+        </member>
+        <member name="P:Dalamud.Dalamud.AssetDirectory">
+            <summary>
+            Location of stored assets
+            </summary>
+        </member>
+        <member name="T:Dalamud.ClientLanguage">
+            <summary>
+            Enum describing the language the game loads in.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Data.DataManager">
+            <summary>
+            This class provides data for Dalamud-internal features, but can also be used by plugins if needed.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Data.DataManager.ServerOpCodes">
+            <summary>
+            OpCodes sent by the server to the client.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Data.DataManager.ClientOpCodes">
+            <summary>
+            OpCodes sent by the client to the server.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Data.DataManager.Excel">
+            <summary>
+            An <see cref="T:Lumina.Excel.ExcelModule"/> object which gives access to any of the game's sheet data.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Data.DataManager.IsDataReady">
+            <summary>
+            Indicates whether Game Data is ready to be read.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Data.DataManager.gameData">
+            <summary>
+            A <see cref="N:Lumina"/> object which gives access to any excel/game data.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Data.DataManager.GetExcelSheet``1">
+            <summary>
+            Get an <see cref="T:Lumina.Excel.ExcelSheet`1"/> with the given Excel sheet row type.
+            </summary>
+            <typeparam name="T">The excel sheet type to get.</typeparam>
+            <returns>The <see cref="T:Lumina.Excel.ExcelSheet`1"/>, giving access to game rows.</returns>
+        </member>
+        <member name="M:Dalamud.Data.DataManager.GetExcelSheet``1(Dalamud.ClientLanguage)">
+            <summary>
+            Get an <see cref="T:Lumina.Excel.ExcelSheet`1"/> with the given Excel sheet row type with a specified language.
+            </summary>
+            <param name="language">Language of the sheet to get.</param>
+            <typeparam name="T">The excel sheet type to get.</typeparam>
+            <returns>The <see cref="T:Lumina.Excel.ExcelSheet`1"/>, giving access to game rows.</returns>
+        </member>
+        <member name="M:Dalamud.Data.DataManager.GetFile(System.String)">
+            <summary>
+            Get a <see cref="T:Lumina.Data.FileResource"/> with the given path.
+            </summary>
+            <param name="path">The path inside of the game files.</param>
+            <returns>The <see cref="T:Lumina.Data.FileResource"/> of the file.</returns>
+        </member>
+        <member name="M:Dalamud.Data.DataManager.GetFile``1(System.String)">
+            <summary>
+            Get a <see cref="T:Lumina.Data.FileResource"/> with the given path, of the given type.
+            </summary>
+            <typeparam name="T">The type of resource</typeparam>
+            <param name="path">The path inside of the game files.</param>
+            <returns>The <see cref="T:Lumina.Data.FileResource"/> of the file.</returns>
+        </member>
+        <member name="M:Dalamud.Data.DataManager.FileExists(System.String)">
+            <summary>
+            Check if the file with the given path exists within the game's index files.
+            </summary>
+            <param name="path">The path inside of the game files.</param>
+            <returns>True if the file exists.</returns>
+        </member>
+        <member name="M:Dalamud.Data.DataManager.GetIcon(System.Int32)">
+            <summary>
+            Get a <see cref="T:Lumina.Data.Files.TexFile"/> containing the icon with the given ID.
+            </summary>
+            <param name="iconId">The icon ID.</param>
+            <returns>The <see cref="T:Lumina.Data.Files.TexFile"/> containing the icon.</returns>
+        </member>
+        <member name="M:Dalamud.Data.DataManager.GetIcon(Dalamud.ClientLanguage,System.Int32)">
+            <summary>
+            Get a <see cref="T:Lumina.Data.Files.TexFile"/> containing the icon with the given ID, of the given language.
+            </summary>
+            <param name="iconLanguage">The requested language.</param>
+            <param name="iconId">The icon ID.</param>
+            <returns>The <see cref="T:Lumina.Data.Files.TexFile"/> containing the icon.</returns>
+        </member>
+        <member name="M:Dalamud.Data.DataManager.GetIcon(System.String,System.Int32)">
+            <summary>
+            Get a <see cref="T:Lumina.Data.Files.TexFile"/> containing the icon with the given ID, of the given type.
+            </summary>
+            <param name="type">The type of the icon (e.g. 'hq' to get the HQ variant of an item icon).</param>
+            <param name="iconId">The icon ID.</param>
+            <returns>The <see cref="T:Lumina.Data.Files.TexFile"/> containing the icon.</returns>
+        </member>
+        <member name="T:Dalamud.Data.LuminaExtensions.TexFileExtensions">
+            <summary>
+            Extensions to <see cref="T:Lumina.Data.Files.TexFile"/>.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Data.LuminaExtensions.TexFileExtensions.GetRgbaImageData(Lumina.Data.Files.TexFile)">
+            <summary>
+            Returns the image data formatted for <see cref="M:ImGuiScene.RawDX11Scene.LoadImageRaw(System.Byte[],System.Int32,System.Int32,System.Int32)"/>.
+            </summary>
+            <param name="texFile">The TexFile to format.</param>
+            <returns>The formatted image data.</returns>
+        </member>
+        <member name="T:Dalamud.Game.Chat.SeIconChar">
+            <summary>
+            Special unicode characters with game-related symbols that work both in-game and in any dalamud window.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.Chat.SeStringHandling.Payload">
+            <summary>
+            This class represents a parsed SeString payload.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payload.Type">
+            <summary>
+            The type of this payload.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payload.Dirty">
+            <summary>
+            Whether this payload has been modified since the last Encode().
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payload.EncodeImpl">
+            <summary>
+            Encodes the internal state of this payload into a byte[] suitable for sending to in-game
+            handlers such as the chat log.
+            </summary>
+            <returns>Encoded binary payload data suitable for use with in-game handlers.</returns>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payload.DecodeImpl(System.IO.BinaryReader,System.Int64)">
+            <summary>
+            Decodes a byte stream from the game into a payload object.
+            </summary>
+            <param name="reader">A BinaryReader containing at least all the data for this payload.</param>
+            <param name="endOfStream">The location holding the end of the data for this payload.</param>
+        </member>
+        <member name="F:Dalamud.Game.Chat.SeStringHandling.Payload.DataResolver">
+            <summary>
+            The Lumina instance to use for any necessary data lookups.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payload.Encode(System.Boolean)">
+            <summary>
+            Encode this payload object into a byte[] useable in-game for things like the chat log.
+            </summary>
+            <param name="force">If true, ignores any cached value and forcibly reencodes the payload from its internal representation.</param>
+            <returns>A byte[] suitable for use with in-game handlers such as the chat log.</returns>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payload.Decode(System.IO.BinaryReader,Dalamud.Data.DataManager)">
+            <summary>
+            Decodes a binary representation of a payload into its corresponding nice object payload.
+            </summary>
+            <param name="reader">A reader positioned at the start of the payload, and containing at least one entire payload.</param>
+            <returns>The constructed Payload-derived object that was decoded from the binary data.</returns>
+        </member>
+        <member name="T:Dalamud.Game.Chat.SeStringHandling.Payloads.AutoTranslatePayload">
+            <summary>
+            An SeString Payload containing an auto-translation/completion chat message.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.AutoTranslatePayload.Text">
+            <summary>
+            The actual text displayed in-game for this payload.
+            </summary>
+            <remarks>
+            Value is evaluated lazily and cached.
+            </remarks>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.AutoTranslatePayload.#ctor(Dalamud.Data.DataManager,System.UInt32,System.UInt32)">
+            <summary>
+            Creates a new auto-translate payload.
+            </summary>
+            <param name="data">DataManager instance needed to resolve game data.</param>
+            <param name="group">The group id for this message.</param>
+            <param name="key">The key/row id for this message.  Which table this is in depends on the group id and details the Completion table.</param>
+            <remarks>
+            This table is somewhat complicated in structure, and so using this constructor may not be very nice.
+            There is probably little use to create one of these, however.
+            </remarks>
+        </member>
+        <member name="T:Dalamud.Game.Chat.SeStringHandling.Payloads.DalamudLinkPayload">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.Chat.SeStringHandling.Payloads.EmphasisItalicPayload">
+            <summary>
+            An SeString Payload containing information about enabling or disabling italics formatting on following text.
+            </summary>
+            <remarks>
+            As with other formatting payloads, this is only useful in a payload block, where it affects any subsequent
+            text payloads.
+            </remarks>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.EmphasisItalicPayload.ItalicsOn">
+            <summary>
+            Payload representing enabling italics on following text.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.EmphasisItalicPayload.ItalicsOff">
+            <summary>
+            Payload representing disabling italics on following text.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.EmphasisItalicPayload.IsEnabled">
+            <summary>
+            Whether this payload enables italics formatting for following text.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.EmphasisItalicPayload.#ctor(System.Boolean)">
+            <summary>
+            Creates an EmphasisItalicPayload.
+            </summary>
+            <param name="enabled">Whether italics formatting should be enabled or disabled for following text.</param>
+        </member>
+        <member name="T:Dalamud.Game.Chat.SeStringHandling.Payloads.IconPayload">
+            <summary>
+            SeString payload representing a bitmap icon from fontIcon
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.IconPayload.IconIndex">
+            <summary>
+            Index of the icon
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.IconPayload.Icon">
+            <summary>
+            Icon the payload represents.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.IconPayload.#ctor(System.UInt32)">
+            <summary>
+            Create a Icon payload for the specified icon.
+            </summary>
+            <param name="iconIndex">Index of the icon</param>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.IconPayload.#ctor(Dalamud.Game.Chat.SeStringHandling.BitmapFontIcon)">
+            <summary>
+            Create a Icon payload for the specified icon.
+            </summary>
+            <param name="icon">The Icon</param>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.IconPayload.Type">
+            <inheritdoc />
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.IconPayload.EncodeImpl">
+            <inheritdoc />
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.IconPayload.DecodeImpl(System.IO.BinaryReader,System.Int64)">
+            <inheritdoc />
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.IconPayload.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:Dalamud.Game.Chat.SeStringHandling.Payloads.ItemPayload">
+            <summary>
+            An SeString Payload representing an interactable item link.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.ItemPayload.Item">
+            <summary>
+            The underlying Lumina Item represented by this payload.
+            </summary>
+            <remarks>
+            Value is evaluated lazily and cached.
+            </remarks>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.ItemPayload.DisplayName">
+            <summary>
+            The displayed name for this item link.  Note that incoming links only sometimes have names embedded,
+            often the name is only present in a following text payload.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.ItemPayload.IsHQ">
+            <summary>
+            Whether or not this item link is for a high-quality version of the item.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.ItemPayload.#ctor(Dalamud.Data.DataManager,System.UInt32,System.Boolean,System.String)">
+            <summary>
+            Creates a payload representing an interactable item link for the specified item.
+            </summary>
+            <param name="data">DataManager instance needed to resolve game data.</param>
+            <param name="itemId">The id of the item.</param>
+            <param name="isHQ">Whether or not the link should be for the high-quality variant of the item.</param>
+            <param name="displayNameOverride">An optional name to include in the item link.  Typically this should
+            be left as null, or set to the normal item name.  Actual overrides are better done with the subsequent
+            TextPayload that is a part of a full item link in chat.</param>
+        </member>
+        <member name="T:Dalamud.Game.Chat.SeStringHandling.Payloads.MapLinkPayload">
+            <summary>
+            An SeString Payload representing an interactable map position link.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.MapLinkPayload.Map">
+            <summary>
+            The Map specified for this map link.
+            </summary>
+            <remarks>
+            Value is evaluated lazily and cached.
+            </remarks>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.MapLinkPayload.TerritoryType">
+            <summary>
+            The TerritoryType specified for this map link.
+            </summary>
+            <remarks>
+            Value is evaluated lazily and cached.
+            </remarks>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.MapLinkPayload.RawX">
+            <summary>
+            The internal x-coordinate for this map position.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.MapLinkPayload.RawY">
+            <summary>
+            The internal y-coordinate for this map position.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.MapLinkPayload.XCoord">
+            <summary>
+            The readable x-coordinate position for this map link.  This value is approximate and unrounded.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.MapLinkPayload.YCoord">
+            <summary>
+            The readable y-coordinate position for this map link.  This value is approximate and unrounded.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.MapLinkPayload.CoordinateString">
+            <summary>
+            The printable map coordinates for this link.  This value tries to match the in-game printable text as closely as possible
+            but is an approximation and may be slightly off for some positions.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.MapLinkPayload.PlaceNameRegion">
+            <summary>
+            The region name for this map link.  This corresponds to the upper zone name found in the actual in-game map UI.  eg, "La Noscea"
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.MapLinkPayload.PlaceName">
+            <summary>
+            The place name for this map link.  This corresponds to the lower zone name found in the actual in-game map UI.  eg, "Limsa Lominsa Upper Decks"
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.MapLinkPayload.DataString">
+            <summary>
+            The data string for this map link, for use by internal game functions that take a string variant and not a binary payload.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.MapLinkPayload.#ctor(Dalamud.Data.DataManager,System.UInt32,System.UInt32,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates an interactable MapLinkPayload from a human-readable position.
+            </summary>
+            <param name="data">DataManager instance needed to resolve game data.</param>
+            <param name="territoryTypeId">The id of the TerritoryType entry for this link.</param>
+            <param name="mapId">The id of the Map entry for this link.</param>
+            <param name="niceXCoord">The human-readable x-coordinate for this link.</param>
+            <param name="niceYCoord">The human-readable y-coordinate for this link.</param>
+            <param name="fudgeFactor">An optional offset to account for rounding and truncation errors; it is best to leave this untouched in most cases.</param>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.MapLinkPayload.#ctor(Dalamud.Data.DataManager,System.UInt32,System.UInt32,System.Int32,System.Int32)">
+            <summary>
+            Creates an interactable MapLinkPayload from a raw position.
+            </summary>
+            <param name="data">DataManager instance needed to resolve game data.</param>
+            <param name="territoryTypeId">The id of the TerritoryType entry for this link.</param>
+            <param name="mapId">The id of the Map entry for this link.</param>
+            <param name="rawX">The internal raw x-coordinate for this link.</param>
+            <param name="rawY">The internal raw y-coordinate for this link.</param>
+        </member>
+        <member name="T:Dalamud.Game.Chat.SeStringHandling.Payloads.PlayerPayload">
+            <summary>
+            An SeString Payload representing a player link.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.PlayerPayload.PlayerName">
+            <summary>
+            The player's displayed name.  This does not contain the server name.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.PlayerPayload.World">
+            <summary>
+            The Lumina object representing the player's home server.
+            </summary>
+            <remarks>
+            Value is evaluated lazily and cached.
+            </remarks>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.PlayerPayload.DisplayedName">
+            <summary>
+            A text representation of this player link matching how it might appear in-game.
+            The world name will always be present.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.PlayerPayload.#ctor(Dalamud.Data.DataManager,System.String,System.UInt32)">
+            <summary>
+            Create a PlayerPayload link for the specified player.
+            </summary>
+            <param name="data">DataManager instance needed to resolve game data.</param>
+            <param name="playerName">The player's displayed name.</param>
+            <param name="serverId">The player's home server id.</param>
+        </member>
+        <member name="T:Dalamud.Game.Chat.SeStringHandling.Payloads.QuestPayload">
+            <summary>
+            An SeString Payload representing an interactable quest link.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.QuestPayload.Quest">
+            <summary>
+            The underlying Lumina Quest represented by this payload.
+            </summary>
+            <remarks>
+            Value is evaluated lazily and cached.
+            </remarks>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.QuestPayload.#ctor(Dalamud.Data.DataManager,System.UInt32)">
+            <summary>
+            Creates a payload representing an interactable quest link for the specified quest.
+            </summary>
+            <param name="data">DataManager instance needed to resolve game data.</param>
+            <param name="questId">The id of the quest.</param>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.QuestPayload.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:Dalamud.Game.Chat.SeStringHandling.Payloads.RawPayload">
+            <summary>
+            An SeString Payload representing unhandled raw payload data.
+            Mainly useful for constructing unhandled hardcoded payloads, or forwarding any unknown
+            payloads without modification.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.RawPayload.LinkTerminator">
+            <summary>
+            A fixed Payload representing a common link-termination sequence, found in many payload chains.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.RawPayload.Data">
+            <summary>
+            The entire payload byte sequence for this payload.
+            The returned data is a clone and modifications will not be persisted.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.Chat.SeStringHandling.Payloads.SeHyphenPayload">
+            <summary>
+            A wrapped '–'
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.SeHyphenPayload.Payload">
+            <summary>
+            Instance of SeHyphenPayload
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.SeHyphenPayload.Type">
+            <inheritdoc />
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.SeHyphenPayload.EncodeImpl">
+            <inheritdoc />
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.SeHyphenPayload.DecodeImpl(System.IO.BinaryReader,System.Int64)">
+            <inheritdoc />
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.SeHyphenPayload.Text">
+            <summary>
+            Just a '–'
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.Chat.SeStringHandling.Payloads.StatusPayload">
+            <summary>
+            An SeString Payload representing an interactable status link.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.StatusPayload.Status">
+            <summary>
+            The Lumina Status object represented by this payload.
+            </summary>
+            <remarks>
+            Value is evaluated lazily and cached.
+            </remarks>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.StatusPayload.#ctor(Dalamud.Data.DataManager,System.UInt32)">
+            <summary>
+            Creates a new StatusPayload for the given status id.
+            </summary>
+            <param name="data">DataManager instance needed to resolve game data.</param>
+            <param name="statusId">The id of the Status for this link.</param>
+        </member>
+        <member name="T:Dalamud.Game.Chat.SeStringHandling.Payloads.TextPayload">
+            <summary>
+            An SeString Payload representing a plain text string.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.TextPayload.Text">
+            <summary>
+            The text contained in this payload.
+            This may contain SE's special unicode characters.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.TextPayload.#ctor(System.String)">
+            <summary>
+            Creates a new TextPayload for the given text.
+            </summary>
+            <param name="text">The text to include for this payload.</param>
+        </member>
+        <member name="T:Dalamud.Game.Chat.SeStringHandling.Payloads.UIForegroundPayload">
+            <summary>
+            An SeString Payload representing a UI foreground color applied to following text payloads.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.UIForegroundPayload.UIForegroundOff">
+            <summary>
+            Payload representing disabling foreground color on following text.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.UIForegroundPayload.IsEnabled">
+            <summary>
+            Whether or not this payload represents applying a foreground color, or disabling one.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.UIForegroundPayload.UIColor">
+            <summary>
+            A Lumina UIColor object representing this payload.  The actual color data is at UIColor.UIForeground
+            </summary>
+            <remarks>
+            Value is evaluated lazily and cached.
+            </remarks>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.UIForegroundPayload.ColorKey">
+            <summary>
+            The color key used as a lookup in the UIColor table for this foreground color.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.UIForegroundPayload.RGB">
+            <summary>
+            The Red/Green/Blue values for this foreground color, encoded as a typical hex color.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.UIForegroundPayload.#ctor(Dalamud.Data.DataManager,System.UInt16)">
+            <summary>
+            Creates a new UIForegroundPayload for the given UIColor key.
+            </summary>
+            <param name="data">DataManager instance needed to resolve game data.</param>
+            <param name="colorKey"></param>
+        </member>
+        <member name="T:Dalamud.Game.Chat.SeStringHandling.Payloads.UIGlowPayload">
+            <summary>
+            An SeString Payload representing a UI glow color applied to following text payloads.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.UIGlowPayload.UIGlowOff">
+            <summary>
+            Payload representing disabling glow color on following text.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.UIGlowPayload.IsEnabled">
+            <summary>
+            Whether or not this payload represents applying a glow color, or disabling one.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.UIGlowPayload.UIColor">
+            <summary>
+            A Lumina UIColor object representing this payload.  The actual color data is at UIColor.UIGlow
+            </summary>
+            <remarks>
+            Value is evaluated lazily and cached.
+            </remarks>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.UIGlowPayload.ColorKey">
+            <summary>
+            The color key used as a lookup in the UIColor table for this glow color.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.Payloads.UIGlowPayload.RGB">
+            <summary>
+            The Red/Green/Blue values for this glow color, encoded as a typical hex color.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.Payloads.UIGlowPayload.#ctor(Dalamud.Data.DataManager,System.UInt16)">
+            <summary>
+            Creates a new UIForegroundPayload for the given UIColor key.
+            </summary>
+            <param name="data">DataManager instance needed to resolve game data.</param>
+            <param name="colorKey"></param>
+        </member>
+        <member name="T:Dalamud.Game.Chat.SeStringHandling.PayloadType">
+            <summary>
+            All parsed types of SeString payloads.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.Chat.SeStringHandling.PayloadType.Player">
+            <summary>
+            An SeString payload representing a player link.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.Chat.SeStringHandling.PayloadType.Item">
+            <summary>
+            An SeString payload representing an Item link.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.Chat.SeStringHandling.PayloadType.Status">
+            <summary>
+            An SeString payload representing an Status Effect link.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.Chat.SeStringHandling.PayloadType.RawText">
+            <summary>
+            An SeString payload representing raw, typed text.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.Chat.SeStringHandling.PayloadType.UIForeground">
+            <summary>
+            An SeString payload representing a text foreground color.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.Chat.SeStringHandling.PayloadType.UIGlow">
+            <summary>
+            An SeString payload representing a text glow color.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.Chat.SeStringHandling.PayloadType.MapLink">
+            <summary>
+            An SeString payload representing a map position link, such as from &lt;flag&gt; or &lt;pos&gt;.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.Chat.SeStringHandling.PayloadType.AutoTranslateText">
+            <summary>
+            An SeString payload representing an auto-translate dictionary entry.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.Chat.SeStringHandling.PayloadType.EmphasisItalic">
+            <summary>
+            An SeString payload representing italic emphasis formatting on text.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.Chat.SeStringHandling.PayloadType.Icon">
+            <summary>
+            An SeString payload representing a bitmap icon.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.Chat.SeStringHandling.PayloadType.Quest">
+            <summary>
+            A SeString payload representing a quest link.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.Chat.SeStringHandling.PayloadType.DalamudLink">
+            <summary>
+            A SeString payload representing a custom clickable link for dalamud plugins
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.Chat.SeStringHandling.PayloadType.Unknown">
+            <summary>
+            An SeString payload representing any data we don't handle.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.Chat.SeStringHandling.SeString">
+            <summary>
+            This class represents a parsed SeString.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.SeString.Payloads">
+            <summary>
+            The ordered list of payloads included in this SeString.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Chat.SeStringHandling.SeString.TextValue">
+            <summary>
+            Helper function to get all raw text from a message as a single joined string
+            </summary>
+            <returns>
+            All the raw text from the contained payloads, joined into a single string
+            </returns>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.SeString.#ctor(System.Collections.Generic.List{Dalamud.Game.Chat.SeStringHandling.Payload})">
+            <summary>
+            Creates a new SeString from an ordered list of payloads.
+            </summary>
+            <param name="payloads">The Payload objects to make up this string.</param>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.SeString.#ctor(Dalamud.Game.Chat.SeStringHandling.Payload[])">
+            <summary>
+            Creates a new SeString from an ordered list of payloads.
+            </summary>
+            <param name="payloads">The Payload objects to make up this string.</param>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.SeString.Append(Dalamud.Game.Chat.SeStringHandling.SeString)">
+            <summary>
+            Appends the contents of one SeString to this one.
+            </summary>
+            <param name="other">The SeString to append to this one.</param>
+            <returns>This object.</returns>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.SeString.Append(System.Collections.Generic.List{Dalamud.Game.Chat.SeStringHandling.Payload})">
+            <summary>
+            Appends a list of payloads to this SeString.
+            </summary>
+            <param name="payloads">The Payloads to append.</param>
+            <returns>This object.</returns>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.SeString.Append(Dalamud.Game.Chat.SeStringHandling.Payload)">
+            <summary>
+            Appends a single payload to this SeString.
+            </summary>
+            <param name="payload">The payload to append.</param>
+            <returns>This object.</returns>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.SeString.Encode">
+            <summary>
+            Encodes the Payloads in this SeString into a binary representation
+            suitable for use by in-game handlers, such as the chat log.
+            </summary>
+            <returns>The binary encoded payload data.</returns>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.SeString.ToString">
+            <summary>
+            Get the text value of this SeString.
+            </summary>
+            <returns>The TextValue property</returns>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.SeString.ToJson">
+            <summary>
+            Serializes the SeString to json
+            </summary>
+            <returns>An json representation of this object</returns>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.SeString.FromJson(System.String,Dalamud.Data.DataManager)">
+            <summary>
+            Creates a SeString from a json. (For testing - not recommended for production use.)
+            </summary>
+            <param name="json">A serialized SeString produced by ToJson() <see cref="M:Dalamud.Game.Chat.SeStringHandling.SeString.ToJson"/></param>
+            <param name="dataManager">An initialized instance of DataManager for Lumina queries.</param>
+            <returns>A SeString initialized with values from the json</returns>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.SeStringManager.Parse(System.Byte[])">
+            <summary>
+            Parse a binary game message into an SeString.
+            </summary>
+            <param name="bytes">Binary message payload data in SE's internal format.</param>
+            <returns>An SeString containing parsed Payload objects for each payload in the data.</returns>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.SeStringManager.CreateItemLink(System.UInt32,System.Boolean,System.String)">
+            <summary>
+            Creates an SeString representing an entire Payload chain that can be used to link an item in the chat log.
+            </summary>
+            <param name="itemId">The id of the item to link.</param>
+            <param name="isHQ">Whether to link the high-quality variant of the item.</param>
+            <param name="displayNameOverride">An optional name override to display, instead of the actual item name.</param>
+            <returns>An SeString containing all the payloads necessary to display an item link in the chat log.</returns>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.SeStringManager.CreateItemLink(Lumina.Excel.GeneratedSheets.Item,System.Boolean,System.String)">
+            <summary>
+            Creates an SeString representing an entire Payload chain that can be used to link an item in the chat log.
+            </summary>
+            <param name="item">The Lumina Item to link.</param>
+            <param name="isHQ">Whether to link the high-quality variant of the item.</param>
+            <param name="displayNameOverride">An optional name override to display, instead of the actual item name.</param>
+            <returns>An SeString containing all the payloads necessary to display an item link in the chat log.</returns>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.SeStringManager.CreateMapLink(System.UInt32,System.UInt32,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates an SeString representing an entire Payload chain that can be used to link a map position in the chat log.
+            </summary>
+            <param name="territoryId">The id of the TerritoryType for this map link.</param>
+            <param name="mapId">The id of the Map for this map link.</param>
+            <param name="xCoord">The human-readable x-coordinate for this link.</param>
+            <param name="yCoord">The human-readable y-coordinate for this link.</param>
+            <param name="fudgeFactor">An optional offset to account for rounding and truncation errors; it is best to leave this untouched in most cases.</param>
+            <returns>An SeString containing all of the payloads necessary to display a map link in the chat log.</returns>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.SeStringManager.CreateMapLink(System.String,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates an SeString representing an entire Payload chain that can be used to link a map position in the chat log, matching a specified zone name.
+            </summary>
+            <param name="placeName">The name of the location for this link.  This should be exactly the name as seen in a displayed map link in-game for the same zone.</param>
+            <param name="xCoord">The human-readable x-coordinate for this link.</param>
+            <param name="yCoord">The human-readable y-coordinate for this link.</param>
+            <param name="fudgeFactor">An optional offset to account for rounding and truncation errors; it is best to leave this untouched in most cases.</param>
+            <returns>An SeString containing all of the payloads necessary to display a map link in the chat log.</returns>
+        </member>
+        <member name="M:Dalamud.Game.Chat.SeStringHandling.SeStringManager.TextArrowPayloads">
+            <summary>
+            Creates a list of Payloads necessary to display the arrow link marker icon in chat
+            with the appropriate glow and coloring.
+            </summary>
+            <returns>A list of all the payloads required to insert the link marker.</returns>
+        </member>
+        <member name="T:Dalamud.Game.Chat.XivChatType">
+            <summary>
+                The FFXIV chat types as seen in the LogKind ex table.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.ClientState.Actors.ActorTable">
+            <summary>
+                This collection represents the currently spawned FFXIV actors.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.ClientState.Actors.ActorTable.#ctor(Dalamud.Dalamud,Dalamud.Game.ClientState.ClientStateAddressResolver)">
+            <summary>
+                Set up the actor table collection.
+            </summary>
+            <param name="addressResolver">Client state address resolver.</param>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.ActorTable.Item(System.Int32)">
+            <summary>
+                Get an actor at the specified spawn index.
+            </summary>
+            <param name="index">Spawn index.</param>
+            <returns><see cref="T:Dalamud.Game.ClientState.Actors.Types.Actor" /> at the specified spawn index.</returns>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.ActorTable.Length">
+            <summary>
+                The amount of currently spawned actors.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.ClientState.Actors.CustomizeIndex">
+            <summary>
+            This enum describes the indices of the Customize array.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.Race">
+            <summary>
+            The race of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.Gender">
+            <summary>
+            The gender of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.Tribe">
+            <summary>
+            The tribe of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.Height">
+            <summary>
+            The height of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.ModelType">
+            <summary>
+            The model type of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.FaceType">
+            <summary>
+            The face type of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.HairStyle">
+            <summary>
+            The hair of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.HasHighlights">
+            <summary>
+            Whether or not the character has hair highlights.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.SkinColor">
+            <summary>
+            The skin color of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.EyeColor">
+            <summary>
+            The eye color of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.HairColor">
+            <summary>
+            The hair color of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.HairColor2">
+            <summary>
+            The highlights hair color of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.FaceFeatures">
+            <summary>
+            The face features of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.FaceFeaturesColor">
+            <summary>
+            The color of the face features of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.Eyebrows">
+            <summary>
+            The eyebrows of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.EyeColor2">
+            <summary>
+            The 2nd eye color of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.EyeShape">
+            <summary>
+            The eye shape of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.NoseShape">
+            <summary>
+            The nose shape of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.JawShape">
+            <summary>
+            The jaw shape of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.LipStyle">
+            <summary>
+            The lip style of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.LipColor">
+            <summary>
+            The lip color of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.RaceFeatureSize">
+            <summary>
+            The race feature size of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.RaceFeatureType">
+            <summary>
+            The race feature type of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.BustSize">
+            <summary>
+            The bust size of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.Facepaint">
+            <summary>
+            The face paint of the character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.CustomizeIndex.FacepaintColor">
+            <summary>
+            The face paint color of the character.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.ClientState.Actors.ObjectKind">
+            <summary>
+                Enum describing possible entity kinds.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.ObjectKind.None">
+            <summary>
+                Invalid actor.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.ObjectKind.Player">
+            <summary>
+                Objects representing player characters.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.ObjectKind.BattleNpc">
+            <summary>
+                Objects representing battle NPCs.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.ObjectKind.EventNpc">
+            <summary>
+                Objects representing event NPCs.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.ObjectKind.Treasure">
+            <summary>
+                Objects representing treasures.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.ObjectKind.Aetheryte">
+            <summary>
+                Objects representing aetherytes.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.ObjectKind.GatheringPoint">
+            <summary>
+                Objects representing gathering points.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.ObjectKind.EventObj">
+            <summary>
+                Objects representing event objects.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.ObjectKind.MountType">
+            <summary>
+                Objects representing mounts.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.ObjectKind.Companion">
+            <summary>
+                Objects representing minions.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.ObjectKind.Retainer">
+            <summary>
+                Objects representing retainers.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.ObjectKind.Housing">
+            <summary>
+                Objects representing housing objects.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.ClientState.Actors.Position3.op_Implicit(Dalamud.Game.ClientState.Actors.Position3)~System.Numerics.Vector3">
+            <summary>
+            Convert this Position3 to a System.Numerics.Vector3
+            </summary>
+            <param name="pos">Position to convert.</param>
+        </member>
+        <member name="M:Dalamud.Game.ClientState.Actors.Position3.op_Implicit(Dalamud.Game.ClientState.Actors.Position3)~SharpDX.Vector3">
+            <summary>
+            Convert this Position3 to a SharpDX.Vector3
+            </summary>
+            <param name="pos">Position to convert.</param>
+        </member>
+        <member name="T:Dalamud.Game.ClientState.Actors.Resolvers.ClassJob">
+            <summary>
+            This object represents a class or job.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.Resolvers.ClassJob.Id">
+            <summary>
+            ID of the ClassJob.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Resolvers.ClassJob.GameData">
+            <summary>
+            GameData linked to this ClassJob.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.ClientState.Actors.Resolvers.ClassJob.#ctor(System.Byte,Dalamud.Dalamud)">
+            <summary>
+            Set up the ClassJob resolver with the provided ID.
+            </summary>
+            <param name="id">The ID of the world.</param>
+        </member>
+        <member name="T:Dalamud.Game.ClientState.Actors.Resolvers.World">
+            <summary>
+            This object represents a world a character can reside on.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.Resolvers.World.Id">
+            <summary>
+            ID of the world.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Resolvers.World.GameData">
+            <summary>
+            GameData linked to this world.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.ClientState.Actors.Resolvers.World.#ctor(System.UInt16,Dalamud.Dalamud)">
+            <summary>
+            Set up the world resolver with the provided ID.
+            </summary>
+            <param name="id">The ID of the world.</param>
+        </member>
+        <member name="T:Dalamud.Game.ClientState.Actors.Types.Actor">
+            <summary>
+                This class represents a basic FFXIV actor.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.Types.Actor.actorStruct">
+            <summary>
+                The memory representation of the base actor.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.Types.Actor.Address">
+            <summary>
+            The address of this actor in memory.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.ClientState.Actors.Types.Actor.#ctor(System.IntPtr,Dalamud.Game.ClientState.Structs.Actor,Dalamud.Dalamud)">
+            <summary>
+                Initialize a representation of a basic FFXIV actor.
+            </summary>
+            <param name="actorStruct">The memory representation of the base actor.</param>
+            <param name="dalamud">A dalamud reference needed to access game data in Resolvers.</param>
+            <param name="address">The address of this actor in memory.</param>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Actor.Position">
+            <summary>
+                Position of this <see cref="T:Dalamud.Game.ClientState.Actors.Types.Actor" />.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Actor.Rotation">
+            <summary>
+            Rotation of this <see cref="T:Dalamud.Game.ClientState.Actors.Types.Actor"/>.<br/>
+            This ranges from -pi to pi radians.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Actor.Name">
+            <summary>
+                Displayname of this <see cref="T:Dalamud.Game.ClientState.Actors.Types.Actor">Actor</see>.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Actor.ActorId">
+            <summary>
+                Actor ID of this <see cref="T:Dalamud.Game.ClientState.Actors.Types.Actor" />.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Actor.ObjectKind">
+            <summary>
+                Entity kind of this <see cref="T:Dalamud.Game.ClientState.Actors.Types.Actor">actor</see>. See <see cref="P:Dalamud.Game.ClientState.Actors.Types.Actor.ObjectKind">the ObjectKind enum</see> for
+                possible values.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Actor.YalmDistanceX">
+            <summary>
+            The X distance from the local player in yalms.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Actor.YalmDistanceY">
+            <summary>
+            The Y distance from the local player in yalms.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Actor.TargetActorID">
+            <summary>
+            The target of the actor
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Actor.StatusEffects">
+            <summary>
+             Status Effects
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.ClientState.Actors.Types.Chara">
+            <summary>
+                This class represents the base for non-static entities.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.ClientState.Actors.Types.Chara.#ctor(System.IntPtr,Dalamud.Game.ClientState.Structs.Actor,Dalamud.Dalamud)">
+            <summary>
+                Set up a new Chara with the provided memory representation.
+            </summary>
+            <param name="actorStruct">The memory representation of the base actor.</param>
+            <param name="dalamud">A dalamud reference needed to access game data in Resolvers.</param>
+            <param name="address">The address of this actor in memory.</param>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Chara.Level">
+            <summary>
+                The level of this Chara.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Chara.ClassJob">
+            <summary>
+                The ClassJob of this Chara.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Chara.CurrentHp">
+            <summary>
+                The current HP of this Chara.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Chara.MaxHp">
+            <summary>
+                The maximum HP of this Chara.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Chara.CurrentMp">
+            <summary>
+                The current MP of this Chara.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Chara.MaxMp">
+            <summary>
+                The maximum MP of this Chara.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Chara.CurrentGp">
+            <summary>
+                The current GP of this Chara.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Chara.MaxGp">
+            <summary>
+                The maximum GP of this Chara.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Chara.CurrentCp">
+            <summary>
+                The current CP of this Chara.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Chara.MaxCp">
+            <summary>
+                The maximum CP of this Chara.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.Chara.Customize">
+            <summary>
+            Byte array describing the visual appearance of this Chara. Indexed by <see cref="T:Dalamud.Game.ClientState.Actors.CustomizeIndex"/>.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.ClientState.Actors.Types.NonPlayer.BattleNpc">
+            <summary>
+                This class represents a battle NPC.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.ClientState.Actors.Types.NonPlayer.BattleNpc.#ctor(System.IntPtr,Dalamud.Game.ClientState.Structs.Actor,Dalamud.Dalamud)">
+            <summary>
+                Set up a new BattleNpc with the provided memory representation.
+            </summary>
+            <param name="actorStruct">The memory representation of the base actor.</param>
+            <param name="dalamud">A dalamud reference needed to access game data in Resolvers.</param>
+            <param name="address">The address of this actor in memory.</param>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.NonPlayer.BattleNpc.BattleNpcKind">
+            <summary>
+                The BattleNpc <see cref="T:Dalamud.Game.ClientState.Actors.Types.NonPlayer.BattleNpcSubKind" /> of this BattleNpc.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.NonPlayer.BattleNpc.OwnerId">
+            <summary>
+                The ID of this BattleNpc's owner.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.NonPlayer.BattleNpc.TargetActorID">
+            <summary>
+            Target of the Battle NPC
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.ClientState.Actors.Types.NonPlayer.BattleNpcSubKind">
+            <summary>
+                Enum describing possible BattleNpc kinds.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.Types.NonPlayer.BattleNpcSubKind.None">
+            <summary>
+                Invalid BattleNpc.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.Types.NonPlayer.BattleNpcSubKind.Pet">
+            <summary>
+                BattleNpc representing a Pet.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Actors.Types.NonPlayer.BattleNpcSubKind.Enemy">
+            <summary>
+                BattleNpc representing a standard enemy.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.ClientState.Actors.Types.NonPlayer.EventObj">
+            <summary>
+                This class represents an EventObj.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.ClientState.Actors.Types.NonPlayer.EventObj.#ctor(System.IntPtr,Dalamud.Game.ClientState.Structs.Actor,Dalamud.Dalamud)">
+            <summary>
+                Set up a new EventObj with the provided memory representation.
+            </summary>
+            <param name="actorStruct">The memory representation of the base actor.</param>
+            <param name="dalamud">A dalamud reference needed to access game data in Resolvers.</param>
+            <param name="address">The address of this actor in memory.</param>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.NonPlayer.EventObj.DataId">
+            <summary>
+                The data ID of the NPC linking to their respective game data.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.ClientState.Actors.Types.NonPlayer.Npc">
+            <summary>
+                This class represents a NPC.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.ClientState.Actors.Types.NonPlayer.Npc.#ctor(System.IntPtr,Dalamud.Game.ClientState.Structs.Actor,Dalamud.Dalamud)">
+            <summary>
+                Set up a new NPC with the provided memory representation.
+            </summary>
+            <param name="actorStruct">The memory representation of the base actor.</param>
+            <param name="dalamud">A dalamud reference needed to access game data in Resolvers.</param>
+            <param name="address">The address of this actor in memory.</param>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.NonPlayer.Npc.DataId">
+            <summary>
+                The data ID of the NPC linking to their respective game data.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.NonPlayer.Npc.NameId">
+            <summary>
+                The name ID of the NPC linking to their respective game data.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.ClientState.Actors.Types.PlayerCharacter">
+            <summary>
+                This class represents a player character.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.ClientState.Actors.Types.PlayerCharacter.#ctor(System.IntPtr,Dalamud.Game.ClientState.Structs.Actor,Dalamud.Dalamud)">
+            <summary>
+                Set up a new player character with the provided memory representation.
+            </summary>
+            <param name="actorStruct">The memory representation of the base actor.</param>
+            <param name="dalamud">A dalamud reference needed to access game data in Resolvers.</param>
+            <param name="address">The address of this actor in memory.</param>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.PlayerCharacter.CurrentWorld">
+            <summary>
+                The current <see cref="T:Dalamud.Game.ClientState.Actors.Resolvers.World">world</see> of the character.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.PlayerCharacter.HomeWorld">
+            <summary>
+                The home <see cref="T:Dalamud.Game.ClientState.Actors.Resolvers.World">world</see> of the character.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.PlayerCharacter.CompanyTag">
+            <summary>
+                The Free Company tag of this player.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Actors.Types.PlayerCharacter.TargetActorID">
+            <summary>
+            Target of the PlayerCharacter
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.ClientState.ClientState">
+            <summary>
+            This class represents the state of the game client at the time of access.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ClientState.Actors">
+            <summary>
+            The table of all present actors.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.ClientState.LocalPlayer">
+            <summary>
+            The local player character, if one is present.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ClientState.TerritoryType">
+            <summary>
+            The current Territory the player resides in.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ClientState.TerritoryChanged">
+            <summary>
+            Event that gets fired when the current Territory changes.
+            </summary>
+        </member>
+        <member name="E:Dalamud.Game.ClientState.ClientState.CfPop">
+            <summary>
+            Event that gets fired when a duty is ready.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.ClientState.LocalContentId">
+            <summary>
+            The content ID of the local character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ClientState.JobGauges">
+            <summary>
+            The class facilitating Job Gauge data access
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ClientState.PartyList">
+            <summary>
+            The class facilitating party list data access
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ClientState.KeyState">
+            <summary>
+            Provides access to the keypress state of keyboard keys in game.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ClientState.Condition">
+            <summary>
+            Provides access to client conditions/player state. Allows you to check if a player is in a duty, mounted, etc.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ClientState.Targets">
+            <summary>
+            The class facilitating target data access
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.ClientState.ClientState.#ctor(Dalamud.Dalamud,Dalamud.DalamudStartInfo,Dalamud.Game.SigScanner)">
+            <summary>
+            Set up client state access.
+            </summary>
+            <param name="dalamud">Dalamud instance</param>
+            /// <param name="startInfo">StartInfo of the current Dalamud launch</param>
+            <param name="scanner">Sig scanner</param>
+        </member>
+        <member name="E:Dalamud.Game.ClientState.ClientState.OnLogin">
+            <summary>
+            Event that fires when a character is logging in.
+            </summary>
+        </member>
+        <member name="E:Dalamud.Game.ClientState.ClientState.OnLogout">
+            <summary>
+            Event that fires when a character is logging out.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.ClientState.Condition">
+            <summary>
+            Provides access to conditions (generally player state). You can check whether a player is in combat, mounted, etc.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.Condition.MaxConditionEntries">
+            <summary>
+            The current max number of conditions. You can get this just by looking at the condition sheet and how many rows it has.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Condition.Item(Dalamud.Game.ClientState.ConditionFlag)">
+            <summary>
+            Check the value of a specific condition/state flag.
+            </summary>
+            <param name="flag">The condition flag to check</param>
+        </member>
+        <member name="T:Dalamud.Game.ClientState.ConditionFlag">
+             <summary>
+             Possible state flags (or conditions as they're called internally) that can be set on the local client.
+            
+             These come from LogMessage (somewhere) and directly map to each state field managed by the client. As of 5.25, it maps to
+             LogMessage row 7700 and onwards, which can be checked by looking at the Condition sheet and looking at what column 2 maps to.
+             </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.None">
+            <summary>
+            Unused.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.NormalConditions">
+            <summary>
+            Unable to execute command under normal conditions.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Unconscious">
+            <summary>
+            Unable to execute command while unconscious.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Emoting">
+            <summary>
+            Unable to execute command during an emote.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Mounted">
+            <summary>
+            Unable to execute command while mounted.
+            </summary>
+            <summary>
+            Unable to execute command while mounted.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Crafting">
+            <summary>
+            Unable to execute command while crafting.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Gathering">
+            <summary>
+            Unable to execute command while gathering.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.MeldingMateria">
+            <summary>
+            Unable to execute command while melding materia.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.OperatingSiegeMachine">
+            <summary>
+            Unable to execute command while operating a siege machine.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.CarryingObject">
+            <summary>
+            Unable to execute command while carrying an object.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Mounted2">
+            <summary>
+            Unable to execute command while mounted.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.InThatPosition">
+            <summary>
+            Unable to execute command while in that position.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.ChocoboRacing">
+            <summary>
+            Unable to execute command while chocobo racing.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.PlayingMiniGame">
+            <summary>
+            Unable to execute command while playing a mini-game.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.PlayingLordOfVerminion">
+            <summary>
+            Unable to execute command while playing Lord of Verminion.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.ParticipatingInCustomMatch">
+            <summary>
+            Unable to execute command while participating in a custom match.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Performing">
+            <summary>
+            Unable to execute command while performing.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Occupied">
+            <summary>
+            Unable to execute command while occupied.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.InCombat">
+            <summary>
+            Unable to execute command during combat.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Casting">
+            <summary>
+            Unable to execute command while casting.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.SufferingStatusAffliction">
+            <summary>
+            Unable to execute command while suffering status affliction.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.SufferingStatusAffliction2">
+            <summary>
+            Unable to execute command while suffering status affliction.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Occupied30">
+            <summary>
+            Unable to execute command while occupied.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.OccupiedInEvent">
+            <summary>
+            Unable to execute command while occupied.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.OccupiedInQuestEvent">
+            <summary>
+            Unable to execute command while occupied.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Occupied33">
+            <summary>
+            Unable to execute command while occupied.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.BoundByDuty">
+            <summary>
+            Unable to execute command while bound by duty.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.OccupiedInCutSceneEvent">
+            <summary>
+            Unable to execute command while occupied.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.InDuelingArea">
+            <summary>
+            Unable to execute command while in a dueling area.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.TradeOpen">
+            <summary>
+            Unable to execute command while a trade is open.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Occupied38">
+            <summary>
+            Unable to execute command while occupied.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Occupied39">
+            <summary>
+            Unable to execute command while occupied.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Crafting40">
+            <summary>
+            Unable to execute command while crafting.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.PreparingToCraft">
+            <summary>
+            Unable to execute command while preparing to craft.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Gathering42">
+            <summary>
+            Unable to execute command while gathering.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Fishing">
+            <summary>
+            Unable to execute command while fishing.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.BetweenAreas">
+            <summary>
+            Unable to execute command while between areas.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Stealthed">
+            <summary>
+            Unable to execute command while stealthed.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Jumping">
+            <summary>
+            Unable to execute command while jumping.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.AutorunActive">
+            <summary>
+            Unable to execute command while auto-run is active.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.OccupiedSummoningBell">
+            <summary>
+            Unable to execute command while occupied.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.BetweenAreas51">
+            <summary>
+            Unable to execute command while between areas.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.SystemError">
+            <summary>
+            Unable to execute command due to system error.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.LoggingOut">
+            <summary>
+            Unable to execute command while logging out.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.ConditionLocation">
+            <summary>
+            Unable to execute command at this location.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.WaitingForDuty">
+            <summary>
+            Unable to execute command while waiting for duty.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.BoundByDuty56">
+            <summary>
+            Unable to execute command while bound by duty.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Unknown57">
+            <summary>
+            Unable to execute command at this time.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.WatchingCutscene">
+            <summary>
+            Unable to execute command while watching a cutscene.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.WaitingForDutyFinder">
+            <summary>
+            Unable to execute command while waiting for Duty Finder.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.CreatingCharacter">
+            <summary>
+            Unable to execute command while creating a character.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Jumping61">
+            <summary>
+            Unable to execute command while jumping.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.PvPDisplayActive">
+            <summary>
+            Unable to execute command while the PvP display is active.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.SufferingStatusAffliction63">
+            <summary>
+            Unable to execute command while suffering status affliction.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Mounting">
+            <summary>
+            Unable to execute command while mounting.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.CarryingItem">
+            <summary>
+            Unable to execute command while carrying an item.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.UsingPartyFinder">
+            <summary>
+            Unable to execute command while using the Party Finder.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.UsingHousingFunctions">
+            <summary>
+            Unable to execute command while using housing functions.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Transformed">
+            <summary>
+            Unable to execute command while transformed.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.OnFreeTrial">
+            <summary>
+            Unable to execute command while on the free trial.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.BeingMoved">
+            <summary>
+            Unable to execute command while being moved.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Mounting71">
+            <summary>
+            Unable to execute command while mounting.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.SufferingStatusAffliction72">
+            <summary>
+            Unable to execute command while suffering status affliction.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.SufferingStatusAffliction73">
+            <summary>
+            Unable to execute command while suffering status affliction.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.RegisteringForRaceOrMatch">
+            <summary>
+            Unable to execute command while registering for a race or match.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.WaitingForRaceOrMatch">
+            <summary>
+            Unable to execute command while waiting for a race or match.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.WaitingForTripleTriadMatch">
+            <summary>
+            Unable to execute command while waiting for a Triple Triad match.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.InFlight">
+            <summary>
+            Unable to execute command while in flight.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.WatchingCutscene78">
+            <summary>
+            Unable to execute command while watching a cutscene.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.InDeepDungeon">
+            <summary>
+            Unable to execute command while delving into a deep dungeon.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Swimming">
+            <summary>
+            Unable to execute command while swimming.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Diving">
+            <summary>
+            Unable to execute command while diving.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.RegisteringForTripleTriadMatch">
+            <summary>
+            Unable to execute command while registering for a Triple Triad match.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.WaitingForTripleTriadMatch83">
+            <summary>
+            Unable to execute command while waiting for a Triple Triad match.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.ParticipatingInCrossWorldPartyOrAlliance">
+            <summary>
+            Unable to execute command while participating in a cross-world party or alliance.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.DutyRecorderPlayback">
+            <summary>
+            Unable to execute command while playing duty record.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.Casting87">
+            <summary>
+            Unable to execute command while casting.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.InThisState88">
+            <summary>
+            Unable to execute command in this state.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.InThisState89">
+            <summary>
+            Unable to execute command in this state.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.RolePlaying">
+            <summary>
+            Unable to execute command while role-playing.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.BoundToDuty97">
+            <summary>
+            Unable to execute command while bound by duty.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.ReadyingVisitOtherWorld">
+            <summary>
+            Unable to execute command while readying to visit another World.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.WaitingToVisitOtherWorld">
+            <summary>
+            Unable to execute command while waiting to visit another World.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.UsingParasol">
+            <summary>
+            Unable to execute command while using a parasol.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.ClientState.ConditionFlag.BoundByDuty95">
+            <summary>
+            Unable to execute command while bound by duty.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.ClientState.KeyState">
+            <summary>
+            Wrapper around the game keystate buffer, which contains the pressed state for
+            all keyboard keys, indexed by virtual vkCode
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.KeyState.Item(System.Int32)">
+            <summary>
+            Get or set the keypressed state for a given vkCode.
+            </summary>
+            <param name="vkCode">The virtual key to change.</param>
+            <returns>Whether the specified key is currently pressed.</returns>
+        </member>
+        <member name="M:Dalamud.Game.ClientState.KeyState.ClearAll">
+            <summary>
+            Clears the pressed state for all keys.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.ClientState.Structs.Actor">
+            <summary>
+            Native memory representation of a FFXIV actor.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.ClientState.Structs.StatusEffect">
+            <summary>
+            Native memory representation of a FFXIV status effect.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.Command.CommandInfo">
+            <summary>
+            This class describes a registered command.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.Command.CommandInfo.HandlerDelegate">
+            <summary>
+            The function to be executed when the command is dispatched.
+            </summary>
+            <param name="command">The command itself.</param>
+            <param name="arguments">The arguments supplied to the command, ready for parsing.</param>
+        </member>
+        <member name="P:Dalamud.Game.Command.CommandInfo.Handler">
+            <summary>
+            A <see cref="T:Dalamud.Game.Command.CommandInfo.HandlerDelegate"/> which will be called when the command is dispatched.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Command.CommandInfo.HelpMessage">
+            <summary>
+            The help message for this command.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Command.CommandInfo.ShowInHelp">
+            <summary>
+            If this command should be shown in the help output.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.Command.CommandInfo.#ctor(Dalamud.Game.Command.CommandInfo.HandlerDelegate)">
+            <summary>
+            Create a new CommandInfo with the provided handler.
+            </summary>
+            <param name="handler"></param>
+        </member>
+        <member name="T:Dalamud.Game.Command.CommandManager">
+            <summary>
+            This class manages registered in-game slash commands.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Command.CommandManager.Commands">
+            <summary>
+            Read-only list of all registered commands.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.Command.CommandManager.ProcessCommand(System.String)">
+            <summary>
+            Process a command in full.
+            </summary>
+            <param name="content">The full command string.</param>
+            <returns>True if the command was found and dispatched.</returns>
+        </member>
+        <member name="M:Dalamud.Game.Command.CommandManager.DispatchCommand(System.String,System.String,Dalamud.Game.Command.CommandInfo)">
+            <summary>
+            Dispatch the handling of a command.
+            </summary>
+            <param name="command">The command to dispatch.</param>
+            <param name="argument">The provided arguments.</param>
+            <param name="info">A <see cref="T:Dalamud.Game.Command.CommandInfo"/> object describing this command.</param>
+        </member>
+        <member name="M:Dalamud.Game.Command.CommandManager.AddHandler(System.String,Dalamud.Game.Command.CommandInfo)">
+            <summary>
+            Add a command handler, which you can use to add your own custom commands to the in-game chat.
+            </summary>
+            <param name="command">The command to register.</param>
+            <param name="info">A <see cref="T:Dalamud.Game.Command.CommandInfo"/> object describing the command.</param>
+            <returns>If adding was successful.</returns>
+        </member>
+        <member name="M:Dalamud.Game.Command.CommandManager.RemoveHandler(System.String)">
+            <summary>
+            Remove a command from the command handlers.
+            </summary>
+            <param name="command">The command to remove.</param>
+            <returns>If the removal was successful.</returns>
+        </member>
+        <member name="T:Dalamud.Game.Internal.Framework">
+            <summary>
+            This class represents the Framework of the native game client and grants access to various subsystems.
+            </summary>
+        </member>
+        <member name="E:Dalamud.Game.Internal.Framework.OnUpdateEvent">
+            <summary>
+            Event that gets fired every time the game framework updates.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Internal.Framework.Address">
+            <summary>
+            A raw pointer to the instance of Client::Framework
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Internal.Framework.Gui">
+            <summary>
+            The GUI subsystem, used to access e.g. chat.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Internal.Framework.Network">
+            <summary>
+            The Network subsystem, used to access network data.
+            </summary>
+        </member>
+        <member name="E:Dalamud.Game.Internal.Gui.ChatGui.OnCheckMessageHandled">
+            <summary>
+            Event that allows you to stop messages from appearing in chat by setting the isHandled parameter to true.
+            </summary>
+        </member>
+        <member name="E:Dalamud.Game.Internal.Gui.ChatGui.OnChatMessage">
+            <summary>
+            Event that will be fired when a chat message is sent to chat by the game.
+            </summary>
+        </member>
+        <member name="E:Dalamud.Game.Internal.Gui.ChatGui.OnChatMessageRaw">
+            <summary>
+            Event that will be fired when a chat message is sent by the game, containing raw, unparsed data.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.Internal.Gui.ChatGui.AddChatLinkHandler(System.String,System.UInt32,System.Action{System.UInt32,Dalamud.Game.Chat.SeStringHandling.SeString})">
+            <summary>
+            Create a link handler
+            </summary>
+            <param name="pluginName"></param>
+            <param name="commandId"></param>
+            <param name="commandAction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dalamud.Game.Internal.Gui.ChatGui.RemoveChatLinkHandler(System.String,System.UInt32)">
+            <summary>
+            Remove a registered link handler
+            </summary>
+            <param name="pluginName"></param>
+            <param name="commandId"></param>
+        </member>
+        <member name="M:Dalamud.Game.Internal.Gui.ChatGui.RemoveChatLinkHandler(System.String)">
+            <summary>
+            Remove all handlers owned by a plugin.
+            </summary>
+            <param name="pluginName"></param>
+        </member>
+        <member name="M:Dalamud.Game.Internal.Gui.ChatGui.PrintChat(Dalamud.Game.Chat.XivChatEntry)">
+            <summary>
+                Queue a chat message. While method is named as PrintChat, it only add a entry to the queue,
+                later to be processed when UpdateQueue() is called.
+            </summary>
+            <param name="chat">A message to send.</param>
+        </member>
+        <member name="M:Dalamud.Game.Internal.Gui.ChatGui.UpdateQueue(Dalamud.Game.Internal.Framework)">
+            <summary>
+                Process a chat queue.
+            </summary>
+        </member>
+        <member name="E:Dalamud.Game.Internal.Gui.GameGui.OnUiHideToggled">
+            <summary>
+            Event which is fired when the game UI hiding is toggled.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Internal.Gui.GameGui.HoveredItem">
+            <summary>
+            The item ID that is currently hovered by the player. 0 when no item is hovered.
+            If > 1.000.000, subtract 1.000.000 and treat it as HQ
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Internal.Gui.GameGui.HoveredAction">
+            <summary>
+            The action ID that is current hovered by the player. 0 when no action is hovered.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Internal.Gui.GameGui.HoveredItemChanged">
+            <summary>
+            Event that is fired when the currently hovered item changes.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Internal.Gui.GameGui.HoveredActionChanged">
+            <summary>
+            Event that is fired when the currently hovered action changes.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.Internal.Gui.GameGui.OpenMapWithMapLink(Dalamud.Game.Chat.SeStringHandling.Payloads.MapLinkPayload)">
+            <summary>
+            Opens the in-game map with a flag on the location of the parameter
+            </summary>
+            <param name="mapLink">Link to the map to be opened</param>
+            <returns>True if there were no errors and it could open the map</returns>
+        </member>
+        <member name="M:Dalamud.Game.Internal.Gui.GameGui.WorldToScreen(SharpDX.Vector3,SharpDX.Vector2@)">
+            <summary>
+            Converts in-world coordinates to screen coordinates (upper left corner origin).
+            </summary>
+            <param name="worldPos">Coordinates in the world</param>
+            <param name="screenPos">Converted coordinates</param>
+            <returns>True if worldPos corresponds to a position in front of the camera</returns>
+        </member>
+        <member name="M:Dalamud.Game.Internal.Gui.GameGui.ScreenToWorld(SharpDX.Vector2,SharpDX.Vector3@,System.Single)">
+            <summary>
+            Converts screen coordinates to in-world coordinates via raycasting.
+            </summary>
+            <param name="screenPos">Screen coordinates</param>
+            <param name="worldPos">Converted coordinates</param>
+            <param name="rayDistance">How far to search for a collision</param>
+            <returns>True if successful. On false, worldPos's contents are undefined</returns>
+        </member>
+        <member name="M:Dalamud.Game.Internal.Gui.GameGui.GetUiObjectByName(System.String,System.Int32)">
+            <summary>
+            Gets the pointer to the UI Object with the given name and index.
+            </summary>
+            <param name="name">Name of UI to find</param>
+            <param name="index">Index of UI to find (1-indexed)</param>
+            <returns>IntPtr.Zero if unable to find UI, otherwise IntPtr pointing to the start of the UI Object</returns>
+        </member>
+        <member name="T:Dalamud.Game.Internal.Gui.HoverActionKind">
+            <summary>
+            ActionKinds used in AgentActionDetail.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Internal.Gui.HoveredAction.BaseActionID">
+            <summary>
+            The base action ID
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Internal.Gui.HoveredAction.ActionID">
+            <summary>
+            Action ID accounting for automatic upgrades.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.Internal.Gui.HoveredAction.ActionKind">
+            <summary>
+            The type of action
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.Internal.Libc.OwnedStdString.#ctor(System.IntPtr,Dalamud.Game.Internal.Libc.OwnedStdString.DeallocatorDelegate)">
+            <summary>
+            Construct a wrapper around std::string
+            </summary>
+            <remarks>
+            Violating any of these might cause an undefined hehaviour.
+            1. This function takes the ownership of the address.
+            2. A memory pointed by address argument is assumed to be allocated by Marshal.AllocHGlobal thus will try to call Marshal.FreeHGlobal on the address.
+            3. std::string object pointed by address must be initialized before calling this function.
+            </remarks>
+            <param name="address"></param>
+            <param name="dealloc">A deallocator function.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Dalamud.Game.Internal.Libc.StdString">
+            <summary>
+            Interation with std::string
+            </summary>
+        </member>
+        <member name="F:Dalamud.Game.Internal.Network.GameNetwork.OnNetworkMessage">
+            <summary>
+            Event that is called when a network message is sent/received.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.Internal.Network.GameNetwork.UpdateQueue(Dalamud.Game.Internal.Framework)">
+            <summary>
+                Process a chat queue.
+            </summary>
+        </member>
+        <member name="E:Dalamud.Game.Network.NetworkHandlers.CfPop">
+            <summary>
+            Event which gets fired when a duty is ready.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Game.SigScanner">
+            <summary>
+            A SigScanner facilitates searching for memory signatures in a given ProcessModule.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.SigScanner.#ctor(System.Diagnostics.ProcessModule,System.Boolean)">
+            <summary>
+            Set up the SigScanner.
+            </summary>
+            <param name="module">The ProcessModule to be used for scanning</param>
+            <param name="doCopy">Whether or not to copy the module upon initialization for search operations to use, as to not get disturbed by possible hooks.</param>
+        </member>
+        <member name="P:Dalamud.Game.SigScanner.IsCopy">
+            <summary>
+            If the search on this module is performed on a copy.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.SigScanner.Is32BitProcess">
+            <summary>
+            If the ProcessModule is 32-bit.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.SigScanner.SearchBase">
+            <summary>
+            The base address of the search area. When copied, this will be the address of the copy.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.SigScanner.TextSectionBase">
+            <summary>
+            The base address of the .text section search area.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.SigScanner.TextSectionOffset">
+            <summary>
+            The offset of the .text section from the base of the module.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.SigScanner.TextSectionSize">
+            <summary>
+            The size of the text section.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.SigScanner.DataSectionBase">
+            <summary>
+            The base address of the .data section search area.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.SigScanner.DataSectionOffset">
+            <summary>
+            The offset of the .data section from the base of the module.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.SigScanner.DataSectionSize">
+            <summary>
+            The size of the .data section.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Game.SigScanner.Module">
+            <summary>
+            The ProcessModule on which the search is performed.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.SigScanner.Dispose">
+            <summary>
+            Free the memory of the copied module search area on object disposal, if applicable.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Game.SigScanner.ScanText(System.String)">
+            <summary>
+            Scan for a byte signature in the .text section.
+            </summary>
+            <param name="signature">The signature.</param>
+            <returns>The real offset of the found signature.</returns>
+        </member>
+        <member name="M:Dalamud.Game.SigScanner.ReadCallSig(System.IntPtr)">
+            <summary>
+            Helper for ScanText to get the correct address for IDA sigs that mark the first CALL location.
+            </summary>
+            <param name="sigLocation">The address the CALL sig resolved to.</param>
+            <returns>The real offset of the signature.</returns>
+        </member>
+        <member name="M:Dalamud.Game.SigScanner.GetStaticAddressFromSig(System.String,System.Int32)">
+            <summary>
+            Scan for a .data address using a .text function.
+            This is intended to be used with IDA sigs.
+            Place your cursor on the line calling a static address, and create and IDA sig.
+            </summary>
+            <param name="signature">The signature of the function using the data.</param>
+            <param name="offset">The offset from function start of the instruction using the data.</param>
+            <returns>An IntPtr to the static memory location.</returns>
+        </member>
+        <member name="M:Dalamud.Game.SigScanner.ScanData(System.String)">
+            <summary>
+            Scan for a byte signature in the .data section.
+            </summary>
+            <param name="signature">The signature.</param>
+            <returns>The real offset of the found signature.</returns>
+        </member>
+        <member name="M:Dalamud.Game.SigScanner.ScanModule(System.String)">
+            <summary>
+            Scan for a byte signature in the whole module search area.
+            </summary>
+            <param name="signature">The signature.</param>
+            <returns>The real offset of the found signature.</returns>
+        </member>
+        <member name="T:Dalamud.Hooking.Hook`1">
+            <summary>
+            Manages a hook which can be used to intercept a call to native function.
+            This class is basically a thin wrapper around the LocalHook type to provide helper functions.
+            </summary>
+            <typeparam name="T">Delegate type to represents a function prototype. This must be the same prototype as original function do.</typeparam>
+        </member>
+        <member name="P:Dalamud.Hooking.Hook`1.Address">
+            <summary>
+            A memory address of the target function. 
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">Hook is already disposed.</exception>
+        </member>
+        <member name="P:Dalamud.Hooking.Hook`1.Original">
+            <summary>
+            A delegate function that can be used to call the actual function as if function is not hooked yet.
+            </summary>
+            <remarks></remarks>
+            <exception cref="T:System.ObjectDisposedException">Hook is already disposed.</exception>
+        </member>
+        <member name="M:Dalamud.Hooking.Hook`1.FromSymbol(System.String,System.String,System.Delegate,System.Object)">
+            <summary>
+            Creates a hook. Hooking address is inferred by calling to GetProcAddress() function. Hook is not activated until Enable() method is called.
+            </summary>
+            <param name="moduleName">A name of the module currently loaded in the memory. (e.g. ws2_32.dll)</param>
+            <param name="exportName">A name of the exported function name (e.g. send)</param>
+            <param name="detour">Callback function. Delegate must have a same original function prototype.</param>
+            <param name="callbackParam">A callback object which can be accessed within the detour.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dalamud.Hooking.Hook`1.#ctor(System.IntPtr,System.Delegate,System.Object)">
+            <summary>
+            Createss a hook. Hook is not activated until Enable() method is called.
+            </summary>
+            <param name="address">A memory address to install a hook.</param>
+            <param name="detour">Callback function. Delegate must have a same original function prototype.</param>
+            <param name="callbackParam">A callback object which can be accessed within the detour.</param>
+        </member>
+        <member name="M:Dalamud.Hooking.Hook`1.Dispose">
+            <summary>
+            Remove a hook from the current process.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Hooking.Hook`1.Enable">
+            <summary>
+            Starts intercepting a call to the function. 
+            </summary>
+        </member>
+        <member name="M:Dalamud.Hooking.Hook`1.Disable">
+            <summary>
+            Stops intercepting a call to the function. 
+            </summary>
+        </member>
+        <member name="P:Dalamud.Hooking.Hook`1.IsEnabled">
+            <summary>
+            Check if the hook is enabled.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Hooking.Hook`1.IsDisposed">
+            <summary>
+            Check if the hook has been disposed
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.AssetManager.CheckAssetRefreshNeeded(System.String)">
+            <summary>
+            Check if an asset update is needed. When this fails, just return false - the route to github
+            might be bad, don't wanna just bail out in that case
+            </summary>
+            <param name="baseDir">Base directory for assets</param>
+            <returns>Update state</returns>
+        </member>
+        <member name="E:Dalamud.Interface.InterfaceManager.OnDraw">
+            <summary>
+            This event gets called by a plugin UiBuilder when read
+            </summary>
+        </member>
+        <member name="T:Dalamud.Interface.UiBuilder">
+            <summary>
+            This class represents the Dalamud UI that is drawn on top of the game.
+            It can be used to draw custom windows and overlays.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.UiBuilder.Device">
+            <summary>
+            The game's active Direct3D device.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.UiBuilder.WindowHandlePtr">
+            <summary>
+            The game's main window handle.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.UiBuilder.DefaultFont">
+            <summary>
+            The default Dalamud font based on Noto Sans CJK Medium in 17pt - supporting all game languages and icons.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.UiBuilder.IconFont">
+            <summary>
+            The default Dalamud icon font based on FontAwesome 5 Free solid in 17pt.
+            </summary>
+        </member>
+        <member name="E:Dalamud.Interface.UiBuilder.OnBuildUi">
+            <summary>
+            The delegate that gets called when Dalamud is ready to draw your windows or overlays.
+            When it is called, you can use static ImGui calls.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.UiBuilder.DisableAutomaticUiHide">
+            <summary>
+            Choose if this plugin should hide its UI automatically when the game's UI is hidden.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.UiBuilder.DisableUserUiHide">
+            <summary>
+            Choose if this plugin should hide its UI automatically when the user toggles the UI.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.UiBuilder.DisableCutsceneUiHide">
+            <summary>
+            Choose if this plugin should hide its UI automatically during cutscenes.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.UiBuilder.DisableGposeUiHide">
+            <summary>
+            Choose if this plugin should hide its UI automatically while gpose is active.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.UiBuilder.#ctor(Dalamud.Dalamud,System.String)">
+            <summary>
+            Create a new UiBuilder and register it. You do not have to call this manually.
+            </summary>
+            <param name="interfaceManager">The interface manager to register on.</param>
+            <param name="namespaceName">The plugin namespace.</param>
+        </member>
+        <member name="M:Dalamud.Interface.UiBuilder.Dispose">
+            <summary>
+            Unregister the UiBuilder. Do not call this in plugin code.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.UiBuilder.LoadImage(System.String)">
+            <summary>
+            Loads an image from the specified file.
+            </summary>
+            <param name="filePath">The full filepath to the image.</param>
+            <returns>A <see cref="T:ImGuiScene.TextureWrap"/> object wrapping the created image.  Use <see cref="P:ImGuiScene.TextureWrap.ImGuiHandle"/> inside ImGui.Image()</returns>
+        </member>
+        <member name="M:Dalamud.Interface.UiBuilder.LoadImage(System.Byte[])">
+            <summary>
+            Loads an image from a byte stream, such as a png downloaded into memory.
+            </summary>
+            <param name="imageData">A byte array containing the raw image data.</param>
+            <returns>A <see cref="T:ImGuiScene.TextureWrap"/> object wrapping the created image.  Use <see cref="P:ImGuiScene.TextureWrap.ImGuiHandle"/> inside ImGui.Image()</returns>
+        </member>
+        <member name="M:Dalamud.Interface.UiBuilder.LoadImageRaw(System.Byte[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Loads an image from raw unformatted pixel data, with no type or header information.  To load formatted data, use <see cref="M:Dalamud.Interface.UiBuilder.LoadImage(System.Byte[])"/>.
+            </summary>
+            <param name="imageData">A byte array containing the raw pixel data.</param>
+            <param name="width">The width of the image contained in <paramref name="imageData"/>.</param>
+            <param name="height">The height of the image contained in <paramref name="imageData"/>.</param>
+            <param name="numChannels">The number of channels (bytes per pixel) of the image contained in <paramref name="imageData"/>.  This should usually be 4.</param>
+            <returns>A <see cref="T:ImGuiScene.TextureWrap"/> object wrapping the created image.  Use <see cref="P:ImGuiScene.TextureWrap.ImGuiHandle"/> inside ImGui.Image()</returns>
+        </member>
+        <member name="P:Dalamud.Interface.UiBuilder.OnBuildFonts">
+            <summary>
+            An event that is called any time ImGui fonts need to be rebuilt.<br/>
+            Any ImFontPtr objects that you store <strong>can be invalidated</strong> when fonts are rebuilt
+            (at any time), so you should both reload your custom fonts and restore those
+            pointers inside this handler.<br/>
+            <strong>PLEASE remove this handler inside Dispose, or when you no longer need your fonts!</strong>
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.UiBuilder.RebuildFonts">
+            <summary>
+            Call this to queue a rebuild of the font atlas.<br/>
+            This will invoke any <see cref="P:Dalamud.Interface.UiBuilder.OnBuildFonts"/> handlers and ensure that any loaded fonts are
+            ready to be used on the next UI frame.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Interface.UiBuilder.OnOpenConfigUi">
+            <summary>
+            Event that is fired when the plugin should open its configuration interface.
+            </summary>
+        </member>
+        <member name="F:Dalamud.NativeFunctions.FlashWindow.FLASHW_STOP">
+            <summary>
+            Stop flashing. The system restores the window to its original state.
+            </summary>    
+        </member>
+        <member name="F:Dalamud.NativeFunctions.FlashWindow.FLASHW_CAPTION">
+            <summary>
+            Flash the window caption
+            </summary>
+        </member>
+        <member name="F:Dalamud.NativeFunctions.FlashWindow.FLASHW_TRAY">
+            <summary>
+            Flash the taskbar button.
+            </summary>
+        </member>
+        <member name="F:Dalamud.NativeFunctions.FlashWindow.FLASHW_ALL">
+            <summary>
+            Flash both the window caption and taskbar button.
+            This is equivalent to setting the FLASHW_CAPTION | FLASHW_TRAY flags.
+            </summary>
+        </member>
+        <member name="F:Dalamud.NativeFunctions.FlashWindow.FLASHW_TIMER">
+            <summary>
+            Flash continuously, until the FLASHW_STOP flag is set.
+            </summary>
+        </member>
+        <member name="F:Dalamud.NativeFunctions.FlashWindow.FLASHW_TIMERNOFG">
+            <summary>
+            Flash continuously until the window comes to the foreground.
+            </summary>
+        </member>
+        <member name="M:Dalamud.NativeFunctions.ApplicationIsActivated">
+            <summary>Returns true if the current application has focus, false otherwise</summary>
+        </member>
+        <member name="T:Dalamud.Plugin.DalamudPluginInterface">
+            <summary>
+            This class acts as an interface to various objects needed to interact with Dalamud and the game.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.DalamudPluginInterface.Reason">
+            <summary>
+            The reason this plugin was loaded.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.DalamudPluginInterface.DalamudAssetDirectory">
+            <summary>
+            Get the directory Dalamud assets are stored in.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.DalamudPluginInterface.ConfigDirectory">
+            <summary>
+            Get the directory your plugin configurations are stored in.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.DalamudPluginInterface.ConfigFile">
+            <summary>
+            Get the config file of your plugin.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Plugin.DalamudPluginInterface.CommandManager">
+            <summary>
+            The CommandManager object that allows you to add and remove custom chat commands.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Plugin.DalamudPluginInterface.ClientState">
+            <summary>
+            The ClientState object that allows you to access current client memory information like actors, territories, etc.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Plugin.DalamudPluginInterface.Framework">
+            <summary>
+            The Framework object that allows you to interact with the client.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Plugin.DalamudPluginInterface.UiBuilder">
+            <summary>
+            A <see cref="F:Dalamud.Plugin.DalamudPluginInterface.UiBuilder">UiBuilder</see> instance which allows you to draw UI into the game via ImGui draw calls.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Plugin.DalamudPluginInterface.TargetModuleScanner">
+            <summary>
+            A <see cref="T:Dalamud.Game.SigScanner">SigScanner</see> instance targeting the main module of the FFXIV process.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Plugin.DalamudPluginInterface.Data">
+            <summary>
+            A <see cref="T:Dalamud.Data.DataManager">DataManager</see> instance which allows you to access game data needed by the main dalamud features.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Plugin.DalamudPluginInterface.SeStringManager">
+            <summary>
+            A <see cref="F:Dalamud.Plugin.DalamudPluginInterface.SeStringManager">SeStringManager</see> instance which allows creating and parsing SeString payloads.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.DalamudPluginInterface.IsDebugging">
+            <summary>
+            Returns true if Dalamud is running in Debug mode or the /xldev menu is open. This can occur on release builds.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Plugin.DalamudPluginInterface.#ctor(Dalamud.Dalamud,System.String,Dalamud.Configuration.PluginConfigurations,Dalamud.Plugin.PluginLoadReason)">
+            <summary>
+            Set up the interface and populate all fields needed.
+            </summary>
+            <param name="dalamud"></param>
+        </member>
+        <member name="M:Dalamud.Plugin.DalamudPluginInterface.Dispose">
+            <summary>
+            Unregister your plugin and dispose all references. You have to call this when your IDalamudPlugin is disposed.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Plugin.DalamudPluginInterface.SavePluginConfig(Dalamud.Configuration.IPluginConfiguration)">
+            <summary>
+            Save a plugin configuration(inheriting IPluginConfiguration).
+            </summary>
+            <param name="currentConfig">The current configuration.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.DalamudPluginInterface.GetPluginConfig">
+            <summary>
+            Get a previously saved plugin configuration or null if none was saved before.
+            </summary>
+            <returns>A previously saved config or null if none was saved before.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.DalamudPluginInterface.GetPluginConfigDirectory">
+            <summary>
+            Get the config directory
+            </summary>
+            <returns>directory with path of AppData/XIVLauncher/pluginConfig/PluginInternalName </returns>
+        </member>
+        <member name="M:Dalamud.Plugin.DalamudPluginInterface.AddChatLinkHandler(System.UInt32,System.Action{System.UInt32,Dalamud.Game.Chat.SeStringHandling.SeString})">
+            <summary>
+            Register a chat link handler.
+            </summary>
+            <param name="commandId"></param>
+            <param name="commandAction"></param>
+            <returns>Returns an SeString payload for the link.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.DalamudPluginInterface.RemoveChatLinkHandler(System.UInt32)">
+            <summary>
+            Remove a chat link handler.
+            </summary>
+            <param name="commandId"></param>
+        </member>
+        <member name="M:Dalamud.Plugin.DalamudPluginInterface.RemoveChatLinkHandler">
+            <summary>
+            Removes all chat link handlers registered by the plugin.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Plugin.DalamudPluginInterface.SubscribeAny(System.Action{System.String,System.Dynamic.ExpandoObject})">
+            <summary>
+            Subscribe to an IPC message by any plugin.
+            </summary>
+            <param name="action">The action to take when a message was received.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.DalamudPluginInterface.Subscribe(System.String,System.Action{System.Dynamic.ExpandoObject})">
+            <summary>
+            Subscribe to an IPC message by a plugin.
+            </summary>
+            <param name="pluginName">The InternalName of the plugin to subscribe to.</param>
+            <param name="action">The action to take when a message was received.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.DalamudPluginInterface.UnsubscribeAny">
+            <summary>
+            Unsubscribe from messages from any plugin.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Plugin.DalamudPluginInterface.Unsubscribe(System.String)">
+            <summary>
+            Unsubscribe from messages from a plugin.
+            </summary>
+            <param name="pluginName">The InternalName of the plugin to unsubscribe from.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.DalamudPluginInterface.SendMessage(System.Dynamic.ExpandoObject)">
+            <summary>
+            Send a message to all subscribed plugins.
+            </summary>
+            <param name="message">The message to send.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.DalamudPluginInterface.SendMessage(System.String,System.Dynamic.ExpandoObject)">
+            <summary>
+            Send a message to a specific plugin.
+            </summary>
+            <param name="pluginName">The InternalName of the plugin to send the message to.</param>
+            <param name="message">The message to send.</param>
+            <returns>True if the corresponding plugin was present and received the message.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.DalamudPluginInterface.Log(System.String,System.Object[])">
+            <summary>
+            Log a templated message to the in-game debug log.
+            </summary>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.DalamudPluginInterface.LogError(System.String,System.Object[])">
+            <summary>
+            Log a templated error message to the in-game debug log.
+            </summary>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.DalamudPluginInterface.LogError(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a templated error message to the in-game debug log.
+            </summary>
+            <param name="exception">The exception that caused the error.</param>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="T:Dalamud.Plugin.IDalamudPlugin">
+            <summary>
+            This interface represents a basic Dalamud plugin. All plugins have to implement this interface.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.IDalamudPlugin.Name">
+            <summary>
+            The name of the plugin.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Plugin.IDalamudPlugin.Initialize(Dalamud.Plugin.DalamudPluginInterface)">
+            <summary>
+            Initializes a Dalamud plugin.
+            </summary>
+            <param name="pluginInterface">The <see cref="T:Dalamud.Plugin.DalamudPluginInterface"/> needed to access various Dalamud objects.</param>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.Author">
+            <summary>
+            The author/s of the plugin.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.Name">
+            <summary>
+            The public name of the plugin.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.InternalName">
+            <summary>
+            The internal name of the plugin, which should match the assembly name of the plugin.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.AssemblyVersion">
+            <summary>
+            The current assembly version of the plugin.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.TestingAssemblyVersion">
+            <summary>
+            The current testing assembly version of the plugin.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.IsTestingExclusive">
+            <summary>
+            Defines if the plugin is only available for testing.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.Description">
+            <summary>
+            A description of the plugins functions.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.ApplicableVersion">
+            <summary>
+            The version of the game this plugin works with.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.RepoUrl">
+            <summary>
+            An URL to the website or source code of the plugin.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.Tags">
+            <summary>
+            List of tags defined on the plugin.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.IsHide">
+            <summary>
+            Whether or not the plugin is hidden in the plugin installer.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.DalamudApiLevel">
+            <summary>
+            The API level of this plugin. For the current API level, please see <see cref="F:Dalamud.Plugin.PluginManager.DALAMUD_API_LEVEL"/> for the currently used API level.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.DownloadCount">
+            <summary>
+            The number of downloads this plugin has.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.LastUpdate">
+            <summary>
+            The last time this plugin was updated.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.RepoNumber">
+            <summary>
+            Number of the repo.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.DownloadLinkInstall">
+            <summary>
+            Download link used to install the plugin.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.DownloadLinkUpdate">
+            <summary>
+            Download link used to update the plugin.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.DownloadLinkTesting">
+            <summary>
+            Download link used to get testing versions of the plugin.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.PluginDefinition.LoadPriority">
+            <summary>
+            Load priority for this plugin. Higher values means higher priority. 0 is default priority.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Plugin.PluginLoadReason">
+            <summary>
+            This enum reflects reasons for loading a plugin.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Plugin.PluginLoadReason.Unknown">
+            <summary>
+            We don't know why this plugin was loaded.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Plugin.PluginLoadReason.Installer">
+            <summary>
+            This plugin was loaded because it was installed with the plugin installer.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Plugin.PluginLoadReason.Boot">
+            <summary>
+            This plugin was loaded because the game was started or Dalamud was reinjected.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.Log(System.String,System.Object[])">
+            <summary>
+            Log a templated message to the in-game debug log.
+            </summary>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.Log(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a templated message to the in-game debug log.
+            </summary>
+            <param name="exception">The exception that caused the error.</param>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.LogVerbose(System.String,System.Object[])">
+            <summary>
+            Log a templated verbose message to the in-game debug log.
+            </summary>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.LogVerbose(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a templated verbose message to the in-game debug log.
+            </summary>
+            <param name="exception">The exception that caused the error.</param>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.LogDebug(System.String,System.Object[])">
+            <summary>
+            Log a templated debug message to the in-game debug log.
+            </summary>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.LogDebug(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a templated debug message to the in-game debug log.
+            </summary>
+            <param name="exception">The exception that caused the error.</param>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.LogInformation(System.String,System.Object[])">
+            <summary>
+            Log a templated information message to the in-game debug log.
+            </summary>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.LogInformation(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a templated information message to the in-game debug log.
+            </summary>
+            <param name="exception">The exception that caused the error.</param>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.LogWarning(System.String,System.Object[])">
+            <summary>
+            Log a templated warning message to the in-game debug log.
+            </summary>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.LogWarning(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a templated warning message to the in-game debug log.
+            </summary>
+            <param name="exception">The exception that caused the error.</param>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.LogError(System.String,System.Object[])">
+            <summary>
+            Log a templated error message to the in-game debug log.
+            </summary>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.LogError(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a templated error message to the in-game debug log.
+            </summary>
+            <param name="exception">The exception that caused the error.</param>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.LogFatal(System.String,System.Object[])">
+            <summary>
+            Log a templated fatal message to the in-game debug log.
+            </summary>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.LogFatal(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a templated fatal message to the in-game debug log.
+            </summary>
+            <param name="exception">The exception that caused the error.</param>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.Verbose(System.String,System.Object[])">
+            <summary>
+            Log a templated verbose message to the in-game debug log.
+            </summary>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.Verbose(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a templated verbose message to the in-game debug log.
+            </summary>
+            <param name="exception">The exception that caused the error.</param>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.Debug(System.String,System.Object[])">
+            <summary>
+            Log a templated debug message to the in-game debug log.
+            </summary>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.Debug(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a templated debug message to the in-game debug log.
+            </summary>
+            <param name="exception">The exception that caused the error.</param>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.Information(System.String,System.Object[])">
+            <summary>
+            Log a templated information message to the in-game debug log.
+            </summary>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.Information(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a templated information message to the in-game debug log.
+            </summary>
+            <param name="exception">The exception that caused the error.</param>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.Warning(System.String,System.Object[])">
+            <summary>
+            Log a templated warning message to the in-game debug log.
+            </summary>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.Warning(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a templated warning message to the in-game debug log.
+            </summary>
+            <param name="exception">The exception that caused the error.</param>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.Error(System.String,System.Object[])">
+            <summary>
+            Log a templated error message to the in-game debug log.
+            </summary>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.Error(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a templated error message to the in-game debug log.
+            </summary>
+            <param name="exception">The exception that caused the error.</param>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.Fatal(System.String,System.Object[])">
+            <summary>
+            Log a templated fatal message to the in-game debug log.
+            </summary>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.PluginLog.Fatal(System.Exception,System.String,System.Object[])">
+            <summary>
+            Log a templated fatal message to the in-game debug log.
+            </summary>
+            <param name="exception">The exception that caused the error.</param>
+            <param name="messageTemplate">The message template.</param>
+            <param name="values">Values to log.</param>
+        </member>
+        <member name="T:Dalamud.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Properties.Resources.eye">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:Dalamud.SafeMemory">
+            <summary>
+            Class facilitating safe memory access
+            </summary>
+            <remarks>
+            Attention! The performance of these methods is severely worse than regular <see cref="T:System.Runtime.InteropServices.Marshal"/> calls.
+            Please consider using these instead in performance-critical code.
+            </remarks>
+        </member>
+        <member name="M:Dalamud.SafeMemory.ReadBytes(System.IntPtr,System.Int32,System.Byte[]@)">
+            <summary>
+            Read a byte array from the current process.
+            </summary>
+            <param name="address">The address to read from.</param>
+            <param name="count">The amount of bytes to read.</param>
+            <param name="buffer">The result buffer.</param>
+            <returns>Whether or not the read succeeded.</returns>
+        </member>
+        <member name="M:Dalamud.SafeMemory.WriteBytes(System.IntPtr,System.Byte[])">
+            <summary>
+            Write a byte array to the current process.
+            </summary>
+            <param name="address">The address to write to.</param>
+            <param name="buffer">The buffer to write.</param>
+            <returns>Whether or not the write succeeded.</returns>
+        </member>
+        <member name="M:Dalamud.SafeMemory.Read``1(System.IntPtr,``0@)">
+            <summary>
+            Read an object of the specified struct from the current process.
+            </summary>
+            <typeparam name="T">The type of the struct.</typeparam>
+            <param name="address">The address to read from.</param>
+            <param name="result">The resulting object.</param>
+            <returns>Whether or not the read succeeded.</returns>
+        </member>
+        <member name="M:Dalamud.SafeMemory.Read``1(System.IntPtr,System.Int32)">
+            <summary>
+            Read an array of objects of the specified struct from the current process.
+            </summary>
+            <typeparam name="T">The type of the struct.</typeparam>
+            <param name="address">The address to read from.</param>
+            <param name="count">The length of the array.</param>
+            <returns>An array of the read objects, or null if any entry of the array failed to read.</returns>
+        </member>
+        <member name="M:Dalamud.SafeMemory.Write``1(System.IntPtr,``0)">
+            <summary>
+            Write a struct to the current process.
+            </summary>
+            <typeparam name="T">The type of the struct.</typeparam>
+            <param name="address">The address to write to.</param>
+            <param name="obj">The object to write.</param>
+            <returns>Whether or not the write succeeded.</returns>
+        </member>
+        <member name="M:Dalamud.SafeMemory.Write``1(System.IntPtr,``0[])">
+            <summary>
+            Write an array of structs to the current process.
+            </summary>
+            <typeparam name="T">The type of the structs.</typeparam>
+            <param name="address">The address to write to.</param>
+            <param name="objArray">The array to write.</param>
+            <returns>Whether or not the write succeeded.</returns>
+        </member>
+        <member name="M:Dalamud.SafeMemory.ReadString(System.IntPtr,System.Int32)">
+            <summary>
+            Read a string from the current process(UTF-8).
+            </summary>
+            <remarks>
+            Attention! This will use the .NET Encoding.UTF8 class to decode the text.
+            If you read a FFXIV string, please use ReadBytes and parse the string with the applicable class,
+            since Encoding.UTF8 destroys the FFXIV payload structure.
+            </remarks>
+            <param name="address">The address to read from.</param>
+            <param name="maxLength">The maximum length of the string.</param>
+            <returns>The read string, or null in case the read was not successful.</returns>
+        </member>
+        <member name="M:Dalamud.SafeMemory.ReadString(System.IntPtr,System.Text.Encoding,System.Int32)">
+            <summary>
+            Read a string from the current process(UTF-8).
+            </summary>
+            <remarks>
+            Attention! This will use the .NET Encoding class to decode the text.
+            If you read a FFXIV string, please use ReadBytes and parse the string with the applicable class,
+            since Encoding may destroy the FFXIV payload structure.
+            </remarks>
+            <param name="address">The address to read from.</param>
+            <param name="encoding">The encoding to use to decode the string.</param>
+            <param name="maxLength">The maximum length of the string.</param>
+            <returns>The read string, or null in case the read was not successful.</returns>
+        </member>
+        <member name="M:Dalamud.SafeMemory.WriteString(System.IntPtr,System.String)">
+            <summary>
+            Write a string to the current process.
+            </summary>
+            <remarks>
+            Attention! This will use the .NET Encoding class to encode the text.
+            If you read a FFXIV string, please use WriteBytes with the applicable encoded SeString,
+            since Encoding may destroy the FFXIV payload structure.
+            </remarks>
+            <param name="address">The address to write to.</param>
+            <param name="str">The string to write.</param>
+            <returns>Whether or not the write succeeded.</returns>
+        </member>
+        <member name="M:Dalamud.SafeMemory.WriteString(System.IntPtr,System.String,System.Text.Encoding)">
+            <summary>
+            Write a string to the current process.
+            </summary>
+            <remarks>
+            Attention! This will use the .NET Encoding class to encode the text.
+            If you read a FFXIV string, please use WriteBytes with the applicable encoded SeString,
+            since Encoding may destroy the FFXIV payload structure.
+            </remarks>
+            <param name="address">The address to write to.</param>
+            <param name="str">The string to write.</param>
+            <param name="encoding">The encoding to use.</param>
+            <returns>Whether or not the write succeeded.</returns>
+        </member>
+        <member name="M:Dalamud.SafeMemory.SizeOf``1">
+            <summary>
+            Get the size of the passed type.
+            </summary>
+            <typeparam name="T">The type to inspect.</typeparam>
+            <returns>The size of the passed type.</returns>
+        </member>
+    </members>
+</doc>
