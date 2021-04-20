@@ -32,18 +32,9 @@ namespace Plugins.a08381.SkipCutscene
 
             Address = new CutsceneAddressResolver();
 
-            SigScanner sig = null;
+            SigScanner sig = pluginInterface.TargetModuleScanner;
 
-            Type p_interface = pluginInterface.GetType();
-            foreach (FieldInfo field in p_interface.GetFields())
-            {
-                if (field.Name == "TargetModuleScanner")
-                {
-                    sig = field.GetValue(pluginInterface) as SigScanner;
-                }
-            }
-            if (sig != null)
-                Address.Setup(sig);
+            Address.Setup(sig);
 
             if (Address.Offset1 != IntPtr.Zero && Address.Offset2 != IntPtr.Zero)
             {
