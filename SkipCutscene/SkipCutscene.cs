@@ -1,21 +1,20 @@
 using Dalamud;
 using Dalamud.Game;
-using Dalamud.Game.Internal;
+using Dalamud.IoC;
+using Dalamud.Logging;
 using Dalamud.Plugin;
 using System;
-using System.Reflection;
-using System.Runtime.InteropServices;
 
 namespace Plugins.a08381.SkipCutscene
 {
-    public class SkipCutscene : IDalamudPlugin
+	public class SkipCutscene : IDalamudPlugin
     {
         public string Name => "SkipCutscene";
 
+        [PluginService]
+        public SigScanner SigScanner { get; private set; }
+
         public CutsceneAddressResolver Address; 
-
-
-        private DalamudPluginInterface pi;
 
         public void Dispose()
         {
@@ -23,18 +22,13 @@ namespace Plugins.a08381.SkipCutscene
                 SafeMemory.Write<short>(Address.Offset1, 13173);
             if (Address.Offset2 != IntPtr.Zero)
                 SafeMemory.Write<short>(Address.Offset2, 6260);
-            pi.Dispose();
         }
 
-        public void Initialize(DalamudPluginInterface pluginInterface)
+        public SkipCutscene(DalamudPluginInterface pluginInterface)
         {
-            pi = pluginInterface;
-
             Address = new CutsceneAddressResolver();
 
-            SigScanner sig = pluginInterface.TargetModuleScanner;
-
-            Address.Setup(sig);
+            Address.Setup(SigScanner);
 
             if (Address.Offset1 != IntPtr.Zero && Address.Offset2 != IntPtr.Zero)
             {

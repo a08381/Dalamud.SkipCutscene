@@ -18,9 +18,6 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     runs-on: windows-latest
-    
-    env:
-      MSBUILD_PATH: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -35,30 +32,30 @@ jobs:
         run: nuget restore SkipCutscene.sln
       - name: Build
         run: |
-          cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
-          .\MSBuild.exe $Env:GITHUB_WORKSPACE\SkipCutscene.sln /t:Build /p:Configuration=Release /p:DefineConstants=XL_NOAUTOUPDATE
+          dotnet build $Env:GITHUB_WORKSPACE\SkipCutscene.sln /p:Configuration=Release /p:DefineConstants=XL_NOAUTOUPDATE
       - name: Protect
         run: |
           cd "$Env:GITHUB_WORKSPACE"
-          .\Lib\.NET_Reactor\dotNET_Reactor.Console.exe -file ".\SkipCutscene\bin\Release\SkipCutscene.dll" -antitamp 1 -hide_calls 1 -control_flow_obfuscation 1 -flow_level 9 -resourceencryption 1
-          Move-Item -Path .\SkipCutscene\bin\Release\SkipCutscene_Secure\* -Destination .\SkipCutscene\bin\Release -Force
-          Remove-Item -Path .\SkipCutscene\bin\Release\SkipCutscene_Secure\* -Force -Recurse
-          Remove-Item -Path .\SkipCutscene\bin\Release\SkipCutscene -Force -Recurse
+          .\Lib\.NET_Reactor\dotNET_Reactor.Console.exe -file ".\SkipCutscene\bin\Release\net5.0-windows\SkipCutscene.dll" -antitamp 1 -hide_calls 1 -control_flow_obfuscation 1 -flow_level 9 -resourceencryption 1
+          Move-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\SkipCutscene_Secure\* -Destination .\SkipCutscene\bin\Release\net5.0-windows -Force
+          Remove-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\SkipCutscene_Secure -Force -Recurse
+          Remove-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\SkipCutscene -Force -Recurse
+          Remove-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\SkipCutscene.deps.json -Force -Recurse
           mkdir -Path .\SkipCutscene\bin\Package\
       - name: Package
         uses: papeloto/action-zip@v1
         with:
-          files: SkipCutscene\bin\Release\SkipCutscene.dll SkipCutscene\bin\Release\SkipCutscene.json SkipCutscene\bin\Release\SkipCutscene.pdb
+          files: SkipCutscene\bin\Release\net5.0-windows\SkipCutscene.dll SkipCutscene\bin\Release\net5.0-windows\SkipCutscene.json SkipCutscene\bin\Release\net5.0-windows\SkipCutscene.pdb
           dest: SkipCutscene\bin\Package\latest.zip
       - name: Package
         run: |
           cd "$Env:GITHUB_WORKSPACE"
-          Copy-Item -Path .\SkipCutscene\bin\Release\SkipCutscene.json -Destination .\SkipCutscene\bin\Package\
+          Copy-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\SkipCutscene.json -Destination .\SkipCutscene\bin\Package\
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: SkipCutscene
-          path: ${{ github.workspace }}\SkipCutscene\bin\Release\
+          path: ${{ github.workspace }}\SkipCutscene\bin\Release\net5.0-windows
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
