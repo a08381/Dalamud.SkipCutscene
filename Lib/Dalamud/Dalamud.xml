@@ -29,6 +29,11 @@
             Indicating a French game client.
             </summary>
         </member>
+        <member name="F:Dalamud.ClientLanguage.ChineseSimplified">
+            <summary>
+            Indicating a ChineseSimplified game client.
+            </summary>
+        </member>
         <member name="T:Dalamud.ClientLanguageExtensions">
             <summary>
             Extension methods for the <see cref="T:Dalamud.ClientLanguage"/> class.
@@ -82,6 +87,11 @@
             Gets or sets the last loaded Dalamud version.
             </summary>
         </member>
+        <member name="P:Dalamud.Configuration.Internal.DalamudConfiguration.LastChangelogMajorMinor">
+            <summary>
+            Gets or sets the last loaded Dalamud version.
+            </summary>
+        </member>
         <member name="P:Dalamud.Configuration.Internal.DalamudConfiguration.GeneralChatType">
             <summary>
             Gets or sets the chat type used by default for plugin messages.
@@ -100,6 +110,11 @@
         <member name="P:Dalamud.Configuration.Internal.DalamudConfiguration.DoDalamudRuntime">
             <summary>
             Gets or sets a value indicating whether or not XL should download the Dalamud .NET runtime.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Configuration.Internal.DalamudConfiguration.FuckGFWList">
+            <summary>
+            Gets or sets a list of fuck GFW replacements.
             </summary>
         </member>
         <member name="P:Dalamud.Configuration.Internal.DalamudConfiguration.ThirdRepoList">
@@ -182,6 +197,11 @@
             Gets or sets a value indicating whether or not the debug log should open at startup.
             </summary>
         </member>
+        <member name="P:Dalamud.Configuration.Internal.DalamudConfiguration.AssertsEnabledAtStartup">
+            <summary>
+            Gets or sets a value indicating whether or not ImGui asserts should be enabled at startup.
+            </summary>
+        </member>
         <member name="P:Dalamud.Configuration.Internal.DalamudConfiguration.IsDocking">
             <summary>
             Gets or sets a value indicating whether or not docking should be globally enabled in ImGui.
@@ -217,10 +237,35 @@
             Gets or sets a value indicating whether or not all plugins, regardless of API level, should be loaded.
             </summary>
         </member>
+        <member name="P:Dalamud.Configuration.Internal.DalamudConfiguration.LoadBannedPlugins">
+            <summary>
+            Gets or sets a value indicating whether or not banned plugins should be loaded.
+            </summary>
+        </member>
         <member name="P:Dalamud.Configuration.Internal.DalamudConfiguration.PluginSafeMode">
             <summary>
             Gets or sets a value indicating whether or not any plugin should be loaded when the game is started.
             It is reset immediately when read.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Configuration.Internal.DalamudConfiguration.SavedStylesOld">
+            <summary>
+            Gets or sets a list of saved styles.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Configuration.Internal.DalamudConfiguration.SavedStyles">
+            <summary>
+            Gets or sets a list of saved styles.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Configuration.Internal.DalamudConfiguration.ChosenStyle">
+            <summary>
+            Gets or sets the name of the currently chosen style.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Configuration.Internal.DalamudConfiguration.DisableRmtFiltering">
+            <summary>
+            Gets or sets a value indicating whether or not Dalamud RMT filtering should be disabled.
             </summary>
         </member>
         <member name="M:Dalamud.Configuration.Internal.DalamudConfiguration.Load(System.String)">
@@ -250,6 +295,36 @@
             Gets or sets a value indicating whether this plugin should automatically reload on file change.
             </summary>
         </member>
+        <member name="T:Dalamud.Configuration.Internal.EnvironmentConfiguration">
+            <summary>
+            Environmental configuration settings.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Configuration.Internal.EnvironmentConfiguration.XlWineOnLinux">
+            <summary>
+            Gets a value indicating whether the XL_WINEONLINUX setting has been enabled.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Configuration.Internal.EnvironmentConfiguration.DalamudNoPlugins">
+            <summary>
+            Gets a value indicating whether the DALAMUD_NOT_HAVE_PLUGINS setting has been enabled.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Configuration.Internal.EnvironmentConfiguration.DalamudForceReloaded">
+            <summary>
+            Gets a value indicating whether the DalamudForceReloaded setting has been enabled.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Configuration.Internal.EnvironmentConfiguration.DalamudForceMinHook">
+            <summary>
+            Gets a value indicating whether the DalamudForceMinHook setting has been enabled.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Configuration.Internal.EnvironmentConfiguration.DalamudWaitForDebugger">
+            <summary>
+            Gets a value indicating whether or not Dalamud should wait for a debugger to be attached when initializing.
+            </summary>
+        </member>
         <member name="T:Dalamud.Configuration.DevPluginLocationSettings">
             <summary>
             Additional locations to load dev plugins from.
@@ -266,6 +341,37 @@
             </summary>
         </member>
         <member name="M:Dalamud.Configuration.DevPluginLocationSettings.Clone">
+            <summary>
+            Clone this object.
+            </summary>
+            <returns>A shallow copy of this object.</returns>
+        </member>
+        <member name="T:Dalamud.Configuration.FuckGFWSettings">
+            <summary>
+            Third party repository for dalamud plugins.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Configuration.FuckGFWSettings.UrlRegex">
+            <summary>
+            Gets or sets the fuck GFW url.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Configuration.FuckGFWSettings.ReplaceTo">
+            <summary>
+            Gets or sets a value the url to be replaced to.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Configuration.FuckGFWSettings.IsEnabled">
+            <summary>
+            Gets or sets a value indicating whether the fuck GFW is enabled.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Configuration.FuckGFWSettings.Name">
+            <summary>
+            Gets or sets a short name for the fuck GFW.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Configuration.FuckGFWSettings.Clone">
             <summary>
             Clone this object.
             </summary>
@@ -387,16 +493,6 @@
             Gets LoggingLevelSwitch for Dalamud and Plugin logs.
             </summary>
         </member>
-        <member name="P:Dalamud.Dalamud.IsReady">
-            <summary>
-            Gets a value indicating whether Dalamud was successfully loaded.
-            </summary>
-        </member>
-        <member name="P:Dalamud.Dalamud.IsLoadedPluginSystem">
-            <summary>
-            Gets a value indicating whether the plugin system is loaded.
-            </summary>
-        </member>
         <member name="P:Dalamud.Dalamud.AssetDirectory">
             <summary>
             Gets location of stored assets.
@@ -411,20 +507,22 @@
             <summary>
             Runs tier 2 of the Dalamud initialization process.
             </summary>
+            <returns>Whether or not the load succeeded.</returns>
         </member>
         <member name="M:Dalamud.Dalamud.LoadTier3">
             <summary>
             Runs tier 3 of the Dalamud initialization process.
             </summary>
+            <returns>Whether or not the load succeeded.</returns>
         </member>
         <member name="M:Dalamud.Dalamud.Unload">
             <summary>
-                Queue an unload of Dalamud when it gets the chance.
+            Queue an unload of Dalamud when it gets the chance.
             </summary>
         </member>
         <member name="M:Dalamud.Dalamud.WaitForUnload">
             <summary>
-                Wait for an unload request to start.
+            Wait for an unload request to start.
             </summary>
         </member>
         <member name="M:Dalamud.Dalamud.WaitForUnloadFinish">
@@ -447,14 +545,15 @@
             Replace the built-in exception handler with a debug one.
             </summary>
         </member>
-        <member name="M:Dalamud.Dalamud.ProcessHandlePatch(System.Diagnostics.Process,System.IntPtr@)">
+        <member name="M:Dalamud.Dalamud.ProcessHandlePatch(System.Func{System.Diagnostics.Process,System.IntPtr},System.Diagnostics.Process)">
             <summary>
             Patch method for the class Process.Handle. This patch facilitates fixing Reloaded so that it
             uses pseudo-handles to access memory, to prevent permission errors.
             It should never be called manually.
             </summary>
-            <param name="__instance">The equivalent of `this`.</param>
-            <param name="__result">The result from the original method.</param>
+            <param name="orig">A delegate that acts as the original method.</param>
+            <param name="self">The equivalent of `this`.</param>
+            <returns>A pseudo-handle for the current process, or the result from the original method.</returns>
         </member>
         <member name="T:Dalamud.DalamudStartInfo">
             <summary>
@@ -499,6 +598,11 @@
         <member name="P:Dalamud.DalamudStartInfo.OptOutMbCollection">
             <summary>
             Gets a value indicating whether or not market board information should be uploaded by default.
+            </summary>
+        </member>
+        <member name="P:Dalamud.DalamudStartInfo.GlobalAccelerate">
+            <summary>
+            Gets a value indicating whether or not use global accelearte of tencent cos by default.
             </summary>
         </member>
         <member name="T:Dalamud.Data.DataManager">
@@ -1711,6 +1815,11 @@
             Initializes a new instance of the <see cref="T:Dalamud.Game.ClientState.Fates.FateTable"/> class.
             </summary>
             <param name="addressResolver">Client state address resolver.</param>
+        </member>
+        <member name="P:Dalamud.Game.ClientState.Fates.FateTable.Address">
+            <summary>
+            Gets the address of the Fate table.
+            </summary>
         </member>
         <member name="P:Dalamud.Game.ClientState.Fates.FateTable.Length">
             <summary>
@@ -5126,7 +5235,7 @@
         </member>
         <member name="P:Dalamud.Game.ClientState.Statuses.StatusList.Length">
             <summary>
-            Gets the amount of status effects the actor has.
+            Gets the amount of status effect slots the actor has.
             </summary>
         </member>
         <member name="P:Dalamud.Game.ClientState.Statuses.StatusList.Item(System.Int32)">
@@ -5136,12 +5245,12 @@
             <param name="index">Status Index.</param>
             <returns>The status at the specified index.</returns>
         </member>
-        <member name="M:Dalamud.Game.ClientState.Statuses.StatusList.GetStatusAddress(System.Int32)">
+        <member name="M:Dalamud.Game.ClientState.Statuses.StatusList.CreateStatusListReference(System.IntPtr)">
             <summary>
-            Gets the address of the party member at the specified index of the party list.
+            Create a reference to an FFXIV actor status list.
             </summary>
-            <param name="index">The index of the party member.</param>
-            <returns>The memory address of the party member.</returns>
+            <param name="address">The address of the status list in memory.</param>
+            <returns>The status object containing the requested data.</returns>
         </member>
         <member name="M:Dalamud.Game.ClientState.Statuses.StatusList.CreateStatusReference(System.IntPtr)">
             <summary>
@@ -5149,6 +5258,13 @@
             </summary>
             <param name="address">The address of the status effect in memory.</param>
             <returns>The status object containing the requested data.</returns>
+        </member>
+        <member name="M:Dalamud.Game.ClientState.Statuses.StatusList.GetStatusAddress(System.Int32)">
+            <summary>
+            Gets the address of the party member at the specified index of the party list.
+            </summary>
+            <param name="index">The index of the party member.</param>
+            <returns>The memory address of the party member.</returns>
         </member>
         <member name="P:Dalamud.Game.ClientState.Statuses.StatusList.System#Collections#Generic#IReadOnlyCollection{Dalamud#Game#ClientState#Statuses#Status}#Count">
             <inheritdoc/>
@@ -6867,6 +6983,12 @@
             Gets the number of player slots this listing is recruiting for.
             </summary>
         </member>
+        <member name="P:Dalamud.Game.Gui.PartyFinder.Types.PartyFinderListing.LastPatchHotfixTimestamp">
+            <summary>
+            Gets the time at which the server this listings is on last restarted for a patch/hotfix.
+            Probably.
+            </summary>
+        </member>
         <member name="P:Dalamud.Game.Gui.PartyFinder.Types.PartyFinderListing.Slots">
             <summary>
             Gets a list of player slots that the Party Finder is accepting.
@@ -7681,6 +7803,11 @@
         <member name="P:Dalamud.Game.Internal.DXGI.SwapChainVtableResolver.ResizeBuffers">
             <inheritdoc/>
         </member>
+        <member name="P:Dalamud.Game.Internal.DXGI.SwapChainVtableResolver.IsReshade">
+            <summary>
+            Gets a value indicating whether or not ReShade is loaded/used.
+            </summary>
+        </member>
         <member name="M:Dalamud.Game.Internal.DXGI.SwapChainVtableResolver.Setup64Bit(Dalamud.Game.SigScanner)">
             <inheritdoc/>
         </member>
@@ -7863,9 +7990,6 @@
             <summary>
             Gets the address of the ProcessZonePacketUp method.
             </summary>
-        </member>
-        <member name="M:Dalamud.Game.Network.GameNetworkAddressResolver.Setup64Bit(Dalamud.Game.SigScanner)">
-            <inheritdoc/>
         </member>
         <member name="T:Dalamud.Game.Network.Internal.MarketBoardUploaders.IMarketBoardUploader">
             <summary>
@@ -8693,6 +8817,16 @@
             <param name="signature">The signature to search for.</param>
             <returns>The found offset.</returns>
         </member>
+        <member name="M:Dalamud.Game.SigScanner.TryScan(System.IntPtr,System.Int32,System.String,System.IntPtr@)">
+            <summary>
+            Try scanning memory for a signature.
+            </summary>
+            <param name="baseAddress">The base address to scan from.</param>
+            <param name="size">The amount of bytes to scan.</param>
+            <param name="signature">The signature to search for.</param>
+            <param name="result">The offset, if found.</param>
+            <returns>true if the signature was found.</returns>
+        </member>
         <member name="M:Dalamud.Game.SigScanner.GetStaticAddressFromSig(System.String,System.Int32)">
             <summary>
             Scan for a .data address using a .text function.
@@ -8703,6 +8837,17 @@
             <param name="offset">The offset from function start of the instruction using the data.</param>
             <returns>An IntPtr to the static memory location.</returns>
         </member>
+        <member name="M:Dalamud.Game.SigScanner.TryGetStaticAddressFromSig(System.String,System.IntPtr@,System.Int32)">
+            <summary>
+            Try scanning for a .data address using a .text function.
+            This is intended to be used with IDA sigs.
+            Place your cursor on the line calling a static address, and create and IDA sig.
+            </summary>
+            <param name="signature">The signature of the function using the data.</param>
+            <param name="result">An IntPtr to the static memory location, if found.</param>
+            <param name="offset">The offset from function start of the instruction using the data.</param>
+            <returns>true if the signature was found.</returns>
+        </member>
         <member name="M:Dalamud.Game.SigScanner.ScanData(System.String)">
             <summary>
             Scan for a byte signature in the .data section.
@@ -8710,12 +8855,28 @@
             <param name="signature">The signature.</param>
             <returns>The real offset of the found signature.</returns>
         </member>
+        <member name="M:Dalamud.Game.SigScanner.TryScanData(System.String,System.IntPtr@)">
+            <summary>
+            Try scanning for a byte signature in the .data section.
+            </summary>
+            <param name="signature">The signature.</param>
+            <param name="result">The real offset of the signature, if found.</param>
+            <returns>true if the signature was found.</returns>
+        </member>
         <member name="M:Dalamud.Game.SigScanner.ScanModule(System.String)">
             <summary>
             Scan for a byte signature in the whole module search area.
             </summary>
             <param name="signature">The signature.</param>
             <returns>The real offset of the found signature.</returns>
+        </member>
+        <member name="M:Dalamud.Game.SigScanner.TryScanModule(System.String,System.IntPtr@)">
+            <summary>
+            Try scanning for a byte signature in the whole module search area.
+            </summary>
+            <param name="signature">The signature.</param>
+            <param name="result">The real offset of the signature, if found.</param>
+            <returns>true if the signature was found.</returns>
         </member>
         <member name="M:Dalamud.Game.SigScanner.ResolveRelativeAddress(System.IntPtr,System.Int32)">
             <summary>
@@ -8731,6 +8892,14 @@
             </summary>
             <param name="signature">The signature.</param>
             <returns>The real offset of the found signature.</returns>
+        </member>
+        <member name="M:Dalamud.Game.SigScanner.TryScanText(System.String,System.IntPtr@)">
+            <summary>
+            Try scanning for a byte signature in the .text section.
+            </summary>
+            <param name="signature">The signature.</param>
+            <param name="result">The real offset of the signature, if found.</param>
+            <returns>true if the signature was found.</returns>
         </member>
         <member name="M:Dalamud.Game.SigScanner.Dispose">
             <summary>
@@ -11546,6 +11715,9 @@
             Gets a value indicating whether or not the hook has been disposed.
             </summary>
         </member>
+        <member name="P:Dalamud.Hooking.AsmHook.BackendName">
+            <inheritdoc/>
+        </member>
         <member name="M:Dalamud.Hooking.AsmHook.Dispose">
             <summary>
             Remove a hook from the current process.
@@ -11602,6 +11774,16 @@
             <param name="address">A memory address to install a hook.</param>
             <param name="detour">Callback function. Delegate must have a same original function prototype.</param>
         </member>
+        <member name="M:Dalamud.Hooking.Hook`1.#ctor(System.IntPtr,`0,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dalamud.Hooking.Hook`1"/> class.
+            Hook is not activated until Enable() method is called.
+            Please do not use MinHook unless you have thoroughly troubleshot why Reloaded does not work.
+            </summary>
+            <param name="address">A memory address to install a hook.</param>
+            <param name="detour">Callback function. Delegate must have a same original function prototype.</param>
+            <param name="useMinHook">Use the MinHook hooking library instead of Reloaded.</param>
+        </member>
         <member name="P:Dalamud.Hooking.Hook`1.Address">
             <summary>
             Gets a memory address of the target function.
@@ -11624,6 +11806,9 @@
             Gets a value indicating whether or not the hook has been disposed.
             </summary>
         </member>
+        <member name="P:Dalamud.Hooking.Hook`1.BackendName">
+            <inheritdoc/>
+        </member>
         <member name="M:Dalamud.Hooking.Hook`1.FromSymbol(System.String,System.String,`0)">
             <summary>
             Creates a hook. Hooking address is inferred by calling to GetProcAddress() function.
@@ -11632,6 +11817,18 @@
             <param name="moduleName">A name of the module currently loaded in the memory. (e.g. ws2_32.dll).</param>
             <param name="exportName">A name of the exported function name (e.g. send).</param>
             <param name="detour">Callback function. Delegate must have a same original function prototype.</param>
+            <returns>The hook with the supplied parameters.</returns>
+        </member>
+        <member name="M:Dalamud.Hooking.Hook`1.FromSymbol(System.String,System.String,`0,System.Boolean)">
+            <summary>
+            Creates a hook. Hooking address is inferred by calling to GetProcAddress() function.
+            The hook is not activated until Enable() method is called.
+            Please do not use MinHook unless you have thoroughly troubleshot why Reloaded does not work.
+            </summary>
+            <param name="moduleName">A name of the module currently loaded in the memory. (e.g. ws2_32.dll).</param>
+            <param name="exportName">A name of the exported function name (e.g. send).</param>
+            <param name="detour">Callback function. Delegate must have a same original function prototype.</param>
+            <param name="useMinHook">Use the MinHook hooking library instead of Reloaded.</param>
             <returns>The hook with the supplied parameters.</returns>
         </member>
         <member name="M:Dalamud.Hooking.Hook`1.Dispose">
@@ -11672,6 +11869,11 @@
         <member name="P:Dalamud.Hooking.IDalamudHook.IsDisposed">
             <summary>
             Gets a value indicating whether or not the hook is disposed.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Hooking.IDalamudHook.BackendName">
+            <summary>
+            Gets the name of the hooking backend used for the hook.
             </summary>
         </member>
         <member name="T:Dalamud.Hooking.Internal.HookInfo">
@@ -11717,12 +11919,6 @@
             Initializes a new instance of the <see cref="T:Dalamud.Hooking.Internal.HookManager"/> class.
             </summary>
         </member>
-        <member name="P:Dalamud.Hooking.Internal.HookManager.DirtyLinuxUser">
-            <summary>
-            Gets a value indicating whether the client is running under Linux Wine.
-            </summary>
-            <returns>A value indicating whether the game is running under Wine.</returns>
-        </member>
         <member name="P:Dalamud.Hooking.Internal.HookManager.TrackedHooks">
             <summary>
             Gets a static list of tracked and registered hooks.
@@ -11731,6 +11927,11 @@
         <member name="P:Dalamud.Hooking.Internal.HookManager.Originals">
             <summary>
             Gets a static dictionary of original code for a hooked address.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Hooking.Internal.HookManager.MultiHookTracker">
+            <summary>
+            Gets a static dictionary of the number of hooks on a given address.
             </summary>
         </member>
         <member name="M:Dalamud.Hooking.Internal.HookManager.Dispose">
@@ -12052,6 +12253,14 @@
         <member name="M:Dalamud.Interface.Animation.EasingFunctions.OutSine.Update">
             <inheritdoc/>
         </member>
+        <member name="M:Dalamud.Interface.AssetManager.CheckAssetRefreshNeeded(System.IO.DirectoryInfo)">
+            <summary>
+                Check if an asset update is needed. When this fails, just return false - the route to github
+                might be bad, don't wanna just bail out in that case
+            </summary>
+            <param name="baseDir">Base directory for assets</param>
+            <returns>Update state</returns>
+        </member>
         <member name="T:Dalamud.Interface.Colors.ImGuiColors">
             <summary>
             Class containing frequently used colors for easier reference.
@@ -12092,6 +12301,16 @@
             Gets orange used in dalamud.
             </summary>
         </member>
+        <member name="P:Dalamud.Interface.Colors.ImGuiColors.DalamudYellow">
+            <summary>
+            Gets yellow used in dalamud.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Colors.ImGuiColors.DalamudViolet">
+            <summary>
+            Gets violet used in dalamud.
+            </summary>
+        </member>
         <member name="P:Dalamud.Interface.Colors.ImGuiColors.TankBlue">
             <summary>
             Gets tank blue (UIColor37).
@@ -12105,6 +12324,41 @@
         <member name="P:Dalamud.Interface.Colors.ImGuiColors.DPSRed">
             <summary>
             Gets dps red (UIColor545).
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Colors.ImGuiColors.ParsedGrey">
+            <summary>
+            Gets parsed grey.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Colors.ImGuiColors.ParsedGreen">
+            <summary>
+            Gets parsed green.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Colors.ImGuiColors.ParsedBlue">
+            <summary>
+            Gets parsed blue.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Colors.ImGuiColors.ParsedPurple">
+            <summary>
+            Gets parsed purple.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Colors.ImGuiColors.ParsedOrange">
+            <summary>
+            Gets parsed orange.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Colors.ImGuiColors.ParsedPink">
+            <summary>
+            Gets parsed pink.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Colors.ImGuiColors.ParsedGold">
+            <summary>
+            Gets parsed gold.
             </summary>
         </member>
         <member name="T:Dalamud.Interface.Components.ImGuiComponents">
@@ -19571,6 +19825,13 @@
             <param name="swatchCount">The total number of swatches to use.</param>
             <returns>Default color palette.</returns>
         </member>
+        <member name="M:Dalamud.Interface.ImGuiHelpers.GetButtonSize(System.String)">
+            <summary>
+            Get the size of a button considering the default frame padding.
+            </summary>
+            <param name="text">Text in the button.</param>
+            <returns><see cref="T:System.Numerics.Vector2"/> with the size of the button.</returns>
+        </member>
         <member name="M:Dalamud.Interface.ImGuiHelpers.NewFrame">
             <summary>
             Get data needed for each new frame.
@@ -19609,11 +19870,6 @@
         <member name="P:Dalamud.Interface.Internal.DalamudInterface.IsDevMenuOpen">
             <summary>
             Gets or sets a value indicating whether the /xldev menu is open.
-            </summary>
-        </member>
-        <member name="P:Dalamud.Interface.Internal.DalamudInterface.WarrantsChangelog">
-            <summary>
-            Gets a value indicating whether the current Dalamud version warrants displaying the changelog.
             </summary>
         </member>
         <member name="M:Dalamud.Interface.Internal.DalamudInterface.Dispose">
@@ -19675,11 +19931,6 @@
             Opens the <see cref="T:Dalamud.Interface.Internal.Windows.PluginInstallerWindow"/>.
             </summary>
         </member>
-        <member name="M:Dalamud.Interface.Internal.DalamudInterface.OpenScratchpadWindow">
-            <summary>
-            Opens the <see cref="T:Dalamud.Interface.Internal.Windows.ScratchpadWindow"/>.
-            </summary>
-        </member>
         <member name="M:Dalamud.Interface.Internal.DalamudInterface.OpenSettings">
             <summary>
             Opens the <see cref="T:Dalamud.Interface.Internal.Windows.SettingsWindow"/>.
@@ -19688,6 +19939,11 @@
         <member name="M:Dalamud.Interface.Internal.DalamudInterface.OpenSelfTest">
             <summary>
             Opens the <see cref="T:Dalamud.Interface.Internal.Windows.SelfTest.SelfTestWindow"/>.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.Internal.DalamudInterface.OpenStyleEditor">
+            <summary>
+            Opens the <see cref="T:Dalamud.Interface.Internal.Windows.StyleEditor.StyleEditorWindow"/>.
             </summary>
         </member>
         <member name="M:Dalamud.Interface.Internal.DalamudInterface.CloseIMEWindow">
@@ -19751,11 +20007,6 @@
             Toggles the <see cref="T:Dalamud.Interface.Internal.Windows.PluginInstallerWindow"/>.
             </summary>
         </member>
-        <member name="M:Dalamud.Interface.Internal.DalamudInterface.ToggleScratchpadWindow">
-            <summary>
-            Toggles the <see cref="T:Dalamud.Interface.Internal.Windows.ScratchpadWindow"/>.
-            </summary>
-        </member>
         <member name="M:Dalamud.Interface.Internal.DalamudInterface.ToggleSettingsWindow">
             <summary>
             Toggles the <see cref="T:Dalamud.Interface.Internal.Windows.SettingsWindow"/>.
@@ -19764,6 +20015,11 @@
         <member name="M:Dalamud.Interface.Internal.DalamudInterface.ToggleSelfTestWindow">
             <summary>
             Toggles the <see cref="T:Dalamud.Interface.Internal.Windows.SelfTest.SelfTestWindow"/>.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.Internal.DalamudInterface.ToggleStyleEditorWindow">
+            <summary>
+            Toggles the <see cref="T:Dalamud.Interface.Internal.Windows.StyleEditor.StyleEditorWindow"/>.
             </summary>
         </member>
         <member name="T:Dalamud.Interface.Internal.InterfaceManager">
@@ -20117,72 +20373,153 @@
             Type indicating generic information.
             </summary>
         </member>
-        <member name="T:Dalamud.Interface.Internal.Scratchpad.ScratchExecutionManager">
+        <member name="T:Dalamud.Interface.Internal.PluginCategoryManager">
             <summary>
-            This class manages the execution of <see cref="T:Dalamud.Interface.Internal.Scratchpad.ScratchpadDocument"/> classes.
+            Manage category filters for PluginInstallerWindow.
             </summary>
         </member>
-        <member name="M:Dalamud.Interface.Internal.Scratchpad.ScratchExecutionManager.#ctor">
+        <member name="F:Dalamud.Interface.Internal.PluginCategoryManager.FirstTagBasedCategoryId">
             <summary>
-            Initializes a new instance of the <see cref="T:Dalamud.Interface.Internal.Scratchpad.ScratchExecutionManager"/> class.
+            First categoryId for tag based categories.
             </summary>
         </member>
-        <member name="P:Dalamud.Interface.Internal.Scratchpad.ScratchExecutionManager.MacroProcessor">
+        <member name="T:Dalamud.Interface.Internal.PluginCategoryManager.GroupKind">
             <summary>
-            Gets the ScratchPad macro processor.
+            Type of category group.
             </summary>
         </member>
-        <member name="M:Dalamud.Interface.Internal.Scratchpad.ScratchExecutionManager.DisposeAllScratches">
+        <member name="F:Dalamud.Interface.Internal.PluginCategoryManager.GroupKind.DevTools">
             <summary>
-            Dispose of all currently loaded ScratchPads.
+            UI group: dev mode only.
             </summary>
         </member>
-        <member name="M:Dalamud.Interface.Internal.Scratchpad.ScratchExecutionManager.RenewScratch(Dalamud.Interface.Internal.Scratchpad.ScratchpadDocument)">
+        <member name="F:Dalamud.Interface.Internal.PluginCategoryManager.GroupKind.Installed">
             <summary>
-            Renew a given ScratchPadDocument.
-            </summary>
-            <param name="doc">The document to renew.</param>
-            <returns>The new load status.</returns>
-        </member>
-        <member name="T:Dalamud.Interface.Internal.Scratchpad.ScratchFileWatcher">
-            <summary>
-            A file watcher for <see cref="T:Dalamud.Interface.Internal.Scratchpad.ScratchpadDocument"/> classes.
+            UI group: installed plugins.
             </summary>
         </member>
-        <member name="P:Dalamud.Interface.Internal.Scratchpad.ScratchFileWatcher.TrackedScratches">
+        <member name="F:Dalamud.Interface.Internal.PluginCategoryManager.GroupKind.Available">
             <summary>
-            Gets or sets the list of tracked ScratchPad documents.
+            UI group: plugins that can be installed.
             </summary>
         </member>
-        <member name="M:Dalamud.Interface.Internal.Scratchpad.ScratchFileWatcher.Load(System.String)">
+        <member name="P:Dalamud.Interface.Internal.PluginCategoryManager.CategoryList">
             <summary>
-            Load a new ScratchPadDocument from disk.
-            </summary>
-            <param name="path">The filepath to load.</param>
-        </member>
-        <member name="T:Dalamud.Interface.Internal.Scratchpad.ScratchLoadStatus">
-            <summary>
-            The load status of a <see cref="T:Dalamud.Interface.Internal.Scratchpad.ScratchpadDocument"/> class.
+            Gets the list of all known categories.
             </summary>
         </member>
-        <member name="F:Dalamud.Interface.Internal.Scratchpad.ScratchLoadStatus.Unknown">
+        <member name="P:Dalamud.Interface.Internal.PluginCategoryManager.GroupList">
             <summary>
-            Unknown.
+            Gets the list of all known UI groups.
             </summary>
         </member>
-        <member name="F:Dalamud.Interface.Internal.Scratchpad.ScratchLoadStatus.FailureCompile">
+        <member name="P:Dalamud.Interface.Internal.PluginCategoryManager.CurrentGroupIdx">
             <summary>
-            Failure to compile.
+            Gets or sets current group.
             </summary>
         </member>
-        <member name="F:Dalamud.Interface.Internal.Scratchpad.ScratchLoadStatus.FailureInit">
+        <member name="P:Dalamud.Interface.Internal.PluginCategoryManager.CurrentCategoryIdx">
             <summary>
-            Failure to initialize.
+            Gets or sets current category, index in current Group.Categories array.
             </summary>
         </member>
-        <member name="F:Dalamud.Interface.Internal.Scratchpad.ScratchLoadStatus.Success">
+        <member name="P:Dalamud.Interface.Internal.PluginCategoryManager.IsContentDirty">
             <summary>
-            Success.
+            Gets a value indicating whether current group + category selection changed recently.
+            Changes in Available group should be followed with <see cref="M:Dalamud.Interface.Internal.PluginCategoryManager.GetCurrentCategoryContent(System.Collections.Generic.IEnumerable{Dalamud.Plugin.Internal.Types.PluginManifest})"/>, everythine else can use <see cref="M:Dalamud.Interface.Internal.PluginCategoryManager.ResetContentDirty"/>.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Internal.PluginCategoryManager.IsSelectionValid">
+            <summary>
+            Gets a value indicating whether <see cref="P:Dalamud.Interface.Internal.PluginCategoryManager.CurrentCategoryIdx"/> and <see cref="P:Dalamud.Interface.Internal.PluginCategoryManager.CurrentGroupIdx"/> are valid.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.Internal.PluginCategoryManager.BuildCategories(System.Collections.Generic.IEnumerable{Dalamud.Plugin.Internal.Types.PluginManifest})">
+            <summary>
+            Rebuild available categories based on currently available plugins.
+            </summary>
+            <param name="availablePlugins">list of all available plugin manifests to install.</param>
+        </member>
+        <member name="M:Dalamud.Interface.Internal.PluginCategoryManager.GetCurrentCategoryContent(System.Collections.Generic.IEnumerable{Dalamud.Plugin.Internal.Types.PluginManifest})">
+            <summary>
+            Filters list of available plugins based on currently selected category.
+            Resets <see cref="P:Dalamud.Interface.Internal.PluginCategoryManager.IsContentDirty"/>.
+            </summary>
+            <param name="plugins">List of available plugins to install.</param>
+            <returns>Filtered list of plugins.</returns>
+        </member>
+        <member name="M:Dalamud.Interface.Internal.PluginCategoryManager.ResetContentDirty">
+            <summary>
+            Clears <see cref="P:Dalamud.Interface.Internal.PluginCategoryManager.IsContentDirty"/> flag, indicating that all cached values about currently selected group + category have been updated.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.Internal.PluginCategoryManager.SetCategoryHighlightsForPlugins(System.Collections.Generic.IEnumerable{Dalamud.Plugin.Internal.Types.PluginManifest})">
+            <summary>
+            Sets category highlight based on list of plugins. Used for searching.
+            </summary>
+            <param name="plugins">List of plugins whose categories should be highlighted.</param>
+        </member>
+        <member name="M:Dalamud.Interface.Internal.PluginCategoryManager.IsCategoryHighlighted(System.Int32)">
+            <summary>
+            Checks if category should be highlighted.
+            </summary>
+            <param name="categoryId">CategoryId to check.</param>
+            <returns>true if highlight is needed.</returns>
+        </member>
+        <member name="T:Dalamud.Interface.Internal.PluginCategoryManager.CategoryInfo">
+            <summary>
+            Plugin installer category info.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Interface.Internal.PluginCategoryManager.CategoryInfo.CategoryId">
+            <summary>
+            Unique Id number of category, tag match based should be greater of equal <see cref="F:Dalamud.Interface.Internal.PluginCategoryManager.FirstTagBasedCategoryId"/>.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Interface.Internal.PluginCategoryManager.CategoryInfo.Tag">
+            <summary>
+            Tag from plugin manifest to match.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.Internal.PluginCategoryManager.CategoryInfo.#ctor(System.Int32,System.String,System.Func{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dalamud.Interface.Internal.PluginCategoryManager.CategoryInfo"/> struct.
+            </summary>
+            <param name="categoryId">Unique id of category.</param>
+            <param name="tag">Tag to match.</param>
+            <param name="nameFunc">Function returning localized name of category.</param>
+        </member>
+        <member name="P:Dalamud.Interface.Internal.PluginCategoryManager.CategoryInfo.Name">
+            <summary>
+            Gets the name of category.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Interface.Internal.PluginCategoryManager.GroupInfo">
+            <summary>
+            Plugin installer UI group, a container for categories.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Interface.Internal.PluginCategoryManager.GroupInfo.GroupKind">
+            <summary>
+            Type of group.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Interface.Internal.PluginCategoryManager.GroupInfo.Categories">
+            <summary>
+            List of categories in container.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.Internal.PluginCategoryManager.GroupInfo.#ctor(Dalamud.Interface.Internal.PluginCategoryManager.GroupKind,System.Func{System.String},System.Int32[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dalamud.Interface.Internal.PluginCategoryManager.GroupInfo"/> struct.
+            </summary>
+            <param name="groupKind">Type of group.</param>
+            <param name="nameFunc">Function returning localized name of category.</param>
+            <param name="categories">List of category Ids to hardcode.</param>
+        </member>
+        <member name="P:Dalamud.Interface.Internal.PluginCategoryManager.GroupInfo.Name">
+            <summary>
+            Gets the name of UI group.
             </summary>
         </member>
         <member name="T:Dalamud.Interface.Internal.Scratchpad.ScratchMacroProcessor">
@@ -20196,46 +20533,6 @@
             </summary>
             <param name="input">Input to process.</param>
             <returns>A runnable script.</returns>
-        </member>
-        <member name="T:Dalamud.Interface.Internal.Scratchpad.ScratchpadDocument">
-            <summary>
-            This class represents a single document in the ScratchPad.
-            </summary>
-        </member>
-        <member name="P:Dalamud.Interface.Internal.Scratchpad.ScratchpadDocument.Id">
-            <summary>
-            Gets or sets the guid ID of the document.
-            </summary>
-        </member>
-        <member name="P:Dalamud.Interface.Internal.Scratchpad.ScratchpadDocument.Content">
-            <summary>
-            Gets or sets the document content.
-            </summary>
-        </member>
-        <member name="P:Dalamud.Interface.Internal.Scratchpad.ScratchpadDocument.Title">
-            <summary>
-            Gets or sets the document title.
-            </summary>
-        </member>
-        <member name="P:Dalamud.Interface.Internal.Scratchpad.ScratchpadDocument.HasUnsaved">
-            <summary>
-            Gets or sets a value indicating whether the document has unsaved content.
-            </summary>
-        </member>
-        <member name="P:Dalamud.Interface.Internal.Scratchpad.ScratchpadDocument.IsOpen">
-            <summary>
-            Gets or sets a value indicating whether the document is open.
-            </summary>
-        </member>
-        <member name="P:Dalamud.Interface.Internal.Scratchpad.ScratchpadDocument.Status">
-            <summary>
-            Gets or sets the load status of the document.
-            </summary>
-        </member>
-        <member name="P:Dalamud.Interface.Internal.Scratchpad.ScratchpadDocument.IsMacro">
-            <summary>
-            Gets or sets a value indicating whether this document is a macro.
-            </summary>
         </member>
         <member name="T:Dalamud.Interface.Internal.UIDebug">
             <summary>
@@ -20257,7 +20554,7 @@
             For major updates, an in-game Changelog window.
             </summary>
         </member>
-        <member name="F:Dalamud.Interface.Internal.Windows.ChangelogWindow.WarrantsChangelog">
+        <member name="F:Dalamud.Interface.Internal.Windows.ChangelogWindow.WarrantsChangelogForMajorMinor">
             <summary>
             Whether the latest update warrants a changelog window.
             </summary>
@@ -20349,6 +20646,12 @@
         <member name="M:Dalamud.Interface.Internal.Windows.CreditsWindow.OnClose">
             <inheritdoc/>
         </member>
+        <member name="M:Dalamud.Interface.Internal.Windows.CreditsWindow.PreDraw">
+            <inheritdoc/>
+        </member>
+        <member name="M:Dalamud.Interface.Internal.Windows.CreditsWindow.PostDraw">
+            <inheritdoc/>
+        </member>
         <member name="M:Dalamud.Interface.Internal.Windows.CreditsWindow.Draw">
             <inheritdoc/>
         </member>
@@ -20412,6 +20715,81 @@
         <member name="M:Dalamud.Interface.Internal.Windows.IMEWindow.Draw">
             <inheritdoc/>
         </member>
+        <member name="T:Dalamud.Interface.Internal.Windows.PluginImageCache">
+            <summary>
+            A cache for plugin icons and images.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Interface.Internal.Windows.PluginImageCache.PluginImageWidth">
+            <summary>
+            Maximum plugin image width.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Interface.Internal.Windows.PluginImageCache.PluginImageHeight">
+            <summary>
+            Maximum plugin image height.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Interface.Internal.Windows.PluginImageCache.PluginIconWidth">
+            <summary>
+            Maximum plugin icon width.
+            </summary>
+        </member>
+        <member name="F:Dalamud.Interface.Internal.Windows.PluginImageCache.PluginIconHeight">
+            <summary>
+            Maximum plugin height.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.Internal.Windows.PluginImageCache.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dalamud.Interface.Internal.Windows.PluginImageCache"/> class.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Internal.Windows.PluginImageCache.DefaultIcon">
+            <summary>
+            Gets the default plugin icon.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Internal.Windows.PluginImageCache.TroubleIcon">
+            <summary>
+            Gets the plugin trouble icon overlay.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Internal.Windows.PluginImageCache.UpdateIcon">
+            <summary>
+            Gets the plugin update icon overlay.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.Internal.Windows.PluginImageCache.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Dalamud.Interface.Internal.Windows.PluginImageCache.ClearIconCache">
+            <summary>
+            Clear the cache of downloaded icons.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.Internal.Windows.PluginImageCache.TryGetIcon(Dalamud.Plugin.Internal.LocalPlugin,Dalamud.Plugin.Internal.Types.PluginManifest,System.Boolean,ImGuiScene.TextureWrap@)">
+            <summary>
+            Try to get the icon associated with the internal name of a plugin.
+            Uses the name within the manifest to search.
+            </summary>
+            <param name="plugin">The installed plugin, if available.</param>
+            <param name="manifest">The plugin manifest.</param>
+            <param name="isThirdParty">If the plugin was third party sourced.</param>
+            <param name="iconTexture">Cached image textures, or an empty array.</param>
+            <returns>True if an entry exists, may be null if currently downloading.</returns>
+        </member>
+        <member name="M:Dalamud.Interface.Internal.Windows.PluginImageCache.TryGetImages(Dalamud.Plugin.Internal.LocalPlugin,Dalamud.Plugin.Internal.Types.PluginManifest,System.Boolean,ImGuiScene.TextureWrap[]@)">
+            <summary>
+            Try to get any images associated with the internal name of a plugin.
+            Uses the name within the manifest to search.
+            </summary>
+            <param name="plugin">The installed plugin, if available.</param>
+            <param name="manifest">The plugin manifest.</param>
+            <param name="isThirdParty">If the plugin was third party sourced.</param>
+            <param name="imageTextures">Cached image textures, or an empty array.</param>
+            <returns>True if the image array exists, may be empty if currently downloading.</returns>
+        </member>
         <member name="T:Dalamud.Interface.Internal.Windows.PluginInstallerWindow">
             <summary>
             Class responsible for drawing the plugin installer.
@@ -20436,7 +20814,7 @@
         </member>
         <member name="M:Dalamud.Interface.Internal.Windows.PluginInstallerWindow.ClearIconCache">
             <summary>
-            Clear the cache of downloaded icons.
+            Clear the icon and image caches, forcing a fresh download.
             </summary>
         </member>
         <member name="M:Dalamud.Interface.Internal.Windows.PluginInstallerWindow.DisplayErrorContinuation(System.Threading.Tasks.Task,System.Object)">
@@ -20459,29 +20837,6 @@
         </member>
         <member name="M:Dalamud.Interface.Internal.Windows.PluginStatWindow.Draw">
             <inheritdoc/>
-        </member>
-        <member name="T:Dalamud.Interface.Internal.Windows.ScratchpadWindow">
-            <summary>
-            This class facilitates interacting with the ScratchPad window.
-            </summary>
-        </member>
-        <member name="M:Dalamud.Interface.Internal.Windows.ScratchpadWindow.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Dalamud.Interface.Internal.Windows.ScratchpadWindow"/> class.
-            </summary>
-        </member>
-        <member name="P:Dalamud.Interface.Internal.Windows.ScratchpadWindow.Execution">
-            <summary>
-            Gets the ScratchPad execution manager.
-            </summary>
-        </member>
-        <member name="M:Dalamud.Interface.Internal.Windows.ScratchpadWindow.Draw">
-            <inheritdoc/>
-        </member>
-        <member name="M:Dalamud.Interface.Internal.Windows.ScratchpadWindow.Dispose">
-            <summary>
-            Dispose of managed and unmanaged resources.
-            </summary>
         </member>
         <member name="T:Dalamud.Interface.Internal.Windows.SelfTest.AgingSteps.ActorTableAgingStep">
             <summary>
@@ -20797,6 +21152,152 @@
             <inheritdoc/>
         </member>
         <member name="M:Dalamud.Interface.Internal.Windows.SettingsWindow.Draw">
+            <inheritdoc/>
+        </member>
+        <member name="M:Dalamud.Interface.Internal.Windows.SettingsWindow.FormatBytes(System.Int64)">
+            <summary>
+            Transform byte count to human readable format.
+            </summary>
+            <param name="bytes">Number of bytes.</param>
+            <returns>Human readable version.</returns>
+        </member>
+        <member name="T:Dalamud.Interface.Internal.Windows.StyleEditor.StyleEditorWindow">
+            <summary>
+            Window for the Dalamud style editor.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.Internal.Windows.StyleEditor.StyleEditorWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dalamud.Interface.Internal.Windows.StyleEditor.StyleEditorWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.Internal.Windows.StyleEditor.StyleEditorWindow.OnOpen">
+            <inheritdoc />
+        </member>
+        <member name="M:Dalamud.Interface.Internal.Windows.StyleEditor.StyleEditorWindow.OnClose">
+            <inheritdoc />
+        </member>
+        <member name="M:Dalamud.Interface.Internal.Windows.StyleEditor.StyleEditorWindow.Draw">
+            <inheritdoc />
+        </member>
+        <member name="T:Dalamud.Interface.Style.StyleModel">
+            <summary>
+            Superclass for all versions of the Dalamud style model.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Style.StyleModel.Name">
+            <summary>
+            Gets or sets the name of the style model.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Style.StyleModel.BuiltInColors">
+            <summary>
+            Gets or sets class representing Dalamud-builtin <see cref="T:Dalamud.Interface.Colors.ImGuiColors"/>.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Style.StyleModel.Version">
+            <summary>
+            Gets or sets version number of this model.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.Style.StyleModel.GetFromCurrent">
+            <summary>
+            Get a StyleModel based on the current Dalamud style, with the current version.
+            </summary>
+            <returns>The current style.</returns>
+        </member>
+        <member name="M:Dalamud.Interface.Style.StyleModel.GetConfiguredStyle">
+            <summary>
+            Get the current style model, as per configuration.
+            </summary>
+            <returns>The current style, as per configuration.</returns>
+        </member>
+        <member name="M:Dalamud.Interface.Style.StyleModel.GetConfiguredStyles">
+            <summary>
+            Get an enumerable of all saved styles.
+            </summary>
+            <returns>Enumerable of saved styles.</returns>
+        </member>
+        <member name="M:Dalamud.Interface.Style.StyleModel.Deserialize(System.String)">
+            <summary>
+            Deserialize a style model.
+            </summary>
+            <param name="model">The serialized model.</param>
+            <returns>The deserialized model.</returns>
+            <exception cref="T:System.ArgumentException">Thrown in case the version of the model is not known.</exception>
+        </member>
+        <member name="M:Dalamud.Interface.Style.StyleModel.TransferOldModels">
+            <summary>
+            [TEMPORARY] Transfer old non-polymorphic style models to the new format.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.Style.StyleModel.Serialize">
+            <summary>
+            Serialize this style model.
+            </summary>
+            <returns>Serialized style model as string.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when the version of the style model is unknown.</exception>
+        </member>
+        <member name="M:Dalamud.Interface.Style.StyleModel.Apply">
+            <summary>
+            Apply this style model to ImGui.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.Style.StyleModel.Push">
+            <summary>
+            Push this StyleModel into the ImGui style/color stack.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.Style.StyleModel.Pop">
+            <summary>
+            Pop this style model from the ImGui style/color stack.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Interface.Style.StyleModelV1">
+            <summary>
+            Version one of the Dalamud style model.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.Style.StyleModelV1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dalamud.Interface.Style.StyleModelV1"/> class.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Style.StyleModelV1.DalamudStandard">
+            <summary>
+            Gets the standard Dalamud look.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Style.StyleModelV1.DalamudClassic">
+            <summary>
+            Gets the standard Dalamud look.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Style.StyleModelV1.SerializedPrefix">
+            <summary>
+            Gets the version prefix for this version.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Interface.Style.StyleModelV1.Colors">
+            <summary>
+            Gets or sets a dictionary mapping ImGui color names to colors.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.Style.StyleModelV1.Get">
+            <summary>
+            Get a <see cref="T:Dalamud.Interface.Style.StyleModel"/> instance via ImGui.
+            </summary>
+            <returns>The newly created <see cref="T:Dalamud.Interface.Style.StyleModel"/> instance.</returns>
+        </member>
+        <member name="M:Dalamud.Interface.Style.StyleModelV1.Apply">
+            <summary>
+            Apply this StyleModel via ImGui.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Interface.Style.StyleModelV1.Push">
+            <inheritdoc/>
+        </member>
+        <member name="M:Dalamud.Interface.Style.StyleModelV1.Pop">
             <inheritdoc/>
         </member>
         <member name="T:Dalamud.Interface.UiBuilder">
@@ -21443,7 +21944,7 @@
             </summary>
             <param name="formatProvider">Logging format provider.</param>
         </member>
-        <member name="E:Dalamud.Logging.Internal.SerilogEventSink.OnLogLine">
+        <member name="E:Dalamud.Logging.Internal.SerilogEventSink.LogLine">
             <summary>
             Event on a log line being emitted.
             </summary>
@@ -21458,6 +21959,99 @@
             Emit a log event.
             </summary>
             <param name="logEvent">Log event to be emitted.</param>
+        </member>
+        <member name="T:Dalamud.Logging.Internal.TaskTracker">
+            <summary>
+            Class responsible for tracking asynchronous tasks.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Logging.Internal.TaskTracker.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dalamud.Logging.Internal.TaskTracker"/> class.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Logging.Internal.TaskTracker.Tasks">
+            <summary>
+            Gets a read-only list of tracked tasks.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Logging.Internal.TaskTracker.Clear">
+            <summary>
+            Clear the list of tracked tasks.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Logging.Internal.TaskTracker.UpdateData">
+            <summary>
+            Update the tracked data.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Logging.Internal.TaskTracker.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:Dalamud.Logging.Internal.TaskTracker.TaskInfo">
+            <summary>
+            Class representing a tracked task.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Logging.Internal.TaskTracker.TaskInfo.Task">
+            <summary>
+            Gets or sets the tracked task.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Logging.Internal.TaskTracker.TaskInfo.Id">
+            <summary>
+            Gets or sets the ID of the task.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Logging.Internal.TaskTracker.TaskInfo.StackTrace">
+            <summary>
+            Gets or sets the stack trace of where the task was started.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Logging.Internal.TaskTracker.TaskInfo.IsCompleted">
+            <summary>
+            Gets or sets a value indicating whether or not the task was completed.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Logging.Internal.TaskTracker.TaskInfo.IsFaulted">
+            <summary>
+            Gets or sets a value indicating whether or not the task faulted.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Logging.Internal.TaskTracker.TaskInfo.IsCanceled">
+            <summary>
+            Gets or sets a value indicating whether or not the task was canceled.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Logging.Internal.TaskTracker.TaskInfo.IsCompletedSuccessfully">
+            <summary>
+            Gets or sets a value indicating whether or not the task was completed successfully.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Logging.Internal.TaskTracker.TaskInfo.IsBeingViewed">
+            <summary>
+            Gets or sets a value indicating whether this task is being viewed.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Logging.Internal.TaskTracker.TaskInfo.Status">
+            <summary>
+            Gets or sets the status of the task.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Logging.Internal.TaskTracker.TaskInfo.StartTime">
+            <summary>
+            Gets the start time of the task.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Logging.Internal.TaskTracker.TaskInfo.FinishTime">
+            <summary>
+            Gets or sets the end time of the task.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Logging.Internal.TaskTracker.TaskInfo.Exception">
+            <summary>
+            Gets or sets the exception that occurred within the task.
+            </summary>
         </member>
         <member name="T:Dalamud.Logging.PluginLog">
             <summary>
@@ -22344,6 +22938,9 @@
             </summary>
             <summary>
             Native kernel32 functions.
+            </summary>
+            <summary>
+            Native dbghelp functions.
             </summary>
             <summary>
             Native ws2_32 functions.
@@ -23713,6 +24310,108 @@
             area of the process that is inaccessible.
             </returns>
         </member>
+        <member name="M:Dalamud.NativeFunctions.GetCurrentProcess">
+            <summary>
+            Get a handle to the current process.
+            </summary>
+            <returns>Handle to the process.</returns>
+        </member>
+        <member name="M:Dalamud.NativeFunctions.GetCurrentProcessId">
+            <summary>
+            Get the current process ID.
+            </summary>
+            <returns>The process ID.</returns>
+        </member>
+        <member name="M:Dalamud.NativeFunctions.GetCurrentThreadId">
+            <summary>
+            Get the current thread ID.
+            </summary>
+            <returns>The thread ID.</returns>
+        </member>
+        <member name="T:Dalamud.NativeFunctions.MiniDumpType">
+            <summary>
+            Type of minidump to create.
+            </summary>
+        </member>
+        <member name="F:Dalamud.NativeFunctions.MiniDumpType.MiniDumpNormal">
+            <summary>
+            Normal minidump.
+            </summary>
+        </member>
+        <member name="F:Dalamud.NativeFunctions.MiniDumpType.MiniDumpWithDataSegs">
+            <summary>
+            Minidump with data segments.
+            </summary>
+        </member>
+        <member name="F:Dalamud.NativeFunctions.MiniDumpType.MiniDumpWithFullMemory">
+            <summary>
+            Minidump with full memory.
+            </summary>
+        </member>
+        <member name="M:Dalamud.NativeFunctions.SymInitialize(System.IntPtr,System.String,System.Boolean)">
+            <summary>
+            Initializes the symbol handler for a process.
+            </summary>
+            <param name="hProcess">
+            A handle that identifies the caller.
+            This value should be unique and nonzero, but need not be a process handle.
+            However, if you do use a process handle, be sure to use the correct handle.
+            If the application is a debugger, use the process handle for the process being debugged.
+            Do not use the handle returned by GetCurrentProcess when debugging another process, because calling functions like SymLoadModuleEx can have unexpected results.
+            This parameter cannot be NULL.</param>
+            <param name="userSearchPath">
+            The path, or series of paths separated by a semicolon (;), that is used to search for symbol files.
+            If this parameter is NULL, the library attempts to form a symbol path from the following sources:
+               - The current working directory of the application
+               - The _NT_SYMBOL_PATH environment variable
+               - The _NT_ALTERNATE_SYMBOL_PATH environment variable
+            Note that the search path can also be set using the SymSetSearchPath function.
+            </param>
+            <param name="fInvadeProcess">
+            If this value is <see langword="true"/>, enumerates the loaded modules for the process and effectively calls the SymLoadModule64 function for each module.
+            </param>
+            <returns>Whether or not the function succeeded.</returns>
+        </member>
+        <member name="M:Dalamud.NativeFunctions.SymCleanup(System.IntPtr)">
+            <summary>
+            Deallocates all resources associated with the process handle.
+            </summary>
+            <param name="hProcess">A handle to the process that was originally passed to the <seealso cref="M:Dalamud.NativeFunctions.SymInitialize(System.IntPtr,System.String,System.Boolean)"/> function.</param>
+            <returns>Whether or not the function succeeded.</returns>
+        </member>
+        <member name="M:Dalamud.NativeFunctions.MiniDumpWriteDump(System.IntPtr,System.UInt32,System.IntPtr,System.Int32,Dalamud.NativeFunctions.MinidumpExceptionInformation@,System.IntPtr,System.IntPtr)">
+            <summary>
+            Creates a minidump.
+            </summary>
+            <param name="hProcess">Target process handle.</param>
+            <param name="processId">Target process ID.</param>
+            <param name="hFile">Output file handle.</param>
+            <param name="dumpType">Type of dump to take.</param>
+            <param name="exceptionInfo">Exception information.</param>
+            <param name="userStreamParam">User information.</param>
+            <param name="callback">Callback.</param>
+            <returns>Whether or not the minidump succeeded.</returns>
+        </member>
+        <member name="T:Dalamud.NativeFunctions.MinidumpExceptionInformation">
+            <summary>
+            Structure describing minidump exception information.
+            </summary>
+        </member>
+        <member name="F:Dalamud.NativeFunctions.MinidumpExceptionInformation.ThreadId">
+            <summary>
+            ID of the thread that caused the exception.
+            </summary>
+        </member>
+        <member name="F:Dalamud.NativeFunctions.MinidumpExceptionInformation.ExceptionPointers">
+            <summary>
+            Pointer to the exception record.
+            </summary>
+        </member>
+        <member name="F:Dalamud.NativeFunctions.MinidumpExceptionInformation.ClientPointers">
+            <summary>
+            ClientPointers field.
+            </summary>
+        </member>
         <member name="M:Dalamud.NativeFunctions.SetSockOpt(System.IntPtr,System.Net.Sockets.SocketOptionLevel,System.Net.Sockets.SocketOptionName,System.IntPtr@,System.Int32)">
             <summary>
             See https://docs.microsoft.com/en-us/windows/win32/api/winsock/nf-winsock-setsockopt.
@@ -23744,12 +24443,13 @@
             This class acts as an interface to various objects needed to interact with Dalamud and the game.
             </summary>
         </member>
-        <member name="M:Dalamud.Plugin.DalamudPluginInterface.#ctor(System.String,Dalamud.Plugin.PluginLoadReason,System.Boolean)">
+        <member name="M:Dalamud.Plugin.DalamudPluginInterface.#ctor(System.String,System.IO.FileInfo,Dalamud.Plugin.PluginLoadReason,System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:Dalamud.Plugin.DalamudPluginInterface"/> class.
             Set up the interface and populate all fields needed.
             </summary>
             <param name="pluginName">The internal name of the plugin.</param>
+            <param name="assemblyLocation">Location of the assembly.</param>
             <param name="reason">The reason the plugin was loaded.</param>
             <param name="isDev">A value indicating whether this is a dev plugin.</param>
         </member>
@@ -23792,6 +24492,11 @@
         <member name="P:Dalamud.Plugin.DalamudPluginInterface.DalamudAssetDirectory">
             <summary>
             Gets the directory Dalamud assets are stored in.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.DalamudPluginInterface.AssemblyLocation">
+            <summary>
+            Gets the location of your plugin assembly.
             </summary>
         </member>
         <member name="P:Dalamud.Plugin.DalamudPluginInterface.ConfigDirectory">
@@ -23841,11 +24546,11 @@
         </member>
         <member name="M:Dalamud.Plugin.DalamudPluginInterface.GetIpcProvider``1(System.String)">
             <summary>
-            Gets an IPC publisher.
+            Gets an IPC provider.
             </summary>
             <typeparam name="TRet">The return type for funcs. Use object if this is unused.</typeparam>
             <param name="name">The name of the IPC registration.</param>
-            <returns>An IPC publisher.</returns>
+            <returns>An IPC provider.</returns>
             <exception cref="T:Dalamud.Plugin.Ipc.Exceptions.IpcTypeMismatchError">This is thrown when the requested types do not match the previously registered types are different.</exception>
         </member>
         <member name="M:Dalamud.Plugin.DalamudPluginInterface.GetIpcProvider``2(System.String)">
@@ -23878,7 +24583,7 @@
             </summary>
             <typeparam name="TRet">The return type for funcs. Use object if this is unused.</typeparam>
             <param name="name">The name of the IPC registration.</param>
-            <returns>An IPC publisher.</returns>
+            <returns>An IPC subscriber.</returns>
         </member>
         <member name="M:Dalamud.Plugin.DalamudPluginInterface.GetIpcSubscriber``2(System.String)">
             <inheritdoc cref="T:Dalamud.Plugin.Ipc.ICallGateSubscriber`1"/>
@@ -23978,6 +24683,22 @@
             Gets the name of the plugin.
             </summary>
         </member>
+        <member name="T:Dalamud.Plugin.Internal.Exceptions.BannedPluginException">
+            <summary>
+            This represents a banned plugin that attempted an operation.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Exceptions.BannedPluginException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dalamud.Plugin.Internal.Exceptions.BannedPluginException"/> class.
+            </summary>
+            <param name="message">The message describing the invalid operation.</param>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Exceptions.BannedPluginException.Message">
+            <summary>
+            Gets the message describing the invalid operation.
+            </summary>
+        </member>
         <member name="T:Dalamud.Plugin.Internal.Exceptions.DuplicatePluginException">
             <summary>
             This exception that is thrown when a plugin is instructed to load while another plugin with the same
@@ -24033,6 +24754,404 @@
         <member name="T:Dalamud.Plugin.Internal.Exceptions.PluginException">
             <summary>
             This represents the base Dalamud plugin exception.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Plugin.Internal.Loader.AssemblyLoadContextBuilder">
+            <summary>
+            A builder for creating an instance of <see cref="T:System.Runtime.Loader.AssemblyLoadContext" />.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.AssemblyLoadContextBuilder.Build">
+            <summary>
+            Creates an assembly load context using settings specified on the builder.
+            </summary>
+            <returns>A new ManagedLoadContext.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.AssemblyLoadContextBuilder.SetMainAssemblyPath(System.String)">
+            <summary>
+            Set the file path to the main assembly for the context. This is used as the starting point for loading
+            other assemblies. The directory that contains it is also known as the 'app local' directory.
+            </summary>
+            <param name="path">The file path. Must not be null or empty. Must be an absolute path.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.AssemblyLoadContextBuilder.SetDefaultContext(System.Runtime.Loader.AssemblyLoadContext)">
+            <summary>
+            Replaces the default <see cref="T:System.Runtime.Loader.AssemblyLoadContext"/> used by the <see cref="T:Dalamud.Plugin.Internal.Loader.AssemblyLoadContextBuilder"/>.
+            Use this feature if the <see cref="T:System.Runtime.Loader.AssemblyLoadContext"/> of the <see cref="T:System.Reflection.Assembly"/> is not the Runtime's default load context.
+            i.e. (AssemblyLoadContext.GetLoadContext(Assembly.GetExecutingAssembly) != <see cref="P:System.Runtime.Loader.AssemblyLoadContext.Default"/>.
+            </summary>
+            <param name="context">The context to set.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.AssemblyLoadContextBuilder.PreferLoadContextAssembly(System.Reflection.AssemblyName)">
+            <summary>
+            Instructs the load context to prefer a private version of this assembly, even if that version is
+            different from the version used by the host application.
+            Use this when you do not need to exchange types created from within the load context with other contexts
+            or the default app context.
+            <para>
+            This may mean the types loaded from
+            this assembly will not match the types from an assembly with the same name, but different version,
+            in the host application.
+            </para>
+            <para>
+            For example, if the host application has a type named <c>Foo</c> from assembly <c>Banana, Version=1.0.0.0</c>
+            and the load context prefers a private version of <c>Banan, Version=2.0.0.0</c>, when comparing two objects,
+            one created by the host (Foo1) and one created from within the load context (Foo2), they will not have the same
+            type. <c>Foo1.GetType() != Foo2.GetType()</c>.
+            </para>
+            </summary>
+            <param name="assemblyName">The name of the assembly.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.AssemblyLoadContextBuilder.PreferDefaultLoadContextAssembly(System.Reflection.AssemblyName)">
+            <summary>
+            Instructs the load context to first attempt to load assemblies by this name from the default app context, even
+            if other assemblies in this load context express a dependency on a higher or lower version.
+            Use this when you need to exchange types created from within the load context with other contexts
+            or the default app context.
+            </summary>
+            <param name="assemblyName">The name of the assembly.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.AssemblyLoadContextBuilder.PreferDefaultLoadContext(System.Boolean)">
+            <summary>
+            Instructs the load context to first search for binaries from the default app context, even
+            if other assemblies in this load context express a dependency on a higher or lower version.
+            Use this when you need to exchange types created from within the load context with other contexts
+            or the default app context.
+            <para>
+            This may mean the types loaded from within the context are force-downgraded to the version provided
+            by the host. <seealso cref="M:Dalamud.Plugin.Internal.Loader.AssemblyLoadContextBuilder.PreferLoadContextAssembly(System.Reflection.AssemblyName)" /> can be used to selectively identify binaries
+            which should not be loaded from the default load context.
+            </para>
+            </summary>
+            <param name="preferDefaultLoadContext">When true, first attemp to load binaries from the default load context.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.AssemblyLoadContextBuilder.AddManagedLibrary(Dalamud.Plugin.Internal.Loader.LibraryModel.ManagedLibrary)">
+            <summary>
+            Add a managed library to the load context.
+            </summary>
+            <param name="library">The managed library.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.AssemblyLoadContextBuilder.AddNativeLibrary(Dalamud.Plugin.Internal.Loader.LibraryModel.NativeLibrary)">
+            <summary>
+            Add a native library to the load context.
+            </summary>
+            <param name="library">A native library.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.AssemblyLoadContextBuilder.AddProbingPath(System.String)">
+            <summary>
+            Add a <paramref name="path"/> that should be used to search for native and managed libraries.
+            </summary>
+            <param name="path">The file path. Must be a full file path.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.AssemblyLoadContextBuilder.AddResourceProbingPath(System.String)">
+            <summary>
+            Add a <paramref name="path"/> that should be use to search for resource assemblies (aka satellite assemblies).
+            </summary>
+            <param name="path">The file path. Must be a full file path.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.AssemblyLoadContextBuilder.EnableUnloading">
+            <summary>
+            Enable unloading the assembly load context.
+            </summary>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.AssemblyLoadContextBuilder.PreloadAssembliesIntoMemory">
+            <summary>
+            Read .dll files into memory to avoid locking the files.
+            This is not as efficient, so is not enabled by default, but is required for scenarios
+            like hot reloading.
+            </summary>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.AssemblyLoadContextBuilder.ShadowCopyNativeLibraries">
+            <summary>
+            Shadow copy native libraries (unmanaged DLLs) to avoid locking of these files.
+            This is not as efficient, so is not enabled by default, but is required for scenarios
+            like hot reloading of plugins dependent on native libraries.
+            </summary>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.AssemblyLoadContextBuilder.AddResourceProbingSubpath(System.String)">
+            <summary>
+            Add a <paramref name="path"/> that should be use to search for resource assemblies (aka satellite assemblies)
+            relative to any paths specified as <see cref="M:Dalamud.Plugin.Internal.Loader.AssemblyLoadContextBuilder.AddProbingPath(System.String)"/>.
+            </summary>
+            <param name="path">The file path. Must not be a full file path since it will be appended to additional probing path roots.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="T:Dalamud.Plugin.Internal.Loader.LibraryModel.ManagedLibrary">
+            <summary>
+            Represents a managed, .NET assembly.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Loader.LibraryModel.ManagedLibrary.Name">
+            <summary>
+            Gets the name of the managed library.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Loader.LibraryModel.ManagedLibrary.AdditionalProbingPath">
+            <summary>
+            Gets the path to file within an additional probing path root. This is typically a combination
+            of the NuGet package ID (lowercased), version, and path within the package.
+            <para>
+            For example, <c>microsoft.data.sqlite/1.0.0/lib/netstandard1.3/Microsoft.Data.Sqlite.dll</c>.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Loader.LibraryModel.ManagedLibrary.AppLocalPath">
+            <summary>
+            Gets the path to file within a deployed, framework-dependent application.
+            <para>
+            For most managed libraries, this will be the file name.
+            For example, <c>MyPlugin1.dll</c>.
+            </para>
+            <para>
+            For runtime-specific managed implementations, this may include a sub folder path.
+            For example, <c>runtimes/win/lib/netcoreapp2.0/System.Diagnostics.EventLog.dll</c>.
+            </para>
+            </summary>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.LibraryModel.ManagedLibrary.CreateFromPackage(System.String,System.String,System.String)">
+            <summary>
+            Create an instance of <see cref="T:Dalamud.Plugin.Internal.Loader.LibraryModel.ManagedLibrary" /> from a NuGet package.
+            </summary>
+            <param name="packageId">The name of the package.</param>
+            <param name="packageVersion">The version of the package.</param>
+            <param name="assetPath">The path within the NuGet package.</param>
+            <returns>A managed library.</returns>
+        </member>
+        <member name="T:Dalamud.Plugin.Internal.Loader.LibraryModel.NativeLibrary">
+            <summary>
+            Represents an unmanaged library, such as `libsqlite3`, which may need to be loaded
+            for P/Invoke to work.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Loader.LibraryModel.NativeLibrary.Name">
+            <summary>
+            Gets the name of the native library. This should match the name of the P/Invoke call.
+            <para>
+            For example, if specifying `[DllImport("sqlite3")]`, <see cref="P:Dalamud.Plugin.Internal.Loader.LibraryModel.NativeLibrary.Name" /> should be <c>sqlite3</c>.
+            This may not match the exact file name as loading will attempt variations on the name according
+            to OS convention. On Windows, P/Invoke will attempt to load `sqlite3.dll`. On macOS, it will
+            attempt to find `sqlite3.dylib` and `libsqlite3.dylib`. On Linux, it will attempt to find
+            `sqlite3.so` and `libsqlite3.so`.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Loader.LibraryModel.NativeLibrary.AppLocalPath">
+            <summary>
+            Gets the path to file within a deployed, framework-dependent application.
+            <para>
+            For example, <c>runtimes/linux-x64/native/libsqlite.so</c>.
+            </para>
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Loader.LibraryModel.NativeLibrary.AdditionalProbingPath">
+            <summary>
+            Gets the path to file within an additional probing path root. This is typically a combination
+            of the NuGet package ID (lowercased), version, and path within the package.
+            <para>
+            For example, <c>sqlite/3.13.3/runtimes/linux-x64/native/libsqlite.so</c>.
+            </para>
+            </summary>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.LibraryModel.NativeLibrary.CreateFromPackage(System.String,System.String,System.String)">
+            <summary>
+            Create an instance of <see cref="T:Dalamud.Plugin.Internal.Loader.LibraryModel.NativeLibrary" /> from a NuGet package.
+            </summary>
+            <param name="packageId">The name of the package.</param>
+            <param name="packageVersion">The version of the package.</param>
+            <param name="assetPath">The path within the NuGet package.</param>
+            <returns>A native library.</returns>
+        </member>
+        <member name="T:Dalamud.Plugin.Internal.Loader.LoaderConfig">
+            <summary>
+            Represents the configuration for a plugin loader.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.LoaderConfig.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dalamud.Plugin.Internal.Loader.LoaderConfig"/> class.
+            </summary>
+            <param name="mainAssemblyPath">The full file path to the main assembly for the plugin.</param>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Loader.LoaderConfig.MainAssemblyPath">
+            <summary>
+            Gets the file path to the main assembly.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Loader.LoaderConfig.PrivateAssemblies">
+            <summary>
+            Gets a list of assemblies which should be treated as private.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Loader.LoaderConfig.SharedAssemblies">
+            <summary>
+            Gets a list of assemblies which should be unified between the host and the plugin.
+            </summary>
+            <seealso href="https://github.com/natemcmaster/DotNetCorePlugins/blob/main/docs/what-are-shared-types.md">what-are-shared-types</seealso>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Loader.LoaderConfig.PreferSharedTypes">
+            <summary>
+            Gets or sets a value indicating whether attempt to unify all types from a plugin with the host.
+            <para>
+            This does not guarantee types will unify.
+            </para>
+            <seealso href="https://github.com/natemcmaster/DotNetCorePlugins/blob/main/docs/what-are-shared-types.md">what-are-shared-types</seealso>
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Loader.LoaderConfig.DefaultContext">
+            <summary>
+            Gets or sets the default <see cref="T:System.Runtime.Loader.AssemblyLoadContext"/> used by the <see cref="T:Dalamud.Plugin.Internal.Loader.PluginLoader"/>.
+            Use this feature if the <see cref="T:System.Runtime.Loader.AssemblyLoadContext"/> of the <see cref="T:System.Reflection.Assembly"/> is not the Runtime's default load context.
+            i.e. (AssemblyLoadContext.GetLoadContext(Assembly.GetExecutingAssembly) != <see cref="P:System.Runtime.Loader.AssemblyLoadContext.Default"/>.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Loader.LoaderConfig.IsUnloadable">
+            <summary>
+            Gets or sets a value indicating whether the plugin can be unloaded from memory.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Loader.LoaderConfig.LoadInMemory">
+            <summary>
+            Gets or sets a value indicating whether to load assemblies into memory in order to not lock files.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Plugin.Internal.Loader.ManagedLoadContext">
+            <summary>
+            An implementation of <see cref="T:System.Runtime.Loader.AssemblyLoadContext" /> which attempts to load managed and native
+            binaries at runtime immitating some of the behaviors of corehost.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.ManagedLoadContext.#ctor(System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,Dalamud.Plugin.Internal.Loader.LibraryModel.ManagedLibrary},System.Collections.Generic.IReadOnlyDictionary{System.String,Dalamud.Plugin.Internal.Loader.LibraryModel.NativeLibrary},System.Collections.Generic.IReadOnlyCollection{System.String},System.Collections.Generic.IReadOnlyCollection{System.String},System.Collections.Generic.IReadOnlyCollection{System.String},System.Collections.Generic.IReadOnlyCollection{System.String},System.Runtime.Loader.AssemblyLoadContext,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dalamud.Plugin.Internal.Loader.ManagedLoadContext"/> class.
+            </summary>
+            <param name="mainAssemblyPath">Main assembly path.</param>
+            <param name="managedAssemblies">Managed assemblies.</param>
+            <param name="nativeLibraries">Native assemblies.</param>
+            <param name="privateAssemblies">Private assemblies.</param>
+            <param name="defaultAssemblies">Default assemblies.</param>
+            <param name="additionalProbingPaths">Additional probing paths.</param>
+            <param name="resourceProbingPaths">Resource probing paths.</param>
+            <param name="defaultLoadContext">Default load context.</param>
+            <param name="preferDefaultLoadContext">If the default load context should be prefered.</param>
+            <param name="isCollectible">If the dll is collectible.</param>
+            <param name="loadInMemory">If the dll should  be loaded in memory.</param>
+            <param name="shadowCopyNativeLibraries">If native libraries should be shadow copied.</param>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.ManagedLoadContext.LoadAssemblyFromFilePath(System.String)">
+            <summary>
+            Load an assembly from a filepath.
+            </summary>
+            <param name="path">Assembly path.</param>
+            <returns>A loaded assembly.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.ManagedLoadContext.Load(System.Reflection.AssemblyName)">
+            <summary>
+            Load an assembly.
+            </summary>
+            <param name="assemblyName">Name of the assembly.</param>
+            <returns>Loaded assembly.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.ManagedLoadContext.LoadUnmanagedDll(System.String)">
+            <summary>
+            Loads the unmanaged binary using configured list of native libraries.
+            </summary>
+            <param name="unmanagedDllName">Unmanaged DLL name.</param>
+            <returns>The unmanaged dll handle.</returns>
+        </member>
+        <member name="T:Dalamud.Plugin.Internal.Loader.PlatformInformation">
+            <summary>
+            Platform specific information.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Loader.PlatformInformation.NativeLibraryExtensions">
+            <summary>
+            Gets a list of native OS specific library extensions.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Loader.PlatformInformation.NativeLibraryPrefixes">
+            <summary>
+            Gets a list of native OS specific library prefixes.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Loader.PlatformInformation.ManagedAssemblyExtensions">
+            <summary>
+            Gets a list of native OS specific managed assembly extensions.
+            </summary>
+        </member>
+        <member name="T:Dalamud.Plugin.Internal.Loader.PluginLoader">
+            <summary>
+            This loader attempts to load binaries for execution (both managed assemblies and native libraries)
+            in the same way that .NET Core would if they were originally part of the .NET Core application.
+            <para>
+            This loader reads configuration files produced by .NET Core (.deps.json and runtimeconfig.json)
+            as well as a custom file (*.config files). These files describe a list of .dlls and a set of dependencies.
+            The loader searches the plugin path, as well as any additionally specified paths, for binaries
+            which satisfy the plugin's requirements.
+            </para>
+            </summary>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.PluginLoader.#ctor(Dalamud.Plugin.Internal.Loader.LoaderConfig)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dalamud.Plugin.Internal.Loader.PluginLoader"/> class.
+            </summary>
+            <param name="config">The configuration for the plugin.</param>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Loader.PluginLoader.IsUnloadable">
+            <summary>
+            Gets a value indicating whether this plugin is capable of being unloaded.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Loader.PluginLoader.LoadContext">
+            <summary>
+            Gets the assembly load context.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.PluginLoader.CreateFromAssemblyFile(System.String,System.Action{Dalamud.Plugin.Internal.Loader.LoaderConfig})">
+            <summary>
+            Create a plugin loader for an assembly file.
+            </summary>
+            <param name="assemblyFile">The file path to the main assembly for the plugin.</param>
+            <param name="configure">A function which can be used to configure advanced options for the plugin loader.</param>
+            <returns>A loader.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.PluginLoader.Reload">
+            <summary>
+            The unloads and reloads the plugin assemblies.
+            This method throws if <see cref="P:Dalamud.Plugin.Internal.Loader.PluginLoader.IsUnloadable" /> is <c>false</c>.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.PluginLoader.LoadDefaultAssembly">
+            <summary>
+            Load the main assembly for the plugin.
+            </summary>
+            <returns>The assembly.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.PluginLoader.EnterContextualReflection">
+            <summary>
+            Sets the scope used by some System.Reflection APIs which might trigger assembly loading.
+            <para>
+            See https://github.com/dotnet/coreclr/blob/v3.0.0/Documentation/design-docs/AssemblyLoadContext.ContextualReflection.md for more details.
+            </para>
+            </summary>
+            <returns>A contextual reflection scope.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.Loader.PluginLoader.Dispose">
+            <summary>
+            Disposes the plugin loader. This only does something if <see cref="P:Dalamud.Plugin.Internal.Loader.PluginLoader.IsUnloadable" /> is true.
+            When true, this will unload assemblies which which were loaded during the lifetime
+            of the plugin.
             </summary>
         </member>
         <member name="T:Dalamud.Plugin.Internal.LocalDevPlugin">
@@ -24115,6 +25234,11 @@
             Gets the plugin name, directly from the plugin or if it is not loaded from the manifest.
             </summary>
         </member>
+        <member name="P:Dalamud.Plugin.Internal.LocalPlugin.BanReason">
+            <summary>
+            Gets an optional reason, if the plugin is banned.
+            </summary>
+        </member>
         <member name="P:Dalamud.Plugin.Internal.LocalPlugin.IsLoaded">
             <summary>
             Gets a value indicating whether the plugin is loaded and running.
@@ -24125,9 +25249,19 @@
             Gets a value indicating whether the plugin is disabled.
             </summary>
         </member>
+        <member name="P:Dalamud.Plugin.Internal.LocalPlugin.IsOutdated">
+            <summary>
+            Gets a value indicating whether this plugin's API level is out of date.
+            </summary>
+        </member>
         <member name="P:Dalamud.Plugin.Internal.LocalPlugin.IsTesting">
             <summary>
             Gets a value indicating whether the plugin is for testing use only.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.LocalPlugin.IsBanned">
+            <summary>
+            Gets a value indicating whether this plugin has been banned.
             </summary>
         </member>
         <member name="P:Dalamud.Plugin.Internal.LocalPlugin.IsDev">
@@ -24366,29 +25500,45 @@
             <param name="manifest">Plugin manifest.</param>
             <returns>If the manifest is eligible.</returns>
         </member>
+        <member name="M:Dalamud.Plugin.Internal.PluginManager.IsManifestBanned(Dalamud.Plugin.Internal.Types.PluginManifest)">
+            <summary>
+            Determine if a plugin has been banned by inspecting the manifest.
+            </summary>
+            <param name="manifest">Manifest to inspect.</param>
+            <returns>A value indicating whether the plugin/manifest has been banned.</returns>
+        </member>
+        <member name="M:Dalamud.Plugin.Internal.PluginManager.GetBanReason(Dalamud.Plugin.Internal.Types.PluginManifest)">
+            <summary>
+            Get the reason of a banned plugin by inspecting the manifest.
+            </summary>
+            <param name="manifest">Manifest to inspect.</param>
+            <returns>The reason of the ban, if any.</returns>
+        </member>
         <member name="F:Dalamud.Plugin.Internal.PluginManager.PluginLocations">
             <summary>
             A mapping of plugin assembly name to patch data. Used to fill in missing data due to loading
             plugins via byte[].
             </summary>
         </member>
-        <member name="M:Dalamud.Plugin.Internal.PluginManager.AssemblyLocationPatch(System.Reflection.Assembly,System.String@)">
+        <member name="M:Dalamud.Plugin.Internal.PluginManager.AssemblyLocationPatch(System.Func{System.Reflection.Assembly,System.String},System.Reflection.Assembly)">
             <summary>
             Patch method for internal class RuntimeAssembly.Location, also known as Assembly.Location.
             This patch facilitates resolving the assembly location for plugins that are loaded via byte[].
             It should never be called manually.
             </summary>
-            <param name="__instance">The equivalent of `this`.</param>
-            <param name="__result">The result from the original method.</param>
+            <param name="orig">A delegate that acts as the original method.</param>
+            <param name="self">The equivalent of `this`.</param>
+            <returns>The plugin location, or the result from the original method.</returns>
         </member>
-        <member name="M:Dalamud.Plugin.Internal.PluginManager.AssemblyCodeBasePatch(System.Reflection.Assembly,System.String@)">
+        <member name="M:Dalamud.Plugin.Internal.PluginManager.AssemblyCodeBasePatch(System.Func{System.Reflection.Assembly,System.String},System.Reflection.Assembly)">
             <summary>
             Patch method for internal class RuntimeAssembly.CodeBase, also known as Assembly.CodeBase.
             This patch facilitates resolving the assembly location for plugins that are loaded via byte[].
             It should never be called manually.
             </summary>
-            <param name="__instance">The equivalent of `this`.</param>
-            <param name="__result">The result from the original method.</param>
+            <param name="orig">A delegate that acts as the original method.</param>
+            <param name="self">The equivalent of `this`.</param>
+            <returns>The plugin code base, or the result from the original method.</returns>
         </member>
         <member name="M:Dalamud.Plugin.Internal.PluginManager.PluginPatchData.#ctor(System.IO.FileInfo)">
             <summary>
@@ -24503,7 +25653,14 @@
         <member name="P:Dalamud.Plugin.Internal.Types.LocalPluginManifest.InstalledFromUrl">
             <summary>
             Gets or sets the 3rd party repo URL that this plugin was installed from. Used to display where the plugin was
-            sourced from on the installed plugin view. This should not be included in the plugin master.
+            sourced from on the installed plugin view. This should not be included in the plugin master. This value is null
+            when installed from the main repo.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Types.LocalPluginManifest.IsThirdParty">
+            <summary>
+            Gets a value indicating whether this manifest is associated with a plugin that was installed from a third party
+            repo. Unless the manifest has been manually modified, this is determined by the InstalledFromUrl being null.
             </summary>
         </member>
         <member name="M:Dalamud.Plugin.Internal.Types.LocalPluginManifest.Save(System.IO.FileInfo)">
@@ -24573,9 +25730,19 @@
             Gets a description of the plugins functions.
             </summary>
         </member>
+        <member name="P:Dalamud.Plugin.Internal.Types.PluginManifest.Changelog">
+            <summary>
+            Gets a changelog.
+            </summary>
+        </member>
         <member name="P:Dalamud.Plugin.Internal.Types.PluginManifest.Tags">
             <summary>
             Gets a list of tags defined on the plugin.
+            </summary>
+        </member>
+        <member name="P:Dalamud.Plugin.Internal.Types.PluginManifest.CategoryTags">
+            <summary>
+            Gets a list of category tags defined on the plugin.
             </summary>
         </member>
         <member name="P:Dalamud.Plugin.Internal.Types.PluginManifest.IsHide">
@@ -25535,27 +26702,6 @@
             This plugin was loaded because the game was started or Dalamud was reinjected.
             </summary>
         </member>
-        <member name="T:Dalamud.Properties.Resources">
-            <summary>
-              A strongly-typed resource class, for looking up localized strings, etc.
-            </summary>
-        </member>
-        <member name="P:Dalamud.Properties.Resources.ResourceManager">
-            <summary>
-              Returns the cached ResourceManager instance used by this class.
-            </summary>
-        </member>
-        <member name="P:Dalamud.Properties.Resources.Culture">
-            <summary>
-              Overrides the current thread's CurrentUICulture property for all
-              resource lookups using this strongly typed resource class.
-            </summary>
-        </member>
-        <member name="P:Dalamud.Properties.Resources.eye">
-            <summary>
-              Looks up a localized resource of type System.Drawing.Bitmap.
-            </summary>
-        </member>
         <member name="T:Dalamud.SafeMemory">
             <summary>
             Class facilitating safe memory access.
@@ -25721,19 +26867,39 @@
             </summary>
             <returns>The object if registered, null otherwise.</returns>
         </member>
-        <member name="T:Dalamud.Troubleshooting">
+        <member name="T:Dalamud.Support.BugBait">
+            <summary>
+            Class responsible for sending feedback.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Support.BugBait.SendFeedback(Dalamud.Plugin.Internal.Types.PluginManifest,System.String,System.String,System.Boolean)">
+            <summary>
+            Send feedback to Discord.
+            </summary>
+            <param name="plugin">The plugin to send feedback about.</param>
+            <param name="content">The content of the feedback.</param>
+            <param name="reporter">The reporter name.</param>
+            <param name="includeException">Whether or not the most recent exception to occur should be included in the report.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Dalamud.Support.Troubleshooting">
             <summary>
             Class responsible for printing troubleshooting information to the log.
             </summary>
         </member>
-        <member name="M:Dalamud.Troubleshooting.LogException(System.Exception,System.String)">
+        <member name="P:Dalamud.Support.Troubleshooting.LastException">
+            <summary>
+            Gets the most recent exception to occur.
+            </summary>
+        </member>
+        <member name="M:Dalamud.Support.Troubleshooting.LogException(System.Exception,System.String)">
             <summary>
             Log the last exception in a parseable format to serilog.
             </summary>
             <param name="exception">The exception to log.</param>
             <param name="context">Additional context.</param>
         </member>
-        <member name="M:Dalamud.Troubleshooting.LogTroubleshooting">
+        <member name="M:Dalamud.Support.Troubleshooting.LogTroubleshooting">
             <summary>
             Log troubleshooting information in a parseable format to Serilog.
             </summary>
@@ -25855,6 +27021,41 @@
             </summary>
             <param name="array">A null terminated UTF8 byte array.</param>
             <returns>A UTF8 encoded string.</returns>
+        </member>
+        <member name="M:Dalamud.Utility.Util.SetFuckGFWFromConfig">
+            <summary>
+            Set the list of fuck GFWs from configure.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Dalamud.Utility.Util.FuckGFW(System.String)">
+            <summary>
+            This is a FUCK-GFW replacement of urls.
+            </summary>
+            <param name="url">A url to be fucked.</param>
+            <returns>A fucked url.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Dalamud.Utility.Util.CompressString(System.String)" -->
+        <member name="M:Dalamud.Utility.Util.DecompressString(System.Byte[])">
+            <summary>
+                Decompress a string using GZip.
+            </summary>
+            <param name="bytes">The input bytes.</param>
+            <returns>The compressed output string.</returns>
+        </member>
+        <member name="M:Dalamud.Utility.Util.CopyTo(System.IO.Stream,System.IO.Stream,System.Int32)">
+            <summary>
+            Copy one stream to another.
+            </summary>
+            <param name="src">The source stream.</param>
+            <param name="dest">The destination stream.</param>
+            <param name="len">The maximum length to copy.</param>
+        </member>
+        <member name="M:Dalamud.Utility.Util.IsLinux">
+            <summary>
+            Heuristically determine if Dalamud is running on Linux/WINE.
+            </summary>
+            <returns>Whether or not Dalamud is running on Linux/WINE.</returns>
         </member>
         <member name="T:Dalamud.Utility.VectorExtensions">
             <summary>

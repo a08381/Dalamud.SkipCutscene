@@ -41,6 +41,7 @@ jobs:
           Remove-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\SkipCutscene_Secure -Force -Recurse
           Remove-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\SkipCutscene -Force -Recurse
           Remove-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\SkipCutscene.deps.json -Force -Recurse
+          Remove-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\ref -Force -Recurse
           mkdir -Path .\SkipCutscene\bin\Package\
       - name: Package
         uses: papeloto/action-zip@v1
@@ -61,3 +62,33 @@ jobs:
         with:
           name: Package
           path: ${{ github.workspace }}\SkipCutscene\bin\Package\
+      - name: Checkout dist
+        uses: actions/checkout@v2
+        with:
+          ref: dist
+          path: dist
+      - name: Upload dist
+        continue-on-error: false
+        run: |
+          cd "$Env:GITHUB_WORKSPACE"
+          $content = Get-Content ".\dist\repo.json"
+          $repo = ConvertFrom-Json $content
+          $version = '"AssemblyVersion": "9.9.9.9"'
+          $plugin = Get-Content ".\SkipCutscene\bin\Package\SkipCutscene.json" | ConvertFrom-Json
+          $old_version = $version -replace '9.9.9.9',$repo.AssemblyVersion
+          $new_version = $version -replace '9.9.9.9',$plugin.AssemblyVersion
+          $content = $content -replace $old_version,$new_version
+          Set-Content -Path ".\dist\repo.json" -Value $content
+          Copy-Item -Path .\SkipCutscene\bin\Package\latest.zip -Destination .\dist\ -Force
+          cd dist
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Regenerate PluginMaster"
+      - name: Push dist
+        continue-on-error: false
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: dist
+          directory: dist

@@ -7,6 +7,9 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="Dalamud">
       <HintPath>..\Lib\Dalamud\Dalamud.dll</HintPath>
       <Private>False</Private>

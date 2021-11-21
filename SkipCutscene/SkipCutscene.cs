@@ -1,31 +1,34 @@
 using Dalamud;
 using Dalamud.Game;
+using Dalamud.Game.Command;
+using Dalamud.Game.Gui;
 using Dalamud.IoC;
 using Dalamud.Logging;
 using Dalamud.Plugin;
 using System;
+using System.Diagnostics;
+using System.Security.Cryptography;
 
 namespace Plugins.a08381.SkipCutscene
 {
-	public class SkipCutscene : IDalamudPlugin
+    public class SkipCutscene : IDalamudPlugin
     {
-        public string Name => "SkipCutscene";
 
-        [PluginService]
-        public SigScanner SigScanner { get; private set; }
+        private Config config;
 
-        public CutsceneAddressResolver Address; 
+        private RNGCryptoServiceProvider csp;
 
-        public void Dispose()
+        private readonly decimal _base = uint.MaxValue;
+
+        public SkipCutscene()
         {
-            if (Address.Offset1 != IntPtr.Zero)
-                SafeMemory.Write<short>(Address.Offset1, 13173);
-            if (Address.Offset2 != IntPtr.Zero)
-                SafeMemory.Write<short>(Address.Offset2, 6260);
-        }
+            if (Interface.GetPluginConfig() is not Config configuration)
+            {
+                configuration = new Config();
+            }
 
-        public SkipCutscene(DalamudPluginInterface pluginInterface)
-        {
+            this.config = configuration;
+
             Address = new CutsceneAddressResolver();
 
             Address.Setup(SigScanner);
@@ -33,14 +36,80 @@ namespace Plugins.a08381.SkipCutscene
             if (Address.Offset1 != IntPtr.Zero && Address.Offset2 != IntPtr.Zero)
             {
                 PluginLog.Information("Cutscene Offset Found.");
-                SafeMemory.Write<short>(Address.Offset1, -28528);
-                SafeMemory.Write<short>(Address.Offset2, -28528);
+                if (this.config.IsEnabled)
+                    SetEnabled(true);
             }
             else
             {
                 PluginLog.Error("Cutscene Offset Not Found.");
                 PluginLog.Warning("Plugin Disabling...");
                 Dispose();
+                return;
+            }
+
+            csp = new();
+
+            CommandManager.AddHandler("/sc", new CommandInfo(this.OnCommand)
+            {
+                HelpMessage = "/sc: Roll your sanity check dice."
+            });
+        }
+
+        public void Dispose()
+        {
+            SetEnabled(false);
+        }
+
+        public string Name => "SkipCutscene";
+
+        [PluginService]
+        public DalamudPluginInterface Interface { get; private set; }
+
+        [PluginService]
+        public SigScanner SigScanner { get; private set; }
+
+        [PluginService]
+        public CommandManager CommandManager { get; private set; }
+
+        [PluginService]
+        public ChatGui ChatGui { get; private set; }
+
+        public CutsceneAddressResolver Address { get; private set; }
+
+        public void SetEnabled(bool isEnable)
+        {
+            if (Address.Offset1 != IntPtr.Zero && Address.Offset2 != IntPtr.Zero)
+            {
+                if (isEnable)
+                {
+                    SafeMemory.Write<short>(Address.Offset1, -28528);
+                    SafeMemory.Write<short>(Address.Offset2, -28528);
+                }
+                else
+                {
+                    SafeMemory.Write<short>(Address.Offset1, 13173);
+                    SafeMemory.Write<short>(Address.Offset2, 6260);
+                }
+            }
+        }
+
+        private void OnCommand(string command, string arguments)
+        {
+            if (command.ToLower() == "/sc")
+            {
+                byte[] rndSeries = new byte[4];
+                csp.GetBytes(rndSeries);
+                int rnd = (int)Math.Abs(BitConverter.ToUInt32(rndSeries, 0) / _base * 50 + 1);
+                if (this.config.IsEnabled)
+                {
+                    ChatGui.Print(string.Format("sancheck: 1d100={0}, Failed", rnd + 50));
+                }
+                else
+                {
+                    ChatGui.Print(string.Format("sancheck: 1d100={0}, Passed", rnd));
+                }
+                this.config.IsEnabled = !this.config.IsEnabled;
+                SetEnabled(this.config.IsEnabled);
             }
         }
     }
@@ -55,8 +124,14 @@ namespace Plugins.a08381.SkipCutscene
         {
             Offset1 = sig.ScanText("75 33 48 8B 0D ?? ?? ?? ?? BA ?? 00 00 00 48 83 C1 10 E8 ?? ?? ?? ?? 83 78");
             Offset2 = sig.ScanText("74 18 8B D7 48 8D 0D");
-            PluginLog.Information("Offset1: [{0}]", Offset1.ToString("X"));
-            PluginLog.Information("Offset2: [{0}]", Offset2.ToString("X"));
+            PluginLog.Information(
+                "Offset1: [\"ffxiv_dx11.exe\"+{0}]",
+                (Offset1.ToInt64() - Process.GetCurrentProcess().MainModule.BaseAddress.ToInt64()).ToString("X")
+                );
+            PluginLog.Information(
+                "Offset2: [\"ffxiv_dx11.exe\"+{0}]",
+                (Offset2.ToInt64() - Process.GetCurrentProcess().MainModule.BaseAddress.ToInt64()).ToString("X")
+                );
         }
 
     }
