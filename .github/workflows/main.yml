@@ -72,7 +72,7 @@ jobs:
         run: |
           cd "$Env:GITHUB_WORKSPACE"
           $content = Get-Content ".\dist\repo.json"
-          $repo = ConvertFrom-Json $content
+          $repo = $content | ConvertFrom-Json
           $version = '"AssemblyVersion": "9.9.9.9"'
           $plugin = Get-Content ".\SkipCutscene\bin\Package\SkipCutscene.json" | ConvertFrom-Json
           $old_version = $version -replace '9.9.9.9',$repo.AssemblyVersion
