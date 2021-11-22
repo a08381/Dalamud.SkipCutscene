@@ -25,6 +25,7 @@ namespace Plugins.a08381.SkipCutscene
             if (Interface.GetPluginConfig() is not Config configuration)
             {
                 configuration = new Config();
+                Interface.SavePluginConfig(configuration);
             }
 
             this.config = configuration;
@@ -110,6 +111,7 @@ namespace Plugins.a08381.SkipCutscene
                 }
                 this.config.IsEnabled = !this.config.IsEnabled;
                 SetEnabled(this.config.IsEnabled);
+                Interface.SavePluginConfig(this.config);
             }
         }
     }
