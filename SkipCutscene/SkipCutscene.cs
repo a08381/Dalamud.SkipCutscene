@@ -22,7 +22,10 @@ namespace Plugins.a08381.SkipCutscene
 
         public SkipCutscene()
         {
-            this.config = new Config();
+            if (Interface.GetPluginConfig() is not Config configuration || configuration.Version == 0)
+                configuration = new Config() { IsEnabled = true, Version = 1 };
+
+            this.config = configuration;
 
             Address = new CutsceneAddressResolver();
 
@@ -105,6 +108,7 @@ namespace Plugins.a08381.SkipCutscene
                 }
                 this.config.IsEnabled = !this.config.IsEnabled;
                 SetEnabled(this.config.IsEnabled);
+                Interface.SavePluginConfig(this.config);
             }
         }
     }
