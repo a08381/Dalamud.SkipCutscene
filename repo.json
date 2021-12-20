@@ -9,11 +9,11 @@
     "AssemblyVersion": "1.2.0.4",
     "RepoUrl": "https://github.com/a08381/Dalamud.SkipCutscene",
     "ApplicableVersion": "any",
-    "DalamudApiLevel": 4,
+    "DalamudApiLevel": 5,
     "IsHide": "False",
     "IsTestingExclusive": "False",
     "DownloadCount": 1,
-    "LastUpdate": 1637489158,
+    "LastUpdate": 1640036270,
     "DownloadLinkTesting": "https://github.com/a08381/Dalamud.SkipCutscene/raw/dist/latest.zip",
     "DownloadLinkInstall": "https://github.com/a08381/Dalamud.SkipCutscene/raw/dist/latest.zip",
     "DownloadLinkUpdate": "https://github.com/a08381/Dalamud.SkipCutscene/raw/dist/latest.zip"
