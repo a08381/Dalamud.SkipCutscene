@@ -44,7 +44,7 @@ jobs:
           Remove-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\ref -Force -Recurse
           mkdir -Path .\SkipCutscene\bin\Package\
       - name: Package
-        uses: papeloto/action-zip@v1
+        uses: vimtor/action-zip@v1
         with:
           files: SkipCutscene\bin\Release\net5.0-windows\SkipCutscene.dll SkipCutscene\bin\Release\net5.0-windows\SkipCutscene.json SkipCutscene\bin\Release\net5.0-windows\SkipCutscene.pdb
           dest: SkipCutscene\bin\Package\latest.zip
