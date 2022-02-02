@@ -1,3 +1,6 @@
+using System;
+using System.Diagnostics;
+using System.Security.Cryptography;
 using Dalamud;
 using Dalamud.Game;
 using Dalamud.Game.Command;
@@ -5,27 +8,23 @@ using Dalamud.Game.Gui;
 using Dalamud.IoC;
 using Dalamud.Logging;
 using Dalamud.Plugin;
-using System;
-using System.Diagnostics;
-using System.Security.Cryptography;
 
 namespace Plugins.a08381.SkipCutscene
 {
     public class SkipCutscene : IDalamudPlugin
     {
 
-        private Config config;
-
-        private RNGCryptoServiceProvider csp;
+        private readonly Config _config;
+        private readonly RNGCryptoServiceProvider _csp;
 
         private readonly decimal _base = uint.MaxValue;
 
         public SkipCutscene()
         {
             if (Interface.GetPluginConfig() is not Config configuration || configuration.Version == 0)
-                configuration = new Config() { IsEnabled = true, Version = 1 };
+                configuration = new Config { IsEnabled = true, Version = 1 };
 
-            this.config = configuration;
+            _config = configuration;
 
             Address = new CutsceneAddressResolver();
 
@@ -34,7 +33,7 @@ namespace Plugins.a08381.SkipCutscene
             if (Address.Offset1 != IntPtr.Zero && Address.Offset2 != IntPtr.Zero)
             {
                 PluginLog.Information("Cutscene Offset Found.");
-                if (this.config.IsEnabled)
+                if (_config.IsEnabled)
                     SetEnabled(true);
             }
             else
@@ -45,9 +44,9 @@ namespace Plugins.a08381.SkipCutscene
                 return;
             }
 
-            csp = new();
+            _csp = new RNGCryptoServiceProvider();
 
-            CommandManager.AddHandler("/sc", new CommandInfo(this.OnCommand)
+            CommandManager.AddHandler("/sc", new CommandInfo(OnCommand)
             {
                 HelpMessage = "/sc: Roll your sanity check dice."
             });
@@ -56,6 +55,7 @@ namespace Plugins.a08381.SkipCutscene
         public void Dispose()
         {
             SetEnabled(false);
+            GC.SuppressFinalize(this);
         }
 
         public string Name => "SkipCutscene";
@@ -76,40 +76,31 @@ namespace Plugins.a08381.SkipCutscene
 
         public void SetEnabled(bool isEnable)
         {
-            if (Address.Offset1 != IntPtr.Zero && Address.Offset2 != IntPtr.Zero)
+            if (Address.Offset1 == IntPtr.Zero || Address.Offset2 == IntPtr.Zero) return;
+            if (isEnable)
             {
-                if (isEnable)
-                {
-                    SafeMemory.Write<short>(Address.Offset1, -28528);
-                    SafeMemory.Write<short>(Address.Offset2, -28528);
-                }
-                else
-                {
-                    SafeMemory.Write<short>(Address.Offset1, 13173);
-                    SafeMemory.Write<short>(Address.Offset2, 6260);
-                }
+                SafeMemory.Write<short>(Address.Offset1, -28528);
+                SafeMemory.Write<short>(Address.Offset2, -28528);
+            }
+            else
+            {
+                SafeMemory.Write<short>(Address.Offset1, 13173);
+                SafeMemory.Write<short>(Address.Offset2, 6260);
             }
         }
 
         private void OnCommand(string command, string arguments)
         {
-            if (command.ToLower() == "/sc")
-            {
-                byte[] rndSeries = new byte[4];
-                csp.GetBytes(rndSeries);
-                int rnd = (int)Math.Abs(BitConverter.ToUInt32(rndSeries, 0) / _base * 50 + 1);
-                if (this.config.IsEnabled)
-                {
-                    ChatGui.Print(string.Format("sancheck: 1d100={0}, Failed", rnd + 50));
-                }
-                else
-                {
-                    ChatGui.Print(string.Format("sancheck: 1d100={0}, Passed", rnd));
-                }
-                this.config.IsEnabled = !this.config.IsEnabled;
-                SetEnabled(this.config.IsEnabled);
-                Interface.SavePluginConfig(this.config);
-            }
+            if (command.ToLower() != "/sc") return;
+            byte[] rndSeries = new byte[4];
+            _csp.GetBytes(rndSeries);
+            int rnd = (int)Math.Abs(BitConverter.ToUInt32(rndSeries, 0) / _base * 50 + 1);
+            ChatGui.Print(_config.IsEnabled
+                ? $"sancheck: 1d100={rnd + 50}, Failed"
+                : $"sancheck: 1d100={rnd}, Passed");
+            _config.IsEnabled = !_config.IsEnabled;
+            SetEnabled(_config.IsEnabled);
+            Interface.SavePluginConfig(_config);
         }
     }
 

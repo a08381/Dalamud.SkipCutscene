@@ -1,14 +1,9 @@
-﻿using Dalamud.Configuration;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
+using Dalamud.Configuration;
 
 namespace Plugins.a08381.SkipCutscene
 {
-    class Config : IPluginConfiguration
+    public class Config : IPluginConfiguration
     {
 
         public int Version { get; set; }
