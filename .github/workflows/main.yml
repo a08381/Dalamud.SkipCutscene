@@ -38,13 +38,13 @@ jobs:
       #     cd "$Env:GITHUB_WORKSPACE"
       #     .\Lib\.NET_Reactor\dotNET_Reactor.Console.exe -file ".\SkipCutscene\bin\Release\net5.0-windows\SkipCutscene.dll" -antitamp 1 -hide_calls 1 -control_flow_obfuscation 1 -flow_level 9 -resourceencryption 1 -exclusion_rules "^Plugins\.a08381\.SkipCutscene::types:^Config$"
       #     Move-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\SkipCutscene_Secure\* -Destination .\SkipCutscene\bin\Release\net5.0-windows -Force
-      #     Remove-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\SkipCutscene_Secure -Force -Recurse
+      #     Remove-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\SkipCutscene_Secure -Force -Recurse -ErrorAction:Continue
       - name: Remove Useless
         run: |
           cd "$Env:GITHUB_WORKSPACE"
-          Remove-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\SkipCutscene -Force -Recurse
-          Remove-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\SkipCutscene.deps.json -Force -Recurse
-          Remove-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\ref -Force -Recurse
+          Remove-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\SkipCutscene -Force -Recurse -ErrorAction:Continue
+          Remove-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\SkipCutscene.deps.json -Force -Recurse -ErrorAction:Continue
+          Remove-Item -Path .\SkipCutscene\bin\Release\net5.0-windows\ref -Force -Recurse -ErrorAction:Continue
           mkdir -Path .\SkipCutscene\bin\Package\
       - name: Package
         uses: vimtor/action-zip@v1
