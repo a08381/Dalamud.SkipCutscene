@@ -81,6 +81,10 @@ jobs:
           $old_version = $version -replace '9.9.9.9',$repo.AssemblyVersion
           $new_version = $version -replace '9.9.9.9',$plugin.AssemblyVersion
           $content = $content -replace $old_version,$new_version
+          $api_level = '"DalamudApiLevel": 9999'
+          $old_api_level = $api_level -replace '9999',$repo.DalamudApiLevel
+          $new_api_level = $api_level -replace '9999',$plugin.DalamudApiLevel
+          $content = $content -replace $old_api_level,$new_api_level
           Set-Content -Path ".\dist\repo.json" -Value $content
           Copy-Item -Path .\SkipCutscene\bin\Package\latest.zip -Destination .\dist\ -Force
           cd dist
