@@ -1,9 +1,5 @@
 ﻿name: SkipCutscene
 author: Windmourn
-description: |-
-  This plugin can help you skip cutscene from
-  these instances.
-
-  Castrum Meridianum
-  The Praetorium
+description: "A plugin which could help you skip cutscene from Duty Roulette: Main Scenario."
 repo_url: https://github.com/a08381/Dalamud.SkipCutscene
+punchline: "Help you skip cutscene from Duty Roulette: Main Scenario."
