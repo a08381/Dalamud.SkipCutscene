@@ -3,7 +3,7 @@
     "Author": "Windmourn",
     "Name": "SkipCutscene",
     "Punchline": "Help you skip cutscene from Duty Roulette: Main Scenario.",
-    "Description": "This plugin can help you skip cutscene from Duty Roulette: Main Scenario.",
+    "Description": "A plugin which could help you skip cutscene from Duty Roulette: Main Scenario.",
     "Tags": [ "utility" ],
     "InternalName": "SkipCutscene",
     "AssemblyVersion": "1.2.1.0",
