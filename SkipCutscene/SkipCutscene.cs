@@ -10,6 +10,7 @@ using Dalamud.Game.Gui;
 using Dalamud.IoC;
 using Dalamud.Logging;
 using Dalamud.Plugin;
+using Dalamud.Plugin.Services;
 
 namespace Plugins.a08381.SkipCutscene
 {
@@ -64,15 +65,19 @@ namespace Plugins.a08381.SkipCutscene
         public string Name => "SkipCutscene";
         
         [PluginService]
+        [RequiredVersion("1.0")]
         public DalamudPluginInterface Interface { get; private set; }
         
         [PluginService]
+        [RequiredVersion("1.0")]
         public SigScanner SigScanner { get; private set; }
 
         [PluginService]
-        public CommandManager CommandManager { get; private set; }
+        [RequiredVersion("1.0")]
+        public ICommandManager CommandManager { get; private set; }
         
         [PluginService]
+        [RequiredVersion("1.0")]
         public ChatGui ChatGui { get; private set; }
 
         public CutsceneAddressResolver Address { get; }
