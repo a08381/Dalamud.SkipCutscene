@@ -66,19 +66,23 @@ namespace Plugins.a08381.SkipCutscene
         
         [PluginService]
         [RequiredVersion("1.0")]
-        public DalamudPluginInterface Interface { get; private set; }
+        public static DalamudPluginInterface Interface { get; private set; }
         
         [PluginService]
         [RequiredVersion("1.0")]
-        public SigScanner SigScanner { get; private set; }
+        public static ISigScanner SigScanner { get; private set; }
 
         [PluginService]
         [RequiredVersion("1.0")]
-        public ICommandManager CommandManager { get; private set; }
+        public static ICommandManager CommandManager { get; private set; }
         
         [PluginService]
         [RequiredVersion("1.0")]
-        public ChatGui ChatGui { get; private set; }
+        public static IChatGui ChatGui { get; private set; }
+
+        [PluginService]
+        [RequiredVersion("1.0")]
+        public static IPluginLog PluginLog { get; private set; }
 
         public CutsceneAddressResolver Address { get; }
 
@@ -120,15 +124,15 @@ namespace Plugins.a08381.SkipCutscene
         public IntPtr Offset1 { get; private set; }
         public IntPtr Offset2 { get; private set; }
 
-        protected override void Setup64Bit(SigScanner sig)
+        protected override void Setup64Bit(ISigScanner sig)
         {
             Offset1 = sig.ScanText("75 33 48 8B 0D ?? ?? ?? ?? BA ?? 00 00 00 48 83 C1 10 E8 ?? ?? ?? ?? 83 78");
             Offset2 = sig.ScanText("74 18 8B D7 48 8D 0D");
-            PluginLog.Information(
+            SkipCutscene.PluginLog.Information(
                 "Offset1: [\"ffxiv_dx11.exe\"+{0}]",
                 (Offset1.ToInt64() - Process.GetCurrentProcess().MainModule!.BaseAddress.ToInt64()).ToString("X")
                 );
-            PluginLog.Information(
+            SkipCutscene.PluginLog.Information(
                 "Offset2: [\"ffxiv_dx11.exe\"+{0}]",
                 (Offset2.ToInt64() - Process.GetCurrentProcess().MainModule!.BaseAddress.ToInt64()).ToString("X")
                 );
