@@ -18,12 +18,10 @@ namespace Plugins.a08381.SkipCutscene
     {
 
         private readonly Config _config;
-        private readonly RandomNumberGenerator _csp;
+        private readonly RandomNumberGenerator _csp = null!;
 
         private readonly decimal _base = uint.MaxValue;
 
-        [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
-        [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
         public SkipCutscene()
         {
             if (Interface.GetPluginConfig() is not Config configuration || configuration.Version == 0)
@@ -63,26 +61,12 @@ namespace Plugins.a08381.SkipCutscene
         }
 
         public string Name => "SkipCutscene";
-        
-        [PluginService]
-        [RequiredVersion("1.0")]
-        public static DalamudPluginInterface Interface { get; private set; }
-        
-        [PluginService]
-        [RequiredVersion("1.0")]
-        public static ISigScanner SigScanner { get; private set; }
 
-        [PluginService]
-        [RequiredVersion("1.0")]
-        public static ICommandManager CommandManager { get; private set; }
-        
-        [PluginService]
-        [RequiredVersion("1.0")]
-        public static IChatGui ChatGui { get; private set; }
-
-        [PluginService]
-        [RequiredVersion("1.0")]
-        public static IPluginLog PluginLog { get; private set; }
+        [PluginService] internal static IDalamudPluginInterface Interface { get; private set; } = null!;
+        [PluginService] internal static ISigScanner SigScanner { get; private set; } = null!;
+        [PluginService] internal static ICommandManager CommandManager { get; private set; } = null!;
+        [PluginService] internal static IChatGui ChatGui { get; private set; } = null!;
+        [PluginService] internal static IPluginLog PluginLog { get; private set; } = null!;
 
         public CutsceneAddressResolver Address { get; }
 
