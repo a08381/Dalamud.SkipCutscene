@@ -56,12 +56,12 @@ jobs:
           cd "$Env:GITHUB_WORKSPACE"
           Copy-Item -Path .\SkipCutscene\bin\Release\net8.0-windows\SkipCutscene.json -Destination .\SkipCutscene\bin\Package\
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: SkipCutscene
           path: ${{ github.workspace }}\SkipCutscene\bin\Release\net8.0-windows
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Package
           path: ${{ github.workspace }}\SkipCutscene\bin\Package\
