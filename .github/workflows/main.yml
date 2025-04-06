@@ -42,24 +42,24 @@ jobs:
       - name: Remove Useless
         run: |
           cd "$Env:GITHUB_WORKSPACE"
-          Remove-Item -Path .\SkipCutscene\bin\Release\net8.0-windows\SkipCutscene -Force -Recurse -ErrorAction:Continue
-          Remove-Item -Path .\SkipCutscene\bin\Release\net8.0-windows\SkipCutscene.deps.json -Force -Recurse -ErrorAction:Continue
-          Remove-Item -Path .\SkipCutscene\bin\Release\net8.0-windows\ref -Force -Recurse -ErrorAction:Continue
+          Remove-Item -Path .\SkipCutscene\bin\Release\net9.0-windows\SkipCutscene -Force -Recurse -ErrorAction:Continue
+          Remove-Item -Path .\SkipCutscene\bin\Release\net9.0-windows\SkipCutscene.deps.json -Force -Recurse -ErrorAction:Continue
+          Remove-Item -Path .\SkipCutscene\bin\Release\net9.0-windows\ref -Force -Recurse -ErrorAction:Continue
           mkdir -Path .\SkipCutscene\bin\Package\
       - name: Package
         uses: vimtor/action-zip@v1
         with:
-          files: SkipCutscene\bin\Release\net8.0-windows\SkipCutscene.dll SkipCutscene\bin\Release\net8.0-windows\SkipCutscene.json SkipCutscene\bin\Release\net8.0-windows\SkipCutscene.pdb
+          files: SkipCutscene\bin\Release\net9.0-windows\SkipCutscene.dll SkipCutscene\bin\Release\net9.0-windows\SkipCutscene.json SkipCutscene\bin\Release\net9.0-windows\SkipCutscene.pdb
           dest: SkipCutscene\bin\Package\latest.zip
       - name: Package
         run: |
           cd "$Env:GITHUB_WORKSPACE"
-          Copy-Item -Path .\SkipCutscene\bin\Release\net8.0-windows\SkipCutscene.json -Destination .\SkipCutscene\bin\Package\
+          Copy-Item -Path .\SkipCutscene\bin\Release\net9.0-windows\SkipCutscene.json -Destination .\SkipCutscene\bin\Package\
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: SkipCutscene
-          path: ${{ github.workspace }}\SkipCutscene\bin\Release\net8.0-windows
+          path: ${{ github.workspace }}\SkipCutscene\bin\Release\net9.0-windows
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
