@@ -22,8 +22,7 @@ namespace Plugins.a08381.SkipCutscene
 
         private readonly decimal _base = uint.MaxValue;
 
-        [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
-        [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
+
         public SkipCutscene()
         {
             if (Interface.GetPluginConfig() is not Config configuration || configuration.Version == 0)
