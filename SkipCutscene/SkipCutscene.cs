@@ -85,7 +85,7 @@ namespace Plugins.a08381.SkipCutscene
             }
             else
             {
-                SafeMemory.Write<short>(Address.Offset1, 13173);
+                SafeMemory.Write<short>(Address.Offset1, 14709);
                 SafeMemory.Write<short>(Address.Offset2, 6260);
             }
         }
@@ -115,7 +115,7 @@ namespace Plugins.a08381.SkipCutscene
 
         protected override void Setup64Bit(ISigScanner sig)
         {
-            Offset1 = sig.ScanText("75 33 48 8B 0D ?? ?? ?? ?? BA ?? 00 00 00 48 83 C1 10 E8 ?? ?? ?? ?? 83 78");
+            Offset1 = sig.ScanText("75 ?? 48 8B 0D ?? ?? ?? ?? BA ?? 00 00 00 48 83 C1 10 E8 ?? ?? ?? ?? 83 78 ?? ?? 74");
             Offset2 = sig.ScanText("74 18 8B D7 48 8D 0D");
             SkipCutscene.PluginLog.Information(
                 "Offset1: [\"ffxiv_dx11.exe\"+{0}]",
