@@ -85,8 +85,8 @@ namespace Plugins.a08381.SkipCutscene
             }
             else
             {
-                SafeMemory.Write<short>(Address.Offset1, 13173);
-                SafeMemory.Write<short>(Address.Offset2, 6260);
+                SafeMemory.Write(Address.Offset1, Address.MagicNumber1);
+                SafeMemory.Write(Address.Offset2, Address.MagicNumber2);
             }
         }
 
@@ -113,9 +113,15 @@ namespace Plugins.a08381.SkipCutscene
         public IntPtr Offset1 { get; private set; }
         public IntPtr Offset2 { get; private set; }
 
+        public short MagicNumber1 => _magicNumber1;
+        private short _magicNumber1;
+
+        public short MagicNumber2 => _magicNumber2;
+        private short _magicNumber2;
+
         protected override void Setup64Bit(ISigScanner sig)
         {
-            Offset1 = sig.ScanText("75 33 48 8B 0D ?? ?? ?? ?? BA ?? 00 00 00 48 83 C1 10 E8 ?? ?? ?? ?? 83 78");
+            Offset1 = sig.ScanText("75 ?? 48 8B 0D ?? ?? ?? ?? BA ?? 00 00 00 48 83 C1 10 E8 ?? ?? ?? ?? 83 78 ?? ?? 74");
             Offset2 = sig.ScanText("74 18 8B D7 48 8D 0D");
             SkipCutscene.PluginLog.Information(
                 "Offset1: [\"ffxiv_dx11.exe\"+{0}]",
@@ -125,7 +131,18 @@ namespace Plugins.a08381.SkipCutscene
                 "Offset2: [\"ffxiv_dx11.exe\"+{0}]",
                 (Offset2.ToInt64() - Process.GetCurrentProcess().MainModule!.BaseAddress.ToInt64()).ToString("X")
                 );
+            if ( Offset1 != IntPtr.Zero && Offset2 != IntPtr.Zero )
+            {
+                ReadMagicNumbers();
+                SkipCutscene.PluginLog.Information("MagicNumber1: {0}", MagicNumber1);
+                SkipCutscene.PluginLog.Information("MagicNumber2: {0}", MagicNumber2);
+            }
         }
 
+        private void ReadMagicNumbers()
+        {
+            SafeMemory.Read(Offset1, out _magicNumber1);
+            SafeMemory.Read(Offset2, out _magicNumber2);
+        }
     }
 }
