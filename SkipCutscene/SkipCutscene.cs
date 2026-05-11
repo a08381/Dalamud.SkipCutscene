@@ -131,6 +131,11 @@ namespace Plugins.a08381.SkipCutscene
                 "Offset2: [\"ffxiv_dx11.exe\"+{0}]",
                 (Offset2.ToInt64() - Process.GetCurrentProcess().MainModule!.BaseAddress.ToInt64()).ToString("X")
                 );
+            SkipCutscene.PluginLog.Information(
+                "SimpleCheck: Offset2 - Offset1 = {0}, {1}",
+                (Offset2 - Offset1).ToString("X"),
+                Offset2 - Offset1 == 0x21 ? "as Expected" : "Unexpected"
+                );
             if ( Offset1 != IntPtr.Zero && Offset2 != IntPtr.Zero )
             {
                 ReadMagicNumbers();
